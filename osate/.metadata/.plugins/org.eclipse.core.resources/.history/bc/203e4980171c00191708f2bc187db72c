@@ -1,0 +1,59 @@
+package SensorUnit
+public
+	
+	device sensor
+		features
+			sensor_data: out data port;
+	end sensor;
+	
+	device implementation sensor.temperature
+	end sensor.temperature;
+	
+	device implementation sensor.humidity
+	end sensor.humidity;
+	
+	device implementation sensor.co
+	end sensor.co;
+	
+	device implementation sensor.co2
+	end sensor.co2;
+	
+	system SensorUnit
+	end SensorUnit;
+	
+	process control
+		features
+			temperature_data: in data port;
+			humidity_data: in data port;
+			co_data: in data port;
+			co2_data: in data port;
+			aggregated_data: out data port;
+	end control;
+	
+	device implementation control.sensor_data
+	end control.sensor_data;
+	
+	device network
+		features
+			input_data: in data port;
+			output_data: out data port;
+	end zigbee;
+	
+	device implementation network.zigbee
+	end network.zigbee;
+	
+	system implementation SensorUnit.fire_detector
+		subcomponents
+			temperature_sensor: device sensor.temperature;
+			humidity_sensor: device sensor.humidity;
+			co_sensor: device sensor.co;
+			co2_sensor: device sensor.co2;
+			controller: device control.sensor_data;
+			network_interface: device network.zigbee;
+		connections
+			DC1: port temperature_sensor.sensor_data ->
+				 controller.temperature_data;
+			
+	end SensorUnit.fire_detector;
+	
+end SensorUnit;

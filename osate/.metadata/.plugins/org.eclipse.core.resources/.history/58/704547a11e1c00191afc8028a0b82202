@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="84c1856f-cdfe-4911-9319-16ea61f6c1fb" manual="true">
+    <bo>
+      <seg>package</seg>
+      <seg>communicationdevice</seg>
+    </bo>
+    <contentFilters>
+      <filter>classifiers</filter>
+    </contentFilters>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>communicationdevice</seg>
+    </context>
+  </config>
+</diagram:Diagram>

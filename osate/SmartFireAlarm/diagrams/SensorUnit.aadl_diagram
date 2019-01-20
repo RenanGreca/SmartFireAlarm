@@ -33,30 +33,13 @@
         <filter>generalizations</filter>
       </contentFilters>
     </element>
-    <element uuid="f4e32705-2265-4b84-b6e0-77a1d76b724e">
+    <element uuid="c75f3e4c-f484-453d-8e8d-c9108006d729">
       <bo>
         <seg>classifier</seg>
-        <seg>network</seg>
+        <seg>data_aggregator</seg>
       </bo>
-      <position x="276.0" y="38.0"/>
-      <size width="110.0" height="35.0"/>
-      <contentFilters>
-        <filter>generalizations</filter>
-      </contentFilters>
-    </element>
-    <element uuid="9d3d3a3a-8a0f-4374-9bd1-39749910e2df">
-      <element uuid="dad10689-23de-4fd9-ac1d-84e9e0c1d2e4">
-        <bo>
-          <seg>realization</seg>
-        </bo>
-        <contentFilters/>
-      </element>
-      <bo>
-        <seg>classifier</seg>
-        <seg>network.zigbee</seg>
-      </bo>
-      <position x="102.0" y="38.0"/>
-      <size width="154.0" height="35.0"/>
+      <position/>
+      <size width="157.0" height="35.0"/>
       <contentFilters>
         <filter>generalizations</filter>
       </contentFilters>
@@ -232,6 +215,14 @@
         </bo>
         <contentFilters/>
       </element>
+      <element uuid="d85ce127-02a0-4506-a894-20b082ca3c73" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>output_data</seg>
+        </bo>
+        <position x="918.0"/>
+        <contentFilters/>
+      </element>
       <element uuid="762b94b1-5014-4008-8720-963f4543a25b">
         <bo>
           <seg>realization</seg>
@@ -280,12 +271,54 @@
         </contentFilters>
       </element>
       <element uuid="af1b0c01-8e88-4862-b258-eea90668d098">
+        <element uuid="ef4cb7e1-6da3-4b90-95c1-0046121df631">
+          <element uuid="cc00b828-8307-4533-9d56-a8ebb587e8bd">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>co2_sensor_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="3b95810f-1e65-4da0-a369-75a1e42c1c36">
+          <element uuid="82f5be0f-d43b-4de3-8792-389c4316d089">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>data_out_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="25d394e4-dcb2-478c-b610-12e523a81609">
+          <element uuid="d3a555ff-6986-4ca1-af8e-9550d0d34d4a">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>temp_sensor_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <element uuid="7e52ce96-3d47-4337-90a1-5bdc229a7a66" dockArea="right">
           <bo>
             <seg>feature</seg>
             <seg>aggregated_data</seg>
           </bo>
-          <position x="69.0" y="44.0"/>
+          <position x="298.0" y="44.0"/>
           <contentFilters/>
         </element>
         <element uuid="2ac824e6-09ca-4101-913d-ec814802a2b9" dockArea="left">
@@ -320,14 +353,40 @@
           <position y="120.0"/>
           <contentFilters/>
         </element>
+        <element uuid="e2b082a5-d9bd-43bf-a2f4-4a13c0c60048">
+          <bo>
+            <seg>subcomponent</seg>
+            <seg>data_aggregation</seg>
+          </bo>
+          <position x="120.0" y="120.0"/>
+          <size width="197.0" height="61.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="f93f61eb-9340-4caf-a572-58acbcf92466">
+          <bo>
+            <seg>tag</seg>
+            <seg>sc_type</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <bo>
           <seg>subcomponent</seg>
           <seg>controller</seg>
         </bo>
         <position x="290.0" y="66.0"/>
-        <size width="192.0" height="290.0"/>
+        <size width="421.0" height="290.0"/>
         <contentFilters>
+          <filter>agree.all</filter>
           <filter>features</filter>
+          <filter>subprogramCallSequences</filter>
+          <filter>modeTransitions</filter>
+          <filter>connections</filter>
+          <filter>subcomponentType</filter>
+          <filter>modes</filter>
+          <filter>flowSpecifications</filter>
+          <filter>processorFeatures</filter>
+          <filter>internalFeatures</filter>
+          <filter>subcomponents</filter>
         </contentFilters>
       </element>
       <element uuid="2dac177f-d68d-43a1-b85f-6318b5c9149b">
@@ -370,7 +429,7 @@
           <seg>subcomponent</seg>
           <seg>network_interface</seg>
         </bo>
-        <position x="540.0" y="160.0"/>
+        <position x="730.0" y="180.0"/>
         <size width="231.0" height="71.0"/>
         <contentFilters>
           <filter>features</filter>
@@ -400,7 +459,7 @@
         <seg>sensorunit.fire_detector</seg>
       </bo>
       <position x="40.0" y="480.0"/>
-      <size width="811.0" height="400.0"/>
+      <size width="1011.0" height="400.0"/>
       <contentFilters>
         <filter>processorFeatures</filter>
         <filter>internalFeatures</filter>
@@ -426,7 +485,9 @@
     </contentFilters>
   </element>
   <config type="package" connectionPrimaryLabelsVisible="false">
-    <enabledAadlProperties/>
+    <enabledAadlProperties>
+      <property>deployment_properties::allowed_connection_binding</property>
+    </enabledAadlProperties>
     <context>
       <seg>package</seg>
       <seg>sensorunit</seg>

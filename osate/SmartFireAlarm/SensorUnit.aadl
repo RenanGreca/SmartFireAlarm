@@ -18,6 +18,18 @@ public
 
 	device implementation sensor.co2
 	end sensor.co2;
+	
+	thread data_aggregator
+		features
+			temperature_in: in data port;
+			co2_in: in data port;
+			data_out: out data port;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 100ms;
+--			Compute_Execution_Time => 1ms .. 10ms;
+--			Reference_Processor => [
+	end data_aggregator;
 
 	process control
 		features
@@ -29,6 +41,12 @@ public
 	end control;
 
 	process implementation control.sensor_data
+		subcomponents
+			data_aggregation: thread data_aggregator;
+		connections
+			temp_sensor_conn: port temperature_data -> data_aggregation.temperature_in;
+			co2_sensor_conn: port co2_data -> data_aggregation.co2_in;
+			data_out_conn: port data_aggregation.data_out -> aggregated_data;
 	end control.sensor_data;
 
 	system SensorUnit
@@ -50,6 +68,8 @@ public
 			DC3: port co_sensor.sensor_data -> controller.co_data;
 			DC4: port co2_sensor.sensor_data -> controller.co2_data;
 			DC5: port controller.aggregated_data -> network_interface.input_data;
+		properties
+			Allowed_Connection_Binding => ();
 	end SensorUnit.fire_detector;
 	
 end SensorUnit;

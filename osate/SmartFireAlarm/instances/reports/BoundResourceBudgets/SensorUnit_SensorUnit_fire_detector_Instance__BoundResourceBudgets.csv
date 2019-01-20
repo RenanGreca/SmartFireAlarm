@@ -1,0 +1,3 @@
+Bound Resource Budget Analysis Report
+
+ERROR:  data_aggregation: Thread instance controller.data_aggregation has execution time, but no Reference_Processor. Please this property.

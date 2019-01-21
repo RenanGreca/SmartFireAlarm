@@ -1,0 +1,46 @@
+package SensorNetwork
+public
+	with SensorUnit;
+	with NetworkBus;
+	with CommunicationDevice;
+	with MobilePhone;
+	
+	system SensorNetwork
+--		features
+--			sensor_data: in data port;
+--			processed_data: out data port;
+	end SensorNetwork;
+
+	system implementation SensorNetwork.impl
+		subcomponents
+			sensor_unit: system SensorUnit::SensorUnit.impl;
+			comm_device: system CommunicationDevice::CommunicationDevice.impl;
+			mobile_phone: system MobilePhone::MobilePhone.impl;
+			
+			zigbee_interface: bus NetworkBus::network.zigbee;
+			wifi_interface: bus NetworkBus::network.wifi;
+			ethernet_interface: bus NetworkBus::network.ethernet;
+			gprs_interface: bus NetworkBus::network.gprs;
+			bluetooth_interface: bus NetworkBus::network.bluetooth;
+		
+		connections
+--			zigbee: port sensor_unit.output_data -> comm_device.sensor_data;
+			sensor_zigbee_bus: bus access sensor_unit.zigbee -> zigbee_interface;
+			comm_zigbee_bus: bus access zigbee_interface -> comm_device.zigbee;
+--					{Actual_Connection_Binding => (reference (zigbee_interface));};
+--			zigbee1: port sensor_unit.output_data -> zigbee_interface.input_data;
+--			zigbee2: port zigbee_interface.output_data -> comm_device.sensor_data;
+--			
+			comm_bluetooth_bus: bus access comm_device.bluetooth -> bluetooth_interface;
+			phone_bluetooth_bus: bus access bluetooth_interface -> mobile_phone.bluetooth;
+--			bluetooth1: port comm_device.processed_data -> bluetooth_interface.input_data;
+--			bluetooth2: port bluetooth_interface.output_data -> mobile_phone.sensor_data;
+		flows
+			etef0: end to end flow sensor_unit.
+--			etef0 : end to end flow s1.sensor_source -> c0 ->
+--                        p.processing_path0  -> c2 ->
+--                        a.actuating_sink; 
+			
+	end SensorNetwork.impl;
+	
+end SensorNetwork;

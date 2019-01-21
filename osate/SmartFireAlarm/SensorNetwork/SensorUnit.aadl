@@ -1,0 +1,122 @@
+package SensorUnit
+public
+	with NetworkBus;
+
+	device sensor
+		features
+			sensor_data: out data port;
+		flows
+			data_flow: flow source sensor_data {latency => 1 ms .. 2 ms;};
+		properties
+			period => 100 ms;
+			deadline => 2 ms;
+			Compute_Execution_Time => 1 ms .. 2 ms;
+	end sensor;
+
+	device implementation sensor.temperature
+	end sensor.temperature;
+
+	device implementation sensor.humidity
+	end sensor.humidity;
+
+	device implementation sensor.co
+	end sensor.co;
+
+	device implementation sensor.co2
+	end sensor.co2;
+	
+	device implementation sensor.gps
+	end sensor.gps;
+	
+	device dumb
+		features
+			input: in data port;
+		flows
+			flow1: flow sink input {latency => 1 ms .. 2 ms;};
+	end dumb;
+
+	device implementation dumb.shit
+	end dumb.shit;
+	
+	thread data_aggregator
+		features
+			temperature_in: in data port;
+			humidity_in: in data port;
+			co2_in: in data port;
+			co_in: in data port;
+			gps_in: in data port;
+			data_out: out data port;
+		flows
+			flow1: flow path temperature_in -> data_out;
+			flow2: flow path humidity_in -> data_out;
+			flow3: flow path co2_in -> data_out;
+			flow4: flow path co_in -> data_out;
+			flow5: flow path gps_in -> data_out;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 100ms;
+--			Compute_Execution_Time => 1ms .. 10ms;
+--			Reference_Processor => [
+	end data_aggregator;
+
+	process control
+		features
+			temperature_data: in data port;
+			humidity_data: in data port;
+			co_data: in data port;
+			co2_data: in data port;
+			gps_data: in data port;
+			aggregated_data: out data port;
+		flows
+			flow1: flow path temperature_data -> aggregated_data;
+			flow3: flow path co2_data -> aggregated_data;
+	end control;
+
+	process implementation control.sensor_data
+		subcomponents
+			data_aggregation: thread data_aggregator;
+		connections
+			temp_sensor_conn: port temperature_data -> data_aggregation.temperature_in;
+			hum_sensor_conn: port humidity_data -> data_aggregation.humidity_in;
+			co_sensor_conn: port co_data -> data_aggregation.co_in;
+			co2_sensor_conn: port co2_data -> data_aggregation.co2_in;
+			gps_sensor_conn: port gps_data -> data_aggregation.gps_in;
+			data_out_conn: port data_aggregation.data_out -> aggregated_data;
+		flows
+			flow1: flow path temperature_data -> temp_sensor_conn -> data_aggregation.flow1 -> data_out_conn -> aggregated_data;
+			flow3: flow path co2_data -> co2_sensor_conn -> data_aggregation.flow3 -> data_out_conn -> aggregated_data;
+	end control.sensor_data;
+
+	system SensorUnit
+		features
+--			output_data: out data port;
+			zigbee: requires bus access NetworkBus::network.zigbee;
+	end SensorUnit;
+
+	system implementation SensorUnit.impl
+		subcomponents
+			temperature_sensor: device sensor.temperature;
+			humidity_sensor: device sensor.humidity;
+			co_sensor: device sensor.co;
+			co2_sensor: device sensor.co2;
+			gps_sensor: device sensor.gps;
+			controller: process control.sensor_data;
+			dumb_device: device dumb.shit;
+--			network_interface: bus NetworkBus::network.zigbee;
+		connections
+			DC1: port temperature_sensor.sensor_data -> controller.temperature_data;
+			DC2: port humidity_sensor.sensor_data -> controller.humidity_data;
+			DC3: port co_sensor.sensor_data -> controller.co_data;
+			DC4: port co2_sensor.sensor_data -> controller.co2_data;
+			DC5: port gps_sensor.sensor_data -> controller.gps_data;
+--			DC5: port controller.aggregated_data -> zigbee.input_data;
+			DC6: feature controller.aggregated_data -> zigbee;
+			
+			DC7: port controller.aggregated_data -> dumb_device.input;
+		flows
+			etef0: end to end flow co2_sensor.data_flow -> DC4 -> controller.flow3 -> DC7 -> dumb_device.flow1;
+		properties
+			Allowed_Connection_Binding => ();
+	end SensorUnit.impl;
+	
+end SensorUnit;

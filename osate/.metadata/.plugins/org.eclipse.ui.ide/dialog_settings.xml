@@ -78,4 +78,15 @@
 		<item value="org.osate.utils.feature:1.0.0.v20180511-1311"/>
 		<item value="org.osate.xtext.aadl2.errormodel.feature:2.3.6.vfinal"/>
 	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/renangreca/Documents/repos/SmartFireAlarm/osate/SmartFireAlarm"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
 </section>

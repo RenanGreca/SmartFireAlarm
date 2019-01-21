@@ -28,15 +28,15 @@ public
 	device implementation sensor.gps
 	end sensor.gps;
 	
-	device dumb
+	device dummy
 		features
 			input: in data port;
 		flows
 			flow1: flow sink input {latency => 1 ms .. 2 ms;};
-	end dumb;
+	end dummy;
 
-	device implementation dumb.shit
-	end dumb.shit;
+	device implementation dummy.receiver
+	end dummy.receiver;
 	
 	thread data_aggregator
 		features
@@ -101,7 +101,7 @@ public
 			co2_sensor: device sensor.co2;
 			gps_sensor: device sensor.gps;
 			controller: process control.sensor_data;
-			dumb_device: device dumb.shit;
+			dumb_device: device dummy.receiver;
 --			network_interface: bus NetworkBus::network.zigbee;
 		connections
 			DC1: port temperature_sensor.sensor_data -> controller.temperature_data;

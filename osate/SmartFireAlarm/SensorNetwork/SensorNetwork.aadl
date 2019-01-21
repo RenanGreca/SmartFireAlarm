@@ -35,8 +35,8 @@ public
 			phone_bluetooth_bus: bus access bluetooth_interface -> mobile_phone.bluetooth;
 --			bluetooth1: port comm_device.processed_data -> bluetooth_interface.input_data;
 --			bluetooth2: port bluetooth_interface.output_data -> mobile_phone.sensor_data;
-		flows
-			etef0: end to end flow sensor_unit.
+--		flows
+--			etef0: end to end flow sensor_unit.
 --			etef0 : end to end flow s1.sensor_source -> c0 ->
 --                        p.processing_path0  -> c2 ->
 --                        a.actuating_sink; 

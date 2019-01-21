@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="installedFeatures">
+		<item value="cheddar_osate2_feature:1.0.0.201901031910"/>
 		<item value="org.eclipse.birt.report.designer.editor.xml.wtp:4.7.0.v201706222054"/>
 		<item value="org.eclipse.birt:4.7.0.v201706222054"/>
 		<item value="org.eclipse.datatools.connectivity.feature:1.14.1.201712071719"/>

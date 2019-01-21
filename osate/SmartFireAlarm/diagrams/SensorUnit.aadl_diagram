@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
-  <element uuid="001e3fae-cbc5-41bd-8fc5-82cdf3714c38">
+  <element uuid="001e3fae-cbc5-41bd-8fc5-82cdf3714c38" manual="true">
     <element uuid="d9788bae-c3b2-432d-8d92-b38a71f4d3cf">
       <bo>
         <seg>classifier</seg>
@@ -44,6 +44,34 @@
         <filter>generalizations</filter>
       </contentFilters>
     </element>
+    <element uuid="8aaf98df-3bbb-4a73-af97-376163e2f500">
+      <bo>
+        <seg>classifier</seg>
+        <seg>dumb</seg>
+      </bo>
+      <position/>
+      <size width="96.0" height="35.0"/>
+      <contentFilters>
+        <filter>generalizations</filter>
+      </contentFilters>
+    </element>
+    <element uuid="f43ebedb-b705-46ea-9374-735e29666c44">
+      <element uuid="ef0ccc1f-2b5c-4071-b2db-b10a0a2759c8">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>dumb.shit</seg>
+      </bo>
+      <position/>
+      <size width="123.0" height="35.0"/>
+      <contentFilters>
+        <filter>generalizations</filter>
+      </contentFilters>
+    </element>
     <element uuid="fea787f6-6f27-4d39-9e31-5a703543f7e0">
       <bo>
         <seg>classifier</seg>
@@ -51,7 +79,9 @@
       </bo>
       <position x="344.0" y="240.0"/>
       <size width="103.0" height="50.0"/>
-      <contentFilters/>
+      <contentFilters>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
     </element>
     <element uuid="ffb68462-118b-4fd6-9022-269fbc6ddc33">
       <element uuid="eeeeab13-c773-4bca-9632-9a0781cd9135">
@@ -83,6 +113,23 @@
       </bo>
       <position x="159.0" y="179.0"/>
       <size width="128.0" height="35.0"/>
+      <contentFilters>
+        <filter>generalizations</filter>
+      </contentFilters>
+    </element>
+    <element uuid="895b14ac-0e3a-4066-959c-84911ec6a2ef">
+      <element uuid="dfa5be03-7fb1-4d22-a456-0d49ee502e43">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensor.gps</seg>
+      </bo>
+      <position/>
+      <size width="129.0" height="35.0"/>
       <contentFilters>
         <filter>generalizations</filter>
       </contentFilters>
@@ -144,9 +191,9 @@
         <filter>generalizations</filter>
       </contentFilters>
     </element>
-    <element uuid="275d0516-ff5f-4b65-ae93-b3c6d67d1639">
-      <element uuid="563afe0e-2be6-4885-84d8-86c7de2f801a">
-        <element uuid="72f1c3e7-9a3a-4eb4-9e86-eac50eb196b1">
+    <element uuid="42c07df6-ff1e-432e-93f3-ab72db6d8ca9" manual="true">
+      <element uuid="1cc4c6c9-becf-44a4-ba52-8c2f6334418e">
+        <element uuid="8a6a5975-9a57-4441-a3f7-7373f5d57b47">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -159,8 +206,8 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="012ba672-f57e-447f-8af9-3825e3e40884">
-        <element uuid="08ffcfa5-cb36-4fda-9e87-011dd660c8fb">
+      <element uuid="c6908347-f20e-40ea-b427-fd5fbb554259">
+        <element uuid="8d203b83-0a3a-4639-8765-0ecba0167aa6">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -173,8 +220,8 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="734fad74-632d-40f5-ba84-f201fdf3fac2">
-        <element uuid="eb799312-bec4-4aad-a425-b0b91d35f24d">
+      <element uuid="2b999c59-da02-4c24-8ef3-057488c13c0b">
+        <element uuid="4bb20757-0a41-4eb4-8402-dc55e66a66d0">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -187,8 +234,8 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="06551b7f-06e2-47f6-95f4-370232feef04">
-        <element uuid="d3192687-699d-4244-8ffe-c5cf66f3f7c5">
+      <element uuid="7b987975-2a15-4af2-bb06-15c4f1b96633">
+        <element uuid="69d4964f-07c0-4ffe-ad59-387507ef9fe2">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -201,8 +248,8 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="1f9f0bf1-0ced-476a-bd60-8a72e76d7f93">
-        <element uuid="84d500c2-6803-4b4d-9a95-28e97cc58509">
+      <element uuid="551ed5dc-bd30-407d-bbe4-ea8592e65730">
+        <element uuid="013b2dd3-79d2-445f-a43c-b66f9bb57a82">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -215,64 +262,89 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="d85ce127-02a0-4506-a894-20b082ca3c73" dockArea="right">
+      <element uuid="c06a93a9-7ce2-4d12-9c3b-f9c5a795731d">
+        <element uuid="81790c07-92b0-44eb-803e-1c4065017dc6">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <bo>
-          <seg>feature</seg>
-          <seg>output_data</seg>
+          <seg>connection</seg>
+          <seg>dc6</seg>
         </bo>
-        <position x="918.0"/>
         <contentFilters/>
       </element>
-      <element uuid="762b94b1-5014-4008-8720-963f4543a25b">
+      <element uuid="840ccd62-e775-47f7-9468-3ca299343b4f">
+        <element uuid="4fb32fd6-0517-4918-85b5-4564690b13da">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>dc7</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="062ed1e8-cea9-4fa5-8545-3f39462b663a" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>zigbee</seg>
+        </bo>
+        <position x="1010.0" y="210.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="9fda117c-83ca-4d2c-a48e-5fa902f1c8be">
         <bo>
           <seg>realization</seg>
         </bo>
-        <bendpoints>
-          <point x="482.0" y="483.0"/>
-        </bendpoints>
         <contentFilters/>
       </element>
-      <element uuid="0de391ab-2220-4d56-9cfb-d14ade0ead2b">
-        <element uuid="6e04c741-a094-4fb0-848b-1119b8429783" dockArea="right">
+      <element uuid="d8849c8e-feca-459d-ad2c-6dfd69997a4f">
+        <element uuid="4156e5d0-4c6c-4063-b3b0-90ab88dee423" dockArea="right">
           <bo>
             <seg>feature</seg>
             <seg>sensor_data</seg>
           </bo>
-          <position x="56.0" y="20.0"/>
+          <position x="94.0" y="20.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="f61ac84b-6436-4ee8-8750-742df0e336aa">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>data_flow</seg>
+          </bo>
           <contentFilters/>
         </element>
         <bo>
           <seg>subcomponent</seg>
           <seg>co2_sensor</seg>
         </bo>
-        <position x="50.0" y="106.0"/>
-        <size width="151.0" height="60.0"/>
+        <position x="16.0" y="160.0"/>
+        <size width="189.0" height="73.0"/>
         <contentFilters>
           <filter>features</filter>
+          <filter>flowSpecifications</filter>
         </contentFilters>
       </element>
-      <element uuid="291d1f72-eac5-41a2-af4b-5eee1e1ac9f8">
-        <element uuid="0760a3de-5771-4d61-aff6-d5708cb1169a" dockArea="right">
-          <bo>
-            <seg>feature</seg>
-            <seg>sensor_data</seg>
-          </bo>
-          <position x="56.0" y="21.0"/>
-          <contentFilters/>
-        </element>
+      <element uuid="d1698ef9-8a3b-4bb0-96f3-01515f5d619a" manual="true">
         <bo>
           <seg>subcomponent</seg>
           <seg>co_sensor</seg>
         </bo>
-        <position x="50.0" y="225.0"/>
-        <size width="151.0" height="61.0"/>
+        <position x="80.0" y="300.0"/>
+        <size width="126.0" height="35.0"/>
         <contentFilters>
-          <filter>features</filter>
+          <filter>flowSpecifications</filter>
         </contentFilters>
       </element>
-      <element uuid="af1b0c01-8e88-4862-b258-eea90668d098">
-        <element uuid="ef4cb7e1-6da3-4b90-95c1-0046121df631">
-          <element uuid="cc00b828-8307-4533-9d56-a8ebb587e8bd">
+      <element uuid="74ed881e-cc5c-4011-bcf2-244392c516fe">
+        <element uuid="bb41d4a7-28f5-4ba8-bb48-ba125211c50d">
+          <element uuid="8d080341-87c6-4025-9c07-b22094cb6e18">
             <bo>
               <seg>tag</seg>
               <seg>unidirectional</seg>
@@ -285,8 +357,22 @@
           </bo>
           <contentFilters/>
         </element>
-        <element uuid="3b95810f-1e65-4da0-a369-75a1e42c1c36">
-          <element uuid="82f5be0f-d43b-4de3-8792-389c4316d089">
+        <element uuid="8d4075e6-65d5-4f95-9326-bfe9eb3c9f93">
+          <element uuid="f45e3028-ff1c-4fd8-81a6-3b5fbe048fef">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>co_sensor_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="fd74861a-197d-4ca2-9863-a4d44cfa96cf">
+          <element uuid="d5421ddf-9061-484f-be9e-aa24ec7d278b">
             <bo>
               <seg>tag</seg>
               <seg>unidirectional</seg>
@@ -299,8 +385,36 @@
           </bo>
           <contentFilters/>
         </element>
-        <element uuid="25d394e4-dcb2-478c-b610-12e523a81609">
-          <element uuid="d3a555ff-6986-4ca1-af8e-9550d0d34d4a">
+        <element uuid="ac7811f7-abc6-4a45-bcab-cd1488d46d80">
+          <element uuid="74842522-61c6-4350-8ed1-967073aed273">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>gps_sensor_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="c57cab24-e935-4aa6-b10d-0a06e647dd71">
+          <element uuid="960f17ba-1d81-4fb3-ab04-bb496fd54b57">
+            <bo>
+              <seg>tag</seg>
+              <seg>unidirectional</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>connection</seg>
+            <seg>hum_sensor_conn</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="704aae1e-7d34-4376-b89d-4140504166e2">
+          <element uuid="a8715ad4-7792-4212-bc0d-def7690f3752">
             <bo>
               <seg>tag</seg>
               <seg>unidirectional</seg>
@@ -313,56 +427,209 @@
           </bo>
           <contentFilters/>
         </element>
-        <element uuid="7e52ce96-3d47-4337-90a1-5bdc229a7a66" dockArea="right">
+        <element uuid="af1ebd63-9fdb-4044-a782-38bf4b2cb08b" dockArea="right">
           <bo>
             <seg>feature</seg>
             <seg>aggregated_data</seg>
           </bo>
-          <position x="298.0" y="44.0"/>
+          <position x="386.0" y="119.0"/>
           <contentFilters/>
         </element>
-        <element uuid="2ac824e6-09ca-4101-913d-ec814802a2b9" dockArea="left">
+        <element uuid="dceef1a4-34a6-4a49-b0d0-b99e86d874ae" dockArea="left">
           <bo>
             <seg>feature</seg>
             <seg>co2_data</seg>
           </bo>
-          <position y="60.0"/>
+          <position y="26.0"/>
           <contentFilters/>
         </element>
-        <element uuid="d0b0522a-eb71-4ce3-8ec6-c71ed701a999" dockArea="left">
+        <element uuid="148db736-07ae-4ca9-9c9f-f18f812cab7b" dockArea="left">
           <bo>
             <seg>feature</seg>
             <seg>co_data</seg>
           </bo>
-          <position y="180.0"/>
+          <position y="176.0"/>
           <contentFilters/>
         </element>
-        <element uuid="faf100e3-d472-4a02-a96d-f1572468ee44" dockArea="left">
+        <element uuid="b4d36ac5-13f3-4f90-be33-4cafca887ef6" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>gps_data</seg>
+          </bo>
+          <position y="221.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="c7264776-ff29-4a6f-833b-3254ea98938f" dockArea="left">
           <bo>
             <seg>feature</seg>
             <seg>humidity_data</seg>
           </bo>
-          <position y="240.0"/>
+          <position y="131.0"/>
           <contentFilters/>
         </element>
-        <element uuid="8f324c60-ba05-4f7b-add9-593fef987db9" dockArea="left">
+        <element uuid="cabbe943-8095-4db1-9874-731ae1a24a7f" dockArea="left">
           <bo>
             <seg>feature</seg>
             <seg>temperature_data</seg>
           </bo>
-          <position y="120.0"/>
+          <position y="80.0"/>
           <contentFilters/>
         </element>
-        <element uuid="e2b082a5-d9bd-43bf-a2f4-4a13c0c60048">
+        <element uuid="e2ea070a-6a6f-4a14-b3c6-5c5a8d498278">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow1</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="9824fd5b-90b7-42d2-8c8b-bdd1cebde4f1">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow3</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="85856304-8bfd-43c2-8540-ff05813332f0">
+          <element uuid="f80817f2-2886-4b48-b060-829ef9ecb3a9" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>co2_in</seg>
+            </bo>
+            <position y="29.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="ac0d4fe6-9a1a-4f18-ad88-670747b03c97" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>co_in</seg>
+            </bo>
+            <position y="183.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="c99a1aea-75ae-402d-9038-eb3d7020fcb5" dockArea="right">
+            <bo>
+              <seg>feature</seg>
+              <seg>data_out</seg>
+            </bo>
+            <position x="178.0" y="144.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="0787734f-a3f3-4dc2-8366-74db3cae9826" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>gps_in</seg>
+            </bo>
+            <position y="243.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="5f3ba898-4faa-4d5e-be8e-ffe7abf70544" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>humidity_in</seg>
+            </bo>
+            <position y="132.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="53b9ac91-10b5-444a-9c3d-e41e07ba0282" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>temperature_in</seg>
+            </bo>
+            <position y="87.0"/>
+            <contentFilters/>
+          </element>
+          <element uuid="35e67724-a24c-4e3b-a903-715a0698e152">
+            <bo>
+              <seg>flow_specification</seg>
+              <seg>flow1</seg>
+            </bo>
+            <bendpoints>
+              <point x="693.0" y="846.0"/>
+              <point x="693.0" y="903.0"/>
+            </bendpoints>
+            <contentFilters/>
+          </element>
+          <element uuid="ea7b2b71-4aad-4e2a-9a24-cd7427cc0e5a">
+            <bo>
+              <seg>flow_specification</seg>
+              <seg>flow2</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <element uuid="6fe75253-616c-415e-9c58-54f9275125bb">
+            <bo>
+              <seg>flow_specification</seg>
+              <seg>flow3</seg>
+            </bo>
+            <bendpoints>
+              <point x="692.0" y="803.0"/>
+              <point x="692.0" y="903.0"/>
+            </bendpoints>
+            <contentFilters/>
+          </element>
+          <element uuid="326fc236-4add-41aa-b446-6aec0d847e71">
+            <bo>
+              <seg>flow_specification</seg>
+              <seg>flow4</seg>
+            </bo>
+            <bendpoints>
+              <point x="692.0" y="942.0"/>
+              <point x="692.0" y="903.0"/>
+            </bendpoints>
+            <contentFilters/>
+          </element>
+          <element uuid="6a6c4697-9983-4ab0-a860-555834e65414">
+            <bo>
+              <seg>flow_specification</seg>
+              <seg>flow5</seg>
+            </bo>
+            <bendpoints>
+              <point x="692.0" y="1002.0"/>
+              <point x="692.0" y="903.0"/>
+            </bendpoints>
+            <contentFilters/>
+          </element>
           <bo>
             <seg>subcomponent</seg>
             <seg>data_aggregation</seg>
           </bo>
-          <position x="120.0" y="120.0"/>
-          <size width="197.0" height="61.0"/>
+          <position x="128.0" y="50.0"/>
+          <size width="251.0" height="310.0"/>
+          <contentFilters>
+            <filter>features</filter>
+            <filter>flowSpecifications</filter>
+          </contentFilters>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>controller</seg>
+        </bo>
+        <position x="280.0" y="97.0"/>
+        <size width="509.0" height="442.0"/>
+        <contentFilters>
+          <filter>features</filter>
+          <filter>subcomponents</filter>
+          <filter>flowSpecifications</filter>
+          <filter>connections</filter>
+        </contentFilters>
+      </element>
+      <element uuid="5c6231fe-c69c-4b39-8ff5-a23a5c5209d9">
+        <element uuid="33f149f8-eec9-4067-9cf8-6fc983b28284" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>input</seg>
+          </bo>
+          <position y="10.0"/>
           <contentFilters/>
         </element>
-        <element uuid="f93f61eb-9340-4caf-a572-58acbcf92466">
+        <element uuid="11bb700c-5616-4249-8a38-f7c91f9e0149">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow1</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="fc8edf6c-d05f-432f-acfa-4ebc444f3ba5">
           <bo>
             <seg>tag</seg>
             <seg>sc_type</seg>
@@ -371,107 +638,69 @@
         </element>
         <bo>
           <seg>subcomponent</seg>
-          <seg>controller</seg>
+          <seg>dumb_device</seg>
         </bo>
-        <position x="290.0" y="66.0"/>
-        <size width="421.0" height="290.0"/>
+        <position x="830.0" y="360.0"/>
+        <size width="239.0" height="60.0"/>
         <contentFilters>
+          <filter>modes</filter>
+          <filter>processorFeatures</filter>
           <filter>agree.all</filter>
-          <filter>features</filter>
-          <filter>subprogramCallSequences</filter>
-          <filter>modeTransitions</filter>
+          <filter>flowSpecifications</filter>
           <filter>connections</filter>
           <filter>subcomponentType</filter>
-          <filter>modes</filter>
-          <filter>flowSpecifications</filter>
-          <filter>processorFeatures</filter>
+          <filter>subprogramCallSequences</filter>
+          <filter>modeTransitions</filter>
           <filter>internalFeatures</filter>
+          <filter>features</filter>
           <filter>subcomponents</filter>
         </contentFilters>
       </element>
-      <element uuid="2dac177f-d68d-43a1-b85f-6318b5c9149b">
-        <element uuid="f9b8d9c0-76f7-44a2-8a71-6bd54c893a72" dockArea="right">
-          <bo>
-            <seg>feature</seg>
-            <seg>sensor_data</seg>
-          </bo>
-          <position x="57.0" y="21.0"/>
-          <contentFilters/>
-        </element>
+      <element uuid="9d4fef05-a43f-4ab8-a186-58610008ddf9">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>gps_sensor</seg>
+        </bo>
+        <position x="73.0" y="334.0"/>
+        <size width="134.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="00141382-f476-498a-97b7-9eabe0473309">
         <bo>
           <seg>subcomponent</seg>
           <seg>humidity_sensor</seg>
         </bo>
-        <position x="50.0" y="285.0"/>
-        <size width="152.0" height="61.0"/>
-        <contentFilters>
-          <filter>features</filter>
-        </contentFilters>
+        <position x="40.0" y="266.0"/>
+        <size width="166.0" height="35.0"/>
+        <contentFilters/>
       </element>
-      <element uuid="88d53965-84dc-404a-8c3e-6d77a492a314">
-        <element uuid="280b33ce-a912-4f46-a645-e836eef3c7fb" dockArea="left">
-          <bo>
-            <seg>feature</seg>
-            <seg>input_data</seg>
-          </bo>
-          <position y="20.0"/>
-          <contentFilters/>
-        </element>
-        <element uuid="362317ad-311b-4e3c-9f55-838d43c4f2c7" dockArea="right">
-          <bo>
-            <seg>feature</seg>
-            <seg>output_data</seg>
-          </bo>
-          <position x="138.0" y="20.0"/>
-          <contentFilters/>
-        </element>
-        <bo>
-          <seg>subcomponent</seg>
-          <seg>network_interface</seg>
-        </bo>
-        <position x="730.0" y="180.0"/>
-        <size width="231.0" height="71.0"/>
-        <contentFilters>
-          <filter>features</filter>
-        </contentFilters>
-      </element>
-      <element uuid="d6533a7f-1e26-42b8-9a1d-8ea74e35b3a2">
-        <element uuid="c513d0f1-dc55-4585-9d3a-dd5f6125aa7b" dockArea="right">
-          <bo>
-            <seg>feature</seg>
-            <seg>sensor_data</seg>
-          </bo>
-          <position x="58.0" y="21.0"/>
-          <contentFilters/>
-        </element>
+      <element uuid="c27f5d0d-c734-466f-8dd7-c777b2d2bc62">
         <bo>
           <seg>subcomponent</seg>
           <seg>temperature_sensor</seg>
         </bo>
-        <position x="49.0" y="165.0"/>
-        <size width="153.0" height="61.0"/>
-        <contentFilters>
-          <filter>features</filter>
-        </contentFilters>
+        <position x="16.0" y="232.0"/>
+        <size width="190.0" height="35.0"/>
+        <contentFilters/>
       </element>
       <bo>
         <seg>classifier</seg>
-        <seg>sensorunit.fire_detector</seg>
+        <seg>sensorunit.impl</seg>
       </bo>
-      <position x="40.0" y="480.0"/>
-      <size width="1011.0" height="400.0"/>
+      <position x="140.0" y="560.0"/>
+      <size width="1069.0" height="582.0"/>
       <contentFilters>
-        <filter>processorFeatures</filter>
-        <filter>internalFeatures</filter>
-        <filter>flowSpecifications</filter>
-        <filter>modeTransitions</filter>
-        <filter>generalizations</filter>
-        <filter>features</filter>
-        <filter>subprogramCallSequences</filter>
-        <filter>connections</filter>
-        <filter>subcomponents</filter>
-        <filter>agree.all</filter>
         <filter>modes</filter>
+        <filter>processorFeatures</filter>
+        <filter>generalizations</filter>
+        <filter>agree.all</filter>
+        <filter>flowSpecifications</filter>
+        <filter>connections</filter>
+        <filter>subprogramCallSequences</filter>
+        <filter>modeTransitions</filter>
+        <filter>internalFeatures</filter>
+        <filter>features</filter>
+        <filter>subcomponents</filter>
       </contentFilters>
     </element>
     <bo>
@@ -479,7 +708,7 @@
       <seg>sensorunit</seg>
     </bo>
     <position x="10.0" y="20.0"/>
-    <size width="1089.0" height="991.0"/>
+    <size width="1209.0" height="1171.0"/>
     <contentFilters>
       <filter>classifiers</filter>
     </contentFilters>

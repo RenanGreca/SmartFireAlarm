@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="4dd3ec69-3fd0-4158-bab4-da5d6f5d4f40" manual="true">
+    <element uuid="3c7eb24a-5c4c-4132-94aa-071d4ed838a1">
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensornetwork</seg>
+      </bo>
+      <position x="338.0" y="38.0"/>
+      <size width="151.0" height="35.0"/>
+      <contentFilters>
+        <filter>generalizations</filter>
+      </contentFilters>
+    </element>
+    <element uuid="36d58d8c-944f-48d6-8d86-9e88aeab0017" manual="true">
+      <element uuid="930f5069-7bda-42f3-b7fd-79ab3507454a">
+        <element uuid="1468eae1-7569-44df-8616-276f21dac870">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>comm_bluetooth_bus</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="e36e4a17-e283-414e-b681-4875f5d846f2">
+        <element uuid="d7e8fcaa-5bba-4589-9d4a-3d1b38493566">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>comm_zigbee_bus</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="dd3940f3-d549-4c45-9f26-39e08476b026">
+        <element uuid="cb3ed5ab-5bfa-487c-8ad7-8b111b57f2e3">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>phone_bluetooth_bus</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="8cde9935-012b-4cb0-80b5-5f13af73ff43">
+        <element uuid="d59e26fc-ca9b-4d92-9cc8-d0e8e5153dfe">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>sensor_zigbee_bus</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="0c5e2291-c13f-4c1a-9701-9fdf28ab726a">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="2ea4155c-7037-470e-a3c3-db82d1c646e7">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bluetooth_interface</seg>
+        </bo>
+        <position x="261.0" y="320.0"/>
+        <size width="186.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="ee062d35-7219-490d-8081-f3353f2daa07">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>comm_device</seg>
+        </bo>
+        <position x="280.0" y="200.0"/>
+        <size width="147.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="762f5cf3-0d31-415a-be25-093be1265b07">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>ethernet_interface</seg>
+        </bo>
+        <position x="12.0" y="85.0"/>
+        <size width="177.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="bf4f91be-5054-4eed-9917-5ddb900bb348">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>gprs_interface</seg>
+        </bo>
+        <position x="168.0" y="38.0"/>
+        <size width="150.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="d52ffb93-cbdd-485c-bd3b-c41801d6c1c0">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>mobile_phone</seg>
+        </bo>
+        <position x="279.0" y="410.0"/>
+        <size width="149.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="061ff493-079b-4000-bd40-85a3b83dc1bd">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>sensor_unit</seg>
+        </bo>
+        <position x="12.0" y="340.0"/>
+        <size width="134.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="44cc09ad-10b6-4967-8cfe-75d8589b7d0e">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>wifi_interface</seg>
+        </bo>
+        <position x="12.0" y="38.0"/>
+        <size width="144.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="34e6018c-cd75-4d9e-bca6-be3896f78ca2" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>zigbee_interface</seg>
+        </bo>
+        <position x="51.0" y="270.0"/>
+        <size width="211.0" height="45.0"/>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>sensornetwork.impl</seg>
+      </bo>
+      <position x="48.0" y="158.0"/>
+      <size width="509.0" height="471.0"/>
+      <contentFilters>
+        <filter>modes</filter>
+        <filter>processorFeatures</filter>
+        <filter>generalizations</filter>
+        <filter>agree.all</filter>
+        <filter>flowSpecifications</filter>
+        <filter>connections</filter>
+        <filter>subprogramCallSequences</filter>
+        <filter>modeTransitions</filter>
+        <filter>internalFeatures</filter>
+        <filter>features</filter>
+        <filter>subcomponents</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>sensornetwork</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="649.0" height="669.0"/>
+    <contentFilters>
+      <filter>classifiers</filter>
+    </contentFilters>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>sensornetwork</seg>
+    </context>
+  </config>
+</diagram:Diagram>

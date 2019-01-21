@@ -1,9 +1,0 @@
-package CommunicationDevice
-public
-	
-	system implementation CommunicationDevice.communicator
-		subcomponents
-			sensor: system SensorUnit.fire_detector
-	end CommunicationDevice.communicator;
-	
-end CommunicationDevice;

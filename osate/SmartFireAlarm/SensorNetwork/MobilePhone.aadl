@@ -1,0 +1,31 @@
+package MobilePhone
+public
+	with NetworkBus;
+	
+	process MobileApp
+		features
+			data_in: in data port;
+		flows
+			data_flow: flow sink data_in {latency => 1 ms .. 2 ms;};
+		properties
+			period => 100 ms;
+			deadline => 2 ms;
+	end MobileApp;
+	
+	process implementation MobileApp.impl
+	end MobileApp.impl;
+
+	system MobilePhone
+		features
+			sensor_data: in data port;
+			bluetooth: requires bus access NetworkBus::network.bluetooth;
+	end MobilePhone;
+
+	system implementation MobilePhone.impl
+		subcomponents
+			app: process MobileApp.impl;
+		connections
+			DC1: feature bluetooth -> app.data_in;
+	end MobilePhone.impl;
+	
+end MobilePhone;

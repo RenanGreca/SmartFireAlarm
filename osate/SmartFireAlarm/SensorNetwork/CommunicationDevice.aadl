@@ -1,0 +1,55 @@
+package CommunicationDevice
+public
+	with NetworkBus;
+
+	thread data_aggregator
+		features
+			sensor_in: in data port;
+			data_out: out data port;
+		flows
+--			flow1: flow path sensor_in -> data_out;
+			flow1: flow sink sensor_in {latency => 1 ms .. 2 ms;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 100ms;
+--			Compute_Execution_Time => 1ms .. 10ms;
+--			Reference_Processor => [
+	end data_aggregator;
+
+	process control
+		features
+			sensor_data: in data port;
+			processed_data: out data port;
+			trigger_alarm: out event port;		
+	end control;
+
+	process implementation control.sensor_data
+		subcomponents
+			data_aggregation: thread data_aggregator;
+		connections
+			sensor_conn: port sensor_data -> data_aggregation.sensor_in;
+			data_out_conn: port data_aggregation.data_out -> processed_data;
+	end control.sensor_data;
+
+	system CommunicationDevice
+		features
+--			sensor_data: in data port;
+--			processed_data: out data port;
+			zigbee: requires bus access NetworkBus::network.zigbee;
+			bluetooth: requires bus access NetworkBus::network.bluetooth;
+	end CommunicationDevice;
+
+	system implementation CommunicationDevice.impl
+		subcomponents
+			controller: process control.sensor_data;
+--			zigbee_interface: bus NetworkBus::network.zigbee;
+--			wifi_interface: bus NetworkBus::network.wifi;
+--			ethernet_interface: bus NetworkBus::network.ethernet;
+--			gprs_interface: bus NetworkBus::network.gprs;
+--			bluetooth_interface: bus NetworkBus::network.bluetooth;
+		connections
+			DC6: feature zigbee -> controller.sensor_data;
+			DC7: feature controller.processed_data -> bluetooth;
+	end CommunicationDevice.impl;
+	
+end CommunicationDevice;

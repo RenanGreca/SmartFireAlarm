@@ -20,7 +20,9 @@ public
 		features
 			sensor_data: in data port;
 			processed_data: out data port;
-			trigger_alarm: out event port;		
+			trigger_alarm: out event port;
+		flows
+			control_new_flow_spec: flow sink sensor_data;
 	end control;
 
 	process implementation control.sensor_data
@@ -33,10 +35,12 @@ public
 
 	system CommunicationDevice
 		features
---			sensor_data: in data port;
+			sensor_data: in data port;
 --			processed_data: out data port;
 			zigbee: requires bus access NetworkBus::network.zigbee;
 			bluetooth: requires bus access NetworkBus::network.bluetooth;
+		flows
+			flow_sensor: flow sink sensor_data;
 	end CommunicationDevice;
 
 	system implementation CommunicationDevice.impl

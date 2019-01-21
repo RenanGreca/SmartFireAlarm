@@ -1,0 +1,146 @@
+Latency analysis with preference settings: asynchronous system/major partition frame/worst case as deadline/best case as empty queue
+
+Latency results for end-to-end flow 'sensor_to_phone' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,10.0ms,10.0ms,specified,20.0ms,20.0ms,specified,
+connection communicator.bluetooth_data -> phone.phone_data,,0.0ms,no latency,,0.0ms,no latency,
+device phone,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,12.0ms,12.0ms,,24.0ms,24.0ms,,
+Specified End To End Latency,,10.0ms,,,30.0ms,,
+End to end Latency Summary,
+INFO,Minimum actual latency total 12.0ms is greater or equal to expected minimum end to end latency 10.0ms,
+INFO,Maximum actual latency total 24.0ms is less or equal to expected maximum end to end latency 30.0ms,
+INFO,Jitter of actual flow latency 12.0..24.0ms is within expected end to end latency jitter 10.0..30.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_db_wifi' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,5.0ms,5.0ms,specified,10.0ms,10.0ms,specified,
+connection communicator.wifi_data -> modem.wifi_input,,0.0ms,no latency,,0.0ms,no latency,
+device modem,5.0ms,5.0ms,specified,10.0ms,10.0ms,specified,
+connection modem.internet_output -> database.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device database,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,12.0ms,12.0ms,,24.0ms,24.0ms,,
+Specified End To End Latency,,50.0ms,,,100.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 12.0ms less than expected minimum end to end latency 50.0ms (better response time),
+WARNING,Minimum actual latency total 12.0ms less than expected minimum end to end latency 50.0ms (faster actual minimum response time),
+INFO,Maximum actual latency total 24.0ms is less or equal to expected maximum end to end latency 100.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_db_ethernet' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,1.0ms,1.0ms,specified,5.0ms,5.0ms,specified,
+connection communicator.ethernet_data -> modem.ethernet_input,,0.0ms,no latency,,0.0ms,no latency,
+device modem,1.0ms,1.0ms,specified,5.0ms,5.0ms,specified,
+connection modem.internet_output -> database.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device database,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,4.0ms,4.0ms,,14.0ms,14.0ms,,
+Specified End To End Latency,,10.0ms,,,10.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 4.00ms less than expected minimum end to end latency 10.0ms (better response time),
+WARNING,Minimum actual latency total 4.00ms less than expected minimum end to end latency 10.0ms (faster actual minimum response time),
+ERROR,Maximum specified flow latency total 14.0ms exceeds expected maximum end to end latency 10.0ms,
+ERROR,Maximum actual latency total 14.0ms exceeds expected maximum end to end latency 10.0ms,
+WARNING,Jitter of specified latency total 4.00..14.0ms exceeds expected end to end latency jitter 10.0..10.0ms,
+WARNING,Jitter of actual latency total 4.00..14.0ms exceeds expected end to end latency jitter 10.0..10.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_db_gprs' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,50.0ms,50.0ms,specified,100.0ms,100.0ms,specified,
+connection communicator.gprs_data -> cell_tower.gprs_input,,0.0ms,no latency,,0.0ms,no latency,
+device cell_tower,50.0ms,50.0ms,specified,100.0ms,100.0ms,specified,
+connection cell_tower.internet_output -> database.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device database,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,102.0ms,102.0ms,,204.0ms,204.0ms,,
+Specified End To End Latency,,100.0ms,,,1000.0ms,,
+End to end Latency Summary,
+INFO,Minimum actual latency total 102.0ms is greater or equal to expected minimum end to end latency 100.0ms,
+INFO,Maximum actual latency total 204.0ms is less or equal to expected maximum end to end latency 1000.0ms,
+INFO,Jitter of actual flow latency 102.0..204.0ms is within expected end to end latency jitter 100.0..1000.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_alarm_wifi' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,5.0ms,5.0ms,specified,10.0ms,10.0ms,specified,
+connection communicator.wifi_data -> modem.wifi_input,,0.0ms,no latency,,0.0ms,no latency,
+device modem,5.0ms,5.0ms,specified,10.0ms,10.0ms,specified,
+connection modem.internet_output -> alarm.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device alarm,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,12.0ms,12.0ms,,24.0ms,24.0ms,,
+Specified End To End Latency,,50.0ms,,,100.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 12.0ms less than expected minimum end to end latency 50.0ms (better response time),
+WARNING,Minimum actual latency total 12.0ms less than expected minimum end to end latency 50.0ms (faster actual minimum response time),
+INFO,Maximum actual latency total 24.0ms is less or equal to expected maximum end to end latency 100.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_alarm_ethernet' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,1.0ms,1.0ms,specified,5.0ms,5.0ms,specified,
+connection communicator.ethernet_data -> modem.ethernet_input,,0.0ms,no latency,,0.0ms,no latency,
+device modem,1.0ms,1.0ms,specified,5.0ms,5.0ms,specified,
+connection modem.internet_output -> alarm.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device alarm,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,4.0ms,4.0ms,,14.0ms,14.0ms,,
+Specified End To End Latency,,10.0ms,,,10.0ms,,
+End to end Latency Summary,
+WARNING,Minimum specified flow latency total 4.00ms less than expected minimum end to end latency 10.0ms (better response time),
+WARNING,Minimum actual latency total 4.00ms less than expected minimum end to end latency 10.0ms (faster actual minimum response time),
+ERROR,Maximum specified flow latency total 14.0ms exceeds expected maximum end to end latency 10.0ms,
+ERROR,Maximum actual latency total 14.0ms exceeds expected maximum end to end latency 10.0ms,
+WARNING,Jitter of specified latency total 4.00..14.0ms exceeds expected end to end latency jitter 10.0..10.0ms,
+WARNING,Jitter of actual latency total 4.00..14.0ms exceeds expected end to end latency jitter 10.0..10.0ms,
+
+
+
+Latency results for end-to-end flow 'sensor_to_alarm_gprs' of system 'sensor_network.impl',
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+device sensor,,0.0ms,first sampling,,0.0ms,first sampling,
+device sensor,1.0ms,1.0ms,processing time,2.0ms,2.0ms,deadline,
+connection sensor.sensor_data -> communicator.zigbee_data,,0.0ms,no latency,,0.0ms,no latency,
+device communicator,50.0ms,50.0ms,specified,100.0ms,100.0ms,specified,
+connection communicator.gprs_data -> cell_tower.gprs_input,,0.0ms,no latency,,0.0ms,no latency,
+device cell_tower,50.0ms,50.0ms,specified,100.0ms,100.0ms,specified,
+connection cell_tower.internet_output -> alarm.internet_input,,0.0ms,no latency,,0.0ms,no latency,
+device alarm,1.0ms,1.0ms,specified,2.0ms,2.0ms,specified,
+Latency Total,102.0ms,102.0ms,,204.0ms,204.0ms,,
+Specified End To End Latency,,100.0ms,,,1000.0ms,,
+End to end Latency Summary,
+INFO,Minimum actual latency total 102.0ms is greater or equal to expected minimum end to end latency 100.0ms,
+INFO,Maximum actual latency total 204.0ms is less or equal to expected maximum end to end latency 1000.0ms,
+INFO,Jitter of actual flow latency 102.0..204.0ms is within expected end to end latency jitter 100.0..1000.0ms,
+
+
+

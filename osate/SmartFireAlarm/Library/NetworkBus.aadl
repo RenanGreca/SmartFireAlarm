@@ -1,15 +1,14 @@
 package NetworkBus
 public
 	bus network
-		features
-			input_data: in data port;
-			output_data: out data port;		
+--		features
+--			input_data: in data port;
+--			output_data: out data port;		
 		properties
 			Transmission_Time => [ Fixed => 10 ms .. 30ms;
 	                               PerByte => 1 us .. 10 us; ];
 			Latency => 10 ms .. 100 ms;
-			
-			
+		
 	end network;
 	
 	bus implementation network.zigbee

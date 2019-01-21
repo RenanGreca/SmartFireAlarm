@@ -18,7 +18,7 @@ public
 	system MobilePhone
 		features
 			sensor_data: in data port;
-			bluetooth: requires bus access NetworkBus::network.bluetooth;
+			bluetooth_interface: requires bus access NetworkBus::network.bluetooth;
 	end MobilePhone;
 
 	system implementation MobilePhone.impl

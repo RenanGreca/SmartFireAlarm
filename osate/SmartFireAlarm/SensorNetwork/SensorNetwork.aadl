@@ -25,14 +25,14 @@ public
 		
 		connections
 --			zigbee: port sensor_unit.output_data -> comm_device.sensor_data;
-			sensor_zigbee_bus: bus access sensor_unit.zigbee -> zigbee_interface;
+			sensor_zigbee_bus: bus access sensor_unit.zigbee_interface -> zigbee_interface;
 			comm_zigbee_bus: bus access zigbee_interface -> comm_device.zigbee;
 --					{Actual_Connection_Binding => (reference (zigbee_interface));};
 --			zigbee1: port sensor_unit.output_data -> zigbee_interface.input_data;
 --			zigbee2: port zigbee_interface.output_data -> comm_device.sensor_data;
 --			
 			comm_bluetooth_bus: bus access comm_device.bluetooth -> bluetooth_interface;
-			phone_bluetooth_bus: bus access bluetooth_interface -> mobile_phone.bluetooth;
+			phone_bluetooth_bus: bus access bluetooth_interface -> mobile_phone.bluetooth_interface;
 --			bluetooth1: port comm_device.processed_data -> bluetooth_interface.input_data;
 --			bluetooth2: port bluetooth_interface.output_data -> mobile_phone.sensor_data;
 --		flows

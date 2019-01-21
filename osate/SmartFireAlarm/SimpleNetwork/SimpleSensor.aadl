@@ -1,0 +1,152 @@
+package SimpleSensor
+public
+	-- sensor
+	device sensor
+		features
+			sensor_data: out data port;
+			
+			power_command: in event port;
+		flows
+			data_flow: flow source sensor_data {latency => 1 ms .. 2 ms;};
+		properties
+			period => 100 ms;
+			deadline => 2 ms;
+			Compute_Execution_Time => 1 ms .. 2 ms;
+	end sensor;
+	
+	device implementation sensor.impl
+	end sensor.impl;
+	
+	-- communication device
+	device communication_device
+		features
+			zigbee_data: in data port;
+			bluetooth_data: out event data port;
+			wifi_data: out event data port;
+			ethernet_data: out event data port;
+			gprs_data: out event data port;
+			
+			phone_power_command: in event port;
+			sensor_power_command: out event port; 
+		flows
+			sensor_to_phone: flow path zigbee_data -> bluetooth_data {latency => 10 ms .. 20 ms;};
+			sensor_to_wifi: flow path zigbee_data -> wifi_data {latency => 5 ms .. 10 ms;};
+			sensor_to_ethernet: flow path zigbee_data -> ethernet_data {latency => 1 ms .. 5 ms;};
+			sensor_to_gprs: flow path zigbee_data -> gprs_data {latency => 50 ms .. 100 ms;};
+			
+			phone_to_sensor: flow path phone_power_command -> sensor_power_command {latency => 10 ms .. 20 ms;};
+	end communication_device;
+	
+	device implementation communication_device.impl
+	end communication_device.impl;
+	
+	-- mobile phone
+	device phone
+		features
+			phone_data: in event data port;
+			
+			power_command: out event data port;
+		flows
+			data_flow: flow sink phone_data {latency => 1 ms .. 2 ms;};
+	end phone;
+	
+	device implementation phone.impl
+	end phone.impl;
+	
+	-- modem
+	device modem
+		features
+			wifi_input: in event data port;
+			ethernet_input: in event data port;
+			
+			internet_output: out event data port;
+		flows
+			wifi_flow: flow path wifi_input -> internet_output {latency => 5 ms .. 10 ms;};
+			ethernet_flow: flow path ethernet_input -> internet_output {latency => 1 ms .. 5 ms;};
+	end modem;
+	
+	device implementation modem.impl
+	end modem.impl;
+	
+	
+	-- cell tower
+	device cell_tower
+		features
+			gprs_input: in event data port;
+			
+			internet_output: out event data port;
+		flows
+			gprs_flow: flow path gprs_input -> internet_output {latency => 50 ms .. 100 ms;};
+	end cell_tower;
+	
+	device implementation cell_tower.impl
+	end cell_tower.impl;
+	
+	-- data center
+	device database
+		features
+			internet_input: in data port;
+		flows
+			data_flow: flow sink internet_input {latency => 1 ms .. 2 ms;};
+	end database;
+	
+	device implementation database.impl
+	end database.impl;
+	
+	-- alarm
+	device alarm
+		features
+			internet_input: in event port;
+		flows
+			event_flow: flow sink internet_input {latency => 1 ms .. 2 ms;};
+	end alarm;
+	
+	device implementation alarm.impl
+	end alarm.impl;
+	
+	-- system
+	system sensor_network
+	end sensor_network;
+	
+	system implementation sensor_network.impl
+		subcomponents
+			sensor: device sensor.impl;
+			communicator: device communication_device.impl;
+			phone: device phone.impl;
+			modem: device modem.impl;
+			cell_tower: device cell_tower.impl;
+			database: device database.impl;
+			alarm: device alarm.impl;
+			
+		connections
+			zigbee_conn: port sensor.sensor_data -> communicator.zigbee_data;
+			bluetooth_conn: port communicator.bluetooth_data -> phone.phone_data;
+			wifi_conn: port communicator.wifi_data -> modem.wifi_input;
+			ethernet_conn: port communicator.ethernet_data -> modem.ethernet_input;
+			gprs_conn: port communicator.gprs_data -> cell_tower.gprs_input;
+			
+			internet_data_conn1: port modem.internet_output -> database.internet_input;
+			internet_data_conn2: port cell_tower.internet_output -> database.internet_input;
+			internet_event_conn1: port modem.internet_output -> alarm.internet_input;
+			internet_event_conn2: port cell_tower.internet_output -> alarm.internet_input;
+			
+			phone_power_conn: port phone.power_command -> communicator.phone_power_command;
+			sensor_power_conn: port communicator.sensor_power_command -> sensor.power_command;
+		flows
+			sensor_to_phone: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_phone -> bluetooth_conn -> phone.data_flow;
+			sensor_to_db_wifi: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_wifi -> wifi_conn -> modem.wifi_flow -> internet_data_conn1 -> database.data_flow;
+			sensor_to_db_ethernet: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_ethernet -> ethernet_conn -> modem.ethernet_flow -> internet_data_conn1 -> database.data_flow;
+			sensor_to_db_gprs: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_gprs -> gprs_conn -> cell_tower.gprs_flow -> internet_data_conn2 -> database.data_flow;
+			
+			sensor_to_alarm_wifi: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_wifi -> wifi_conn -> modem.wifi_flow -> internet_event_conn1 -> alarm.event_flow;
+			sensor_to_alarm_ethernet: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_ethernet -> ethernet_conn -> modem.ethernet_flow -> internet_event_conn1 -> alarm.event_flow;
+			sensor_to_alarm_gprs: end to end flow sensor.data_flow -> zigbee_conn -> communicator.sensor_to_gprs -> gprs_conn -> cell_tower.gprs_flow -> internet_event_conn2 -> alarm.event_flow;
+		properties
+			latency => 10 ms .. 30 ms applies to sensor_to_phone;
+			latency => 50 ms .. 100 ms applies to sensor_to_db_wifi, sensor_to_alarm_wifi;
+			latency => 10 ms .. 10 ms applies to sensor_to_db_ethernet, sensor_to_alarm_ethernet;
+			latency => 100 ms .. 1000 ms applies to sensor_to_db_gprs, sensor_to_alarm_gprs;
+	end sensor_network.impl;
+	
+	
+end SimpleSensor;

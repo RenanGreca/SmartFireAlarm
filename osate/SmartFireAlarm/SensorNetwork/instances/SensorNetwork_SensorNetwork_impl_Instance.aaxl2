@@ -1001,6 +1001,20 @@
           <propertyAssociation href="../CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
         </ownedPropertyAssociation>
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="../../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" value="1">
+                <unit href="../../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </minimum>
+              <maximum xsi:type="aadl2:IntegerLiteral" value="10">
+                <unit href="../../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+              </maximum>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.2"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="../../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
           <ownedValue>
             <ownedValue xsi:type="aadl2:NamedValue">
@@ -1029,11 +1043,8 @@
       <index>0</index>
       <classifier xsi:type="aadl2:ProcessImplementation" href="../CommunicationDevice.aadl#CommunicationDevice.control.sensor_data"/>
     </componentInstance>
-    <flowSpecification name="flow_sensor" source="//@componentInstance.6/@featureInstance.2">
-      <flowSpecification href="../CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
-    </flowSpecification>
     <flowSpecification name="flow_path" source="//@componentInstance.6/@featureInstance.2" destination="//@componentInstance.6/@featureInstance.3">
-      <flowSpecification href="../CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.1"/>
+      <flowSpecification href="../CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
     </flowSpecification>
     <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
     <index>0</index>

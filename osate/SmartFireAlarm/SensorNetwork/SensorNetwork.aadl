@@ -13,8 +13,8 @@ public
 
 	system implementation SensorNetwork.impl
 		subcomponents
-			sensor_unit: system SensorUnit::SensorUnit.impl;
-			comm_device: system CommunicationDevice::CommunicationDevice.impl;
+			sensor_unit: system SensorUnit::SensorUnit.impl [];
+			comm_device: system CommunicationDevice::CommunicationDevice.impl [2];
 			mobile_phone: system MobilePhone::MobilePhone.impl;
 			
 			zigbee_interface: bus NetworkBus::network.zigbee;
@@ -39,6 +39,8 @@ public
 --			bluetooth2: port bluetooth_interface.output_data -> mobile_phone.sensor_data;
 
 			DC2: port comm_device.processed_data -> mobile_phone.sensor_data;
+			
+--			IC1: port comm_device[1].intercom_out -> comm_device[2].intercom_in; 
 		flows
 			etef0: end to end flow sensor_unit.flow_output -> DC1 -> comm_device.flow_path -> DC2 -> mobile_phone.data_flow;
 --			etef0 : end to end flow s1.sensor_source -> c0 ->

@@ -12,7 +12,7 @@ public
 		properties
 			Dispatch_Protocol => Periodic;
 			Period => 100ms;
---			Compute_Execution_Time => 1ms .. 10ms;
+			Compute_Execution_Time => 1ms .. 10ms;
 --			Reference_Processor => [
 	end data_aggregator;
 
@@ -39,6 +39,10 @@ public
 		features
 			sensor_data: in data port;
 			processed_data: out data port;
+			
+--			intercom_in: in data port;
+--			intercom_out: out data port;	
+			
 			zigbee: requires bus access NetworkBus::network.zigbee;
 			bluetooth: requires bus access NetworkBus::network.bluetooth;
 		flows

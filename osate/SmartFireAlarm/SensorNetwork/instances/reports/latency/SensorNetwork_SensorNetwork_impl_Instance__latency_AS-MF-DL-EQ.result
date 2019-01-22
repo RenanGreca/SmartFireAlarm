@@ -7,8 +7,8 @@
   <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
   <results message="Latency results for etef0" resultType="SUCCESS">
     <values xsi:type="result:StringValue" value=""/>
-    <values xsi:type="result:RealValue" value="12.0"/>
-    <values xsi:type="result:RealValue" value="464.0"/>
+    <values xsi:type="result:RealValue" value="13.0"/>
+    <values xsi:type="result:RealValue" value="374.0"/>
     <values xsi:type="result:RealValue" value="2.0"/>
     <values xsi:type="result:RealValue" value="4.0"/>
     <values xsi:type="result:RealValue"/>
@@ -86,13 +86,13 @@
       <modelElement href="../../SensorNetwork_SensorNetwork_impl_Instance.aaxl2#//@componentInstance.6/@componentInstance.0/@componentInstance.0"/>
     </subResults>
     <subResults>
+      <values xsi:type="result:RealValue" value="1.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
       <values xsi:type="result:RealValue"/>
-      <values xsi:type="result:RealValue" value="100.0"/>
       <values xsi:type="result:RealValue"/>
-      <values xsi:type="result:RealValue"/>
-      <values xsi:type="result:StringValue" value="no latency"/>
-      <values xsi:type="result:StringValue" value="deadline"/>
-      <diagnostics diagnosticType="INFO" message="Using deadline as execution time was not set">
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <diagnostics diagnosticType="INFO" message="Using execution time as deadline was not set">
         <modelElement href="../../SensorNetwork_SensorNetwork_impl_Instance.aaxl2#//@componentInstance.6/@componentInstance.0/@componentInstance.0"/>
       </diagnostics>
       <modelElement href="../../SensorNetwork_SensorNetwork_impl_Instance.aaxl2#//@componentInstance.6/@componentInstance.0/@componentInstance.0"/>

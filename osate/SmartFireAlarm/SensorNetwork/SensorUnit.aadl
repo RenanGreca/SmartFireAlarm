@@ -90,7 +90,8 @@ public
 			
 			zigbee_conn: feature controller.aggregated_data -> zigbee_interface;
 			
---		flows
+		flows
+			flow_output: flow source co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> data_conn -> output_data;
 --			flow_temp: flow path co2_sensor.sensor_data -> co2_conn -> controller.flow_co2 -> zigbee_conn -> aggregated_data;
 			
 --			etef0: end to end flow co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> zigbee_conn -> aggregated_data;

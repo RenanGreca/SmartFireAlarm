@@ -19,13 +19,17 @@ public
 		features
 			sensor_data: in data port;
 			bluetooth_interface: requires bus access NetworkBus::network.bluetooth;
+		flows
+			data_flow: flow sink sensor_data;
 	end MobilePhone;
 
 	system implementation MobilePhone.impl
 		subcomponents
 			app: process MobileApp.impl;
 		connections
-			DC1: feature bluetooth -> app.data_in;
+			DC1: port sensor_data -> app.data_in;
+		flows
+			data_flow: flow sink sensor_data -> DC1 -> app.data_flow;
 	end MobilePhone.impl;
 	
 end MobilePhone;

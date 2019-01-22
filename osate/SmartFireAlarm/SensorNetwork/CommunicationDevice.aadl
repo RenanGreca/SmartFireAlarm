@@ -7,8 +7,8 @@ public
 			sensor_in: in data port;
 			data_out: out data port;
 		flows
---			flow1: flow path sensor_in -> data_out;
-			flow1: flow sink sensor_in {latency => 1 ms .. 2 ms;};
+			flow_path: flow path sensor_in -> data_out;
+--			flow1: flow sink sensor_in {latency => 1 ms .. 2 ms;};
 		properties
 			Dispatch_Protocol => Periodic;
 			Period => 100ms;
@@ -22,7 +22,7 @@ public
 			processed_data: out data port;
 			trigger_alarm: out event port;
 		flows
-			control_new_flow_spec: flow sink sensor_data;
+			flow_path: flow path sensor_data -> processed_data;
 	end control;
 
 	process implementation control.sensor_data
@@ -31,16 +31,19 @@ public
 		connections
 			sensor_conn: port sensor_data -> data_aggregation.sensor_in;
 			data_out_conn: port data_aggregation.data_out -> processed_data;
+		flows
+			flow_path: flow path sensor_data -> sensor_conn -> data_aggregation.flow_path -> data_out_conn -> processed_data;
 	end control.sensor_data;
 
 	system CommunicationDevice
 		features
 			sensor_data: in data port;
---			processed_data: out data port;
+			processed_data: out data port;
 			zigbee: requires bus access NetworkBus::network.zigbee;
 			bluetooth: requires bus access NetworkBus::network.bluetooth;
 		flows
-			flow_sensor: flow sink sensor_data;
+--			flow_sensor: flow sink sensor_data;
+			flow_path: flow path sensor_data -> processed_data;
 	end CommunicationDevice;
 
 	system implementation CommunicationDevice.impl
@@ -52,8 +55,12 @@ public
 --			gprs_interface: bus NetworkBus::network.gprs;
 --			bluetooth_interface: bus NetworkBus::network.bluetooth;
 		connections
+			DC1: port sensor_data -> controller.sensor_data;
+			DC2: port controller.processed_data -> processed_data;
 			DC6: feature zigbee -> controller.sensor_data;
 			DC7: feature controller.processed_data -> bluetooth;
+		flows
+			flow_path: flow path sensor_data -> DC1 -> controller.flow_path -> DC2 -> processed_data;
 	end CommunicationDevice.impl;
 	
 end CommunicationDevice;

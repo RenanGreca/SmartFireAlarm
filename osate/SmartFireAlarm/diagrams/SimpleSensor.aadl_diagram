@@ -172,13 +172,55 @@
         <contentFilters/>
       </element>
       <element uuid="25f7d7d4-bb10-49cb-acc3-f8b0d1af8b40">
+        <element uuid="68ad5eb3-291b-46b0-b6d2-6b3ddfd7f347" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>gprs_input</seg>
+          </bo>
+          <position y="59.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="98d45a8a-dea1-4b6f-b4cd-6d465dba9d8e" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>internet_output</seg>
+          </bo>
+          <position x="146.0" y="59.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="95f70f20-72c3-4d53-b32b-f82c9fac67f8">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>gprs_flow</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <element uuid="e13904da-dff5-495d-a67f-94925267f2ff">
+          <bo>
+            <seg>tag</seg>
+            <seg>sc_type</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <bo>
           <seg>subcomponent</seg>
           <seg>cell_tower</seg>
         </bo>
-        <position x="1032.0" y="451.0"/>
-        <size width="124.0" height="35.0"/>
-        <contentFilters/>
+        <position x="964.0" y="394.0"/>
+        <size width="260.0" height="111.0"/>
+        <contentFilters>
+          <filter>features</filter>
+          <filter>agree.all</filter>
+          <filter>subprogramCallSequences</filter>
+          <filter>subcomponentType</filter>
+          <filter>subcomponents</filter>
+          <filter>processorFeatures</filter>
+          <filter>modes</filter>
+          <filter>flowSpecifications</filter>
+          <filter>connections</filter>
+          <filter>modeTransitions</filter>
+          <filter>internalFeatures</filter>
+        </contentFilters>
       </element>
       <element uuid="64393e65-d618-4c72-a19a-3823a8cc0d1a">
         <element uuid="2c1575d8-964e-49e1-9440-e5c3ed4a6d95" dockArea="right">

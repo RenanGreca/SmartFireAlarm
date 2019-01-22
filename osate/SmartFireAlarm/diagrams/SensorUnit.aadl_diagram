@@ -138,6 +138,13 @@
           <position x="79.0" y="20.0"/>
           <contentFilters/>
         </element>
+        <element uuid="68d80d0f-12c2-4dac-b564-b8d983c9d322">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>data_flow</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <bo>
           <seg>subcomponent</seg>
           <seg>co2_sensor</seg>
@@ -146,6 +153,7 @@
         <size width="174.0" height="61.0"/>
         <contentFilters>
           <filter>features</filter>
+          <filter>flowSpecifications</filter>
         </contentFilters>
       </element>
       <element uuid="d1698ef9-8a3b-4bb0-96f3-01515f5d619a" manual="true">

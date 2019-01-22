@@ -4,6 +4,8 @@ public
 --		features
 --			input_data: in data port;
 --			output_data: out data port;		
+--		flows
+--			flow1: flow path input_data -> output_data;
 		properties
 			Transmission_Time => [ Fixed => 10 ms .. 30ms;
 	                               PerByte => 1 us .. 10 us; ];
@@ -11,9 +13,7 @@ public
 		
 	end network;
 	
-	bus implementation network.zigbee
---		flows
---			flow1: flow path input_data -> output_data;
+	bus implementation network.zigbee	
 		properties
 			Transmission_Time => [ Fixed => 10 ms .. 30ms;
 	                               PerByte => 1 us .. 10 us; ];

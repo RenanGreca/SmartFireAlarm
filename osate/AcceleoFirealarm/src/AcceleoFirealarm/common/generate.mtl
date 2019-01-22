@@ -1,0 +1,8 @@
+[comment encoding = UTF-8 /]
+[module generate('http://aadl.info/AADL/2.0')]
+[comment][module generate('/AcceleoFirealarm/models/SimpleSensor_sensor_network_impl_Instance.aaxl2')][/comment]
+
+
+[template public generateElement(aType : Type)]
+
+[/template]

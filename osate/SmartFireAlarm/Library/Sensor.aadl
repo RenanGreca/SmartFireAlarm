@@ -1,28 +1,41 @@
 package Sensor
 public
+	with Sensor_Reading;
+
 	device sensor
 		features
 			sensor_data: out data port;
 		flows
-			data_flow: flow source sensor_data {latency => 1 ms .. 2 ms;};
+			data_flow: flow source sensor_data {latency => 1ms .. 2ms;};
 		properties
-			period => 100 ms;
-			deadline => 2 ms;
-			Compute_Execution_Time => 1 ms .. 2 ms;
+			period => 100ms;
+			deadline => 2ms;
+			Compute_Execution_Time => 1ms .. 2ms;
 	end sensor;
 
 	device implementation sensor.temperature
+		properties
+			Sensor_Reading::Temperature_Reading => 24.0 C;
 	end sensor.temperature;
 
 	device implementation sensor.humidity
+		properties
+			Sensor_Reading::Humidity_Reading => 80 gpm3;
 	end sensor.humidity;
 
 	device implementation sensor.co
+		properties
+			Sensor_Reading::CO_Reading => 20 ppm;
 	end sensor.co;
 
 	device implementation sensor.co2
+		properties
+			Sensor_Reading::CO2_Reading => 40 ppm;
 	end sensor.co2;
-	
+
 	device implementation sensor.gps
+		properties
+			Sensor_Reading::Longitude_Reading => 13.397472;
+			Sensor_Reading::Latitude_Reading => 42.345984;
 	end sensor.gps;
 end Sensor;

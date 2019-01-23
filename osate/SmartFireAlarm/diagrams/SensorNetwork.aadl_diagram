@@ -80,7 +80,7 @@
           <seg>subcomponent</seg>
           <seg>comm_device</seg>
         </bo>
-        <position x="599.0" y="120.0"/>
+        <position x="400.0" y="120.0"/>
         <size width="422.0" height="165.0"/>
         <contentFilters>
           <filter>features</filter>
@@ -122,8 +122,8 @@
           <seg>subcomponent</seg>
           <seg>mobile_phone</seg>
         </bo>
-        <position x="1110.0" y="140.0"/>
-        <size width="341.0" height="173.0"/>
+        <position x="952.0" y="332.0"/>
+        <size width="241.0" height="173.0"/>
         <contentFilters>
           <filter>features</filter>
           <filter>flowSpecifications</filter>
@@ -142,7 +142,7 @@
             <seg>feature</seg>
             <seg>output_data</seg>
           </bo>
-          <position x="237.0" y="40.0"/>
+          <position x="147.0" y="40.0"/>
           <contentFilters/>
         </element>
         <element uuid="ee3a625e-de26-4946-bd22-97e769704486" dockArea="right">
@@ -150,7 +150,7 @@
             <seg>feature</seg>
             <seg>zigbee_interface</seg>
           </bo>
-          <position x="209.0" y="90.0"/>
+          <position x="119.0" y="90.0"/>
           <contentFilters/>
         </element>
         <element uuid="dbeb08ef-c09c-4538-9012-1ea05132cc10">
@@ -164,8 +164,8 @@
           <seg>subcomponent</seg>
           <seg>sensor_unit</seg>
         </bo>
-        <position x="150.0" y="172.0"/>
-        <size width="330.0" height="141.0"/>
+        <position x="90.0" y="132.0"/>
+        <size width="240.0" height="141.0"/>
         <contentFilters>
           <filter>features</filter>
           <filter>flowSpecifications</filter>
@@ -176,7 +176,7 @@
         <seg>sensornetwork.impl</seg>
       </bo>
       <position x="48.0" y="108.0"/>
-      <size width="1501.0" height="666.0"/>
+      <size width="1303.0" height="563.0"/>
       <contentFilters>
         <filter>features</filter>
         <filter>dataSubcomponents</filter>
@@ -207,7 +207,7 @@
       <seg>package</seg>
       <seg>sensornetwork</seg>
     </bo>
-    <position x="12.0" y="12.0"/>
+    <position x="10.0" y="10.0"/>
     <size width="1549.0" height="774.0"/>
     <contentFilters>
       <filter>systemImplementations</filter>

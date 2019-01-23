@@ -1,0 +1,26 @@
+package ControlCenter
+public
+	with Database;
+	with Alarm;
+
+	system ControlCenter
+		features
+			internet_in: in event data port;
+		flows
+			flow_database: flow sink internet_in;
+			flow_alarm: flow sink internet_in;
+	end ControlCenter;
+
+	system implementation ControlCenter.impl
+		subcomponents
+			database: system Database::Database.impl;
+			alarm: system Alarm::Alarm.impl;
+		connections
+			internet_to_database_conn: port internet_in -> database.data_in;
+			internet_to_alarm_conn: port internet_in -> alarm.alert_in;
+		flows
+			flow_database: flow sink internet_in -> internet_to_database_conn -> database.flow_data;
+			flow_alarm: flow sink internet_in -> internet_to_alarm_conn -> alarm.flow_alert;
+	end ControlCenter.impl;
+	
+end ControlCenter;

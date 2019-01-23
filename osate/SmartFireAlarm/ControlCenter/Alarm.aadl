@@ -1,0 +1,15 @@
+package Alarm
+public
+	
+	system Alarm
+		features
+			alert_in: in event port;
+		flows
+			flow_alert: flow sink alert_in;
+	end Alarm;
+	
+	system implementation Alarm.impl
+		
+	end Alarm.impl;
+	
+end Alarm;

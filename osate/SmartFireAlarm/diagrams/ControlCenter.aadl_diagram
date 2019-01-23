@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="c0e9e15c-989c-4f81-a12f-00efc3b85b68" manual="true">
+    <element uuid="6e8c939e-0f60-405a-9221-4b471d296e85">
+      <element uuid="7d686dda-3d45-4234-afa1-e15b3b124d26">
+        <element uuid="15a93a15-534e-4091-9fb3-cc99b299f457">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>internet_to_alarm_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="277.0" y="292.0"/>
+          <point x="277.0" y="352.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="beba907b-0c54-436c-ab3d-dea8f76727b7">
+        <element uuid="320b9d54-ec53-414e-b139-2e68e717a120">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>internet_to_database_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="276.0" y="292.0"/>
+          <point x="276.0" y="221.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="e3fe9a34-fdd4-461d-ba8f-228d29d2f118" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_in</seg>
+        </bo>
+        <position y="150.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="40f4598d-5274-4b45-be1d-e9aed4b31180">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alarm</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="05a022df-b229-41a8-a9eb-01ab60392d2d">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_database</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="a704a339-2a81-4cfc-892d-99f67e8ee139">
+        <element uuid="a0d97250-c367-42b1-bd94-6ac6f7945ff3" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>alert_in</seg>
+          </bo>
+          <position y="10.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="1803caba-1e0a-4480-844d-1c3ac4e44ef8">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_alert</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>alarm</seg>
+        </bo>
+        <position x="170.0" y="200.0"/>
+        <size width="225.0" height="60.0"/>
+        <contentFilters>
+          <filter>features</filter>
+          <filter>flowSpecifications</filter>
+        </contentFilters>
+      </element>
+      <element uuid="266ba373-7a40-44e3-a5ea-fa82bf4048aa">
+        <element uuid="2ccd2776-ec24-4e69-ad03-14cb34cdc3d0" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>data_in</seg>
+          </bo>
+          <position y="10.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="8c6d895e-e587-410e-8996-583461df5819">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_data</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>database</seg>
+        </bo>
+        <position x="170.0" y="69.0"/>
+        <size width="225.0" height="60.0"/>
+        <contentFilters>
+          <filter>features</filter>
+          <filter>flowSpecifications</filter>
+        </contentFilters>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>controlcenter.impl</seg>
+      </bo>
+      <position x="148.0" y="98.0"/>
+      <size width="521.0" height="331.0"/>
+      <contentFilters>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>modes</filter>
+        <filter>agree.all</filter>
+        <filter>flowSourceSpecification</filter>
+        <filter>subcomponents</filter>
+        <filter>features</filter>
+        <filter>subprogramCallSequences</filter>
+        <filter>modeTransitions</filter>
+        <filter>internalFeatures</filter>
+        <filter>flowSinkSpecification</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>controlcenter</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="869.0" height="529.0"/>
+    <contentFilters>
+      <filter>systemImplementations</filter>
+    </contentFilters>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>controlcenter</seg>
+    </context>
+  </config>
+</diagram:Diagram>

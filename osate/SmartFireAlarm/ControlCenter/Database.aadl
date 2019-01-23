@@ -1,0 +1,14 @@
+package Database
+public
+	
+	system Database
+		features
+			data_in: in data port;
+		flows
+			flow_data: flow sink data_in;
+	end Database;
+	
+	system implementation Database.impl
+	end Database.impl;
+	
+end Database;

@@ -1,11 +1,8 @@
 package SensorNetwork
 public
 	with SensorUnit;
-
 	with CommunicationDevice;
-
 	with MobilePhone;
-
 	with Modem;
 
 	system SensorNetwork

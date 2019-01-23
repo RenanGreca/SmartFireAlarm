@@ -1,0 +1,36 @@
+package CommunicationNetwork
+public
+	with Backbone;
+	with CellTower;
+
+	system CommunicationNetwork
+		features
+			gprs_in: in data port;
+			internet_in: in data port;
+			internet_out: out data port;
+		flows
+			flow_gprs: flow path gprs_in -> internet_out;
+			flow_internet: flow path internet_in -> internet_out;
+	end CommunicationNetwork;
+
+	system implementation CommunicationNetwork.impl
+		subcomponents
+			cell_tower: system CellTower::CellTower.impl;
+			backbone: system Backbone::Backbone.impl;
+		connections
+			internet_to_backbone_conn: port internet_in -> backbone.internet_in;
+			gprs_to_tower_conn: port gprs_in -> cell_tower.gprs_in;
+			tower_to_backbone_conn: port cell_tower.internet_out -> backbone.internet_in;
+			backbone_to_internet: port backbone.internet_out -> internet_out;
+		
+		flows
+			flow_gprs: flow path gprs_in -> gprs_to_tower_conn -> cell_tower.flow_internet -> 
+							     tower_to_backbone_conn -> backbone.flow_internet -> 
+							     backbone_to_internet -> internet_out;
+			
+			flow_internet: flow path internet_in -> internet_to_backbone_conn -> 
+									 backbone.flow_internet -> backbone_to_internet -> internet_out;
+			
+	end CommunicationNetwork.impl;
+	
+end CommunicationNetwork;

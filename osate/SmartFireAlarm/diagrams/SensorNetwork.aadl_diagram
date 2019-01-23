@@ -105,10 +105,6 @@
           <seg>connection</seg>
           <seg>modem_to_internet_conn</seg>
         </bo>
-        <bendpoints>
-          <point x="1326.0" y="221.0"/>
-          <point x="1326.0" y="351.0"/>
-        </bendpoints>
         <contentFilters/>
       </element>
       <element uuid="d937ca8d-84b6-4272-87c5-38e2bb183cce">
@@ -147,24 +143,33 @@
         </bendpoints>
         <contentFilters/>
       </element>
+      <element uuid="f29e3ffb-ae89-412a-8191-9dd28231f501" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>gprs_out</seg>
+        </bo>
+        <position x="1169.0" y="264.0"/>
+        <contentFilters/>
+      </element>
       <element uuid="e4248f99-a994-442f-979b-e075d7fb95d4" dockArea="right">
         <bo>
           <seg>feature</seg>
           <seg>internet_out</seg>
         </bo>
-        <position x="1149.0" y="219.0"/>
+        <position x="1149.0" y="93.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="401fc674-f49c-4bed-97a8-267134f6b7d3">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_gprs</seg>
+        </bo>
         <contentFilters/>
       </element>
       <element uuid="6e58a75f-7251-4ac5-bf32-aa1e50a0f3bf">
         <bo>
           <seg>flow_specification</seg>
           <seg>flow_internet</seg>
-        </bo>
-        <contentFilters/>
-      </element>
-      <element uuid="0c5e2291-c13f-4c1a-9701-9fdf28ab726a">
-        <bo>
-          <seg>realization</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -464,29 +469,28 @@
       <position x="50.0" y="40.0"/>
       <size width="1243.0" height="563.0"/>
       <contentFilters>
-        <filter>features</filter>
-        <filter>dataSubcomponents</filter>
-        <filter>memorySubcomponents</filter>
-        <filter>processorSubcomponents</filter>
-        <filter>deviceSubcomponents</filter>
-        <filter>agree.all</filter>
-        <filter>subprogramCallSequences</filter>
-        <filter>virtualBusSubcomponents</filter>
-        <filter>threadSubcomponents</filter>
-        <filter>subprogramGroupSubcomponents</filter>
-        <filter>threadGroupSubcomponents</filter>
-        <filter>modeTransitions</filter>
-        <filter>abstractSubcomponents</filter>
-        <filter>processorFeatures</filter>
-        <filter>generalizations</filter>
-        <filter>systemSubcomponents</filter>
-        <filter>modes</filter>
-        <filter>flowSpecifications</filter>
-        <filter>subprogramSubcomponents</filter>
-        <filter>internalFeatures</filter>
-        <filter>processSubcomponents</filter>
         <filter>connections</filter>
         <filter>virtualProcessorSubcomponents</filter>
+        <filter>memorySubcomponents</filter>
+        <filter>agree.all</filter>
+        <filter>threadGroupSubcomponents</filter>
+        <filter>abstractSubcomponents</filter>
+        <filter>modeTransitions</filter>
+        <filter>systemSubcomponents</filter>
+        <filter>flowSpecifications</filter>
+        <filter>processSubcomponents</filter>
+        <filter>processorFeatures</filter>
+        <filter>deviceSubcomponents</filter>
+        <filter>modes</filter>
+        <filter>threadSubcomponents</filter>
+        <filter>virtualBusSubcomponents</filter>
+        <filter>dataSubcomponents</filter>
+        <filter>subprogramGroupSubcomponents</filter>
+        <filter>features</filter>
+        <filter>subprogramCallSequences</filter>
+        <filter>subprogramSubcomponents</filter>
+        <filter>processorSubcomponents</filter>
+        <filter>internalFeatures</filter>
       </contentFilters>
     </element>
     <bo>

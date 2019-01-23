@@ -1,0 +1,16 @@
+package CellTower
+public
+	
+	system CellTower
+		features
+			gprs_in: in data port;
+			internet_out: out data port;
+		flows
+			flow_internet: flow path gprs_in -> internet_out;
+	end CellTower;
+	
+	system implementation CellTower.impl
+		
+	end CellTower.impl;
+	
+end CellTower;

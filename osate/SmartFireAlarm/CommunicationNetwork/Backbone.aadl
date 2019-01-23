@@ -1,0 +1,16 @@
+package Backbone
+public
+	
+	system Backbone
+		features 
+			internet_in: in data port;
+			internet_out: out data port;
+		flows
+			flow_internet: flow path internet_in -> internet_out;
+	end Backbone;
+	
+	system implementation Backbone.impl
+		
+	end Backbone.impl;
+	
+end Backbone;

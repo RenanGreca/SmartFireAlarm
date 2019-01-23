@@ -1,52 +1,45 @@
 package SensorNetwork
 public
 	with SensorUnit;
-	with NetworkBus;
+
 	with CommunicationDevice;
+
 	with MobilePhone;
-	
+
+	with Modem;
+
 	system SensorNetwork
---		features
---			sensor_data: in data port;
---			processed_data: out data port;
+		features
+			gprs_out: out data port;
+			internet_out: out data port;
+		flows
+			flow_gprs: flow source gprs_out;
+			flow_internet: flow source internet_out;
 	end SensorNetwork;
 
 	system implementation SensorNetwork.impl
 		subcomponents
-			sensor_unit: system SensorUnit::SensorUnit.impl [];
-			comm_device: system CommunicationDevice::CommunicationDevice.impl [2];
+			sensor_unit: system SensorUnit::SensorUnit.impl;
+			comm_device_1: system CommunicationDevice::CommunicationDevice.impl;
+			comm_device_2: system CommunicationDevice::CommunicationDevice.impl;
 			mobile_phone: system MobilePhone::MobilePhone.impl;
+			modem: system Modem::Modem.impl;
 			
-			zigbee_interface: bus NetworkBus::network.zigbee;
-			wifi_interface: bus NetworkBus::network.wifi;
-			ethernet_interface: bus NetworkBus::network.ethernet;
-			gprs_interface: bus NetworkBus::network.gprs;
-			bluetooth_interface: bus NetworkBus::network.bluetooth;
-		
 		connections
---			zigbee: port sensor_unit.output_data -> comm_device.sensor_data;
-			sensor_zigbee_bus: bus access sensor_unit.zigbee_interface -> zigbee_interface;
-			comm_zigbee_bus: bus access zigbee_interface -> comm_device.zigbee;
---					{Actual_Connection_Binding => (reference (zigbee_interface));};
---			zigbee1: port sensor_unit.output_data -> zigbee_interface.input_data;
---			zigbee2: port zigbee_interface.output_data -> comm_device.sensor_data;
-
-			DC1: port sensor_unit.output_data -> comm_device.sensor_data;
---			
-			comm_bluetooth_bus: bus access comm_device.bluetooth -> bluetooth_interface;
-			phone_bluetooth_bus: bus access bluetooth_interface -> mobile_phone.bluetooth_interface;
---			bluetooth1: port comm_device.processed_data -> bluetooth_interface.input_data;
---			bluetooth2: port bluetooth_interface.output_data -> mobile_phone.sensor_data;
-
-			DC2: port comm_device.processed_data -> mobile_phone.sensor_data;
+			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in { Connection_Pattern => ((All_To_One));};
+			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in { Connection_Pattern => ((All_To_One));};
 			
---			IC1: port comm_device[1].intercom_out -> comm_device[2].intercom_in; 
+			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in;
+			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in;
+
+			device_to_phone_conn: port comm_device_1.bluetooth_out -> mobile_phone.sensor_data;
+			device_to_modem_wifi_conn: port comm_device_1.wifi_out -> modem.wifi_in;
+			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in;
+			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out;
+			
+			modem_to_internet_conn: port modem.internet_out -> internet_out;
 		flows
-			etef0: end to end flow sensor_unit.flow_output -> DC1 -> comm_device.flow_path -> DC2 -> mobile_phone.data_flow;
---			etef0 : end to end flow s1.sensor_source -> c0 ->
---                        p.processing_path0  -> c2 ->
---                        a.actuating_sink; 
-			
+			etef0: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_bluetooth -> device_to_phone_conn -> mobile_phone.data_flow;
 	end SensorNetwork.impl;
 	
 end SensorNetwork;

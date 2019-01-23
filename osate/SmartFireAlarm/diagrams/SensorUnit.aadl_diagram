@@ -86,20 +86,6 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="475c4382-6ad4-48a5-93cb-5c1c29d0e069">
-        <element uuid="8c15c14a-61f9-4b70-8286-a22022d8f14a">
-          <bo>
-            <seg>tag</seg>
-            <seg>unidirectional</seg>
-          </bo>
-          <contentFilters/>
-        </element>
-        <bo>
-          <seg>connection</seg>
-          <seg>zigbee_conn</seg>
-        </bo>
-        <contentFilters/>
-      </element>
       <element uuid="8631b42c-9844-4d9f-966c-088d948da4bb" dockArea="right">
         <bo>
           <seg>feature</seg>
@@ -108,18 +94,10 @@
         <position x="976.0" y="160.0"/>
         <contentFilters/>
       </element>
-      <element uuid="f628d1df-7d58-449a-8392-43424b812d4d" dockArea="right">
-        <bo>
-          <seg>feature</seg>
-          <seg>zigbee_interface</seg>
-        </bo>
-        <position x="948.0" y="210.0"/>
-        <contentFilters/>
-      </element>
-      <element uuid="31d57bbc-f89e-4a12-b12c-041ab5686400">
+      <element uuid="8d8018fb-a621-425d-a92d-371179c613e7">
         <bo>
           <seg>flow_specification</seg>
-          <seg>flow_output</seg>
+          <seg>flow_sensor_data</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -308,6 +286,13 @@
           <position y="290.0"/>
           <contentFilters/>
         </element>
+        <element uuid="89e1526c-9592-46fe-bba9-b230f9b78daa">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_aggregated</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <element uuid="85856304-8bfd-43c2-8540-ff05813332f0">
           <element uuid="f80817f2-2886-4b48-b060-829ef9ecb3a9" dockArea="left">
             <bo>
@@ -362,9 +347,6 @@
               <seg>flow_specification</seg>
               <seg>flow_co</seg>
             </bo>
-            <bendpoints>
-              <point x="635.0" y="454.0"/>
-            </bendpoints>
             <contentFilters/>
           </element>
           <element uuid="9c51b42a-72dc-4766-a331-36228dc4dcac">
@@ -372,9 +354,6 @@
               <seg>flow_specification</seg>
               <seg>flow_co2</seg>
             </bo>
-            <bendpoints>
-              <point x="634.0" y="454.0"/>
-            </bendpoints>
             <contentFilters/>
           </element>
           <element uuid="09423cf5-7541-42c8-911c-8d8e82a00921">
@@ -382,9 +361,6 @@
               <seg>flow_specification</seg>
               <seg>flow_gps</seg>
             </bo>
-            <bendpoints>
-              <point x="634.0" y="454.0"/>
-            </bendpoints>
             <contentFilters/>
           </element>
           <element uuid="f5c9824b-ec4c-4618-b913-1f4690344fab">
@@ -392,9 +368,6 @@
               <seg>flow_specification</seg>
               <seg>flow_hum</seg>
             </bo>
-            <bendpoints>
-              <point x="639.0" y="454.0"/>
-            </bendpoints>
             <contentFilters/>
           </element>
           <element uuid="ede14560-e20c-4946-8ab0-041eb4992de5">
@@ -402,9 +375,6 @@
               <seg>flow_specification</seg>
               <seg>flow_temp</seg>
             </bo>
-            <bendpoints>
-              <point x="639.0" y="454.0"/>
-            </bendpoints>
             <contentFilters/>
           </element>
           <bo>

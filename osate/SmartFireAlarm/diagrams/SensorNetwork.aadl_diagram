@@ -2,8 +2,8 @@
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
   <element uuid="4dd3ec69-3fd0-4158-bab4-da5d6f5d4f40" manual="true">
     <element uuid="36d58d8c-944f-48d6-8d86-9e88aeab0017" manual="true">
-      <element uuid="be718516-88c9-4377-8ded-aa34b807bcbe">
-        <element uuid="76463d36-c9fd-4518-b3b8-616deed0ef92">
+      <element uuid="bf7723f6-90a3-4431-bab3-bd11aed213e6">
+        <element uuid="a49dc670-efae-4dad-a8b7-fca3bdd50542">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -12,12 +12,12 @@
         </element>
         <bo>
           <seg>connection</seg>
-          <seg>dc1</seg>
+          <seg>device_to_internet_gprs_conn</seg>
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="c05387e1-93ac-4fee-b004-9c5b9ee6d21d">
-        <element uuid="fbe3ec55-470c-40aa-82c2-55eb08cdbb3b">
+      <element uuid="28fb14f8-09d9-4472-bd53-1920c8e7754e">
+        <element uuid="77ff48b1-b156-4c6d-813b-498463fdc7a1">
           <bo>
             <seg>tag</seg>
             <seg>unidirectional</seg>
@@ -26,7 +26,139 @@
         </element>
         <bo>
           <seg>connection</seg>
-          <seg>dc2</seg>
+          <seg>device_to_modem_ethernet_conn</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="2dcd5782-5d6d-4b7e-b66f-c6c929773e41">
+        <element uuid="e863d750-c52b-4e92-bdbf-140398c1790d">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>device_to_modem_wifi_conn</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="f38d4583-0c5b-45d1-a1ae-bfbe351f4962">
+        <element uuid="b897e246-e43d-48f7-ada3-39938003a1da">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>device_to_phone_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="1004.0" y="392.0"/>
+          <point x="1004.0" y="561.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="27772534-730f-4a16-ba61-88aef4e0df69">
+        <element uuid="72165243-b9b2-4c9c-9d41-5e8e282e0330">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>intercom_conn_1</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="2398fd62-e12c-48e4-90b5-5417bbbd19ac">
+        <element uuid="35b208ae-2fde-48c2-b69e-a032fa1c21b3">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>intercom_conn_2</seg>
+        </bo>
+        <bendpoints>
+          <point x="886.0" y="586.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="4fd28537-1f53-4bcc-acb4-ea7f1f82c238">
+        <element uuid="4082bb23-e9bb-4b2b-bdb5-3a930111dd80">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>modem_to_internet_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="1326.0" y="221.0"/>
+          <point x="1326.0" y="351.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="d937ca8d-84b6-4272-87c5-38e2bb183cce">
+        <element uuid="913311c6-d2fe-48a2-ab7a-cb96f4c64fc8">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>sensor_to_device1_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="550.0" y="304.0"/>
+          <point x="550.0" y="230.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="84e936b9-63a1-4427-b942-3ba86a8e3c2f">
+        <element uuid="0cf4edb3-d39b-4804-9bef-a85d6be6fc1b">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>sensor_to_device2_conn</seg>
+        </bo>
+        <bendpoints>
+          <point x="553.0" y="304.0"/>
+          <point x="553.0" y="587.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="e4248f99-a994-442f-979b-e075d7fb95d4" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_out</seg>
+        </bo>
+        <position x="1149.0" y="219.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="6e58a75f-7251-4ac5-bf32-aa1e50a0f3bf">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_internet</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -36,73 +168,181 @@
         </bo>
         <contentFilters/>
       </element>
-      <element uuid="ee062d35-7219-490d-8081-f3353f2daa07">
-        <element uuid="f451299b-1c39-424f-b83d-941b7a52aab8" dockArea="right">
+      <element uuid="ee45b245-cccf-4a15-a4e2-911e700fcda4">
+        <element uuid="0ca8c8fc-de24-4863-b731-89ca670a5455" dockArea="right">
           <bo>
             <seg>feature</seg>
-            <seg>bluetooth</seg>
+            <seg>bluetooth_out</seg>
           </bo>
-          <position x="344.0" y="109.0"/>
+          <position x="266.0" y="200.0"/>
           <contentFilters/>
         </element>
-        <element uuid="7fdb6bc9-8a4f-4dcd-b55f-5e7214bb8258" dockArea="right">
+        <element uuid="9fae1b2e-5d66-4dab-8716-caf0d50da2e0" dockArea="right">
           <bo>
             <seg>feature</seg>
-            <seg>processed_data</seg>
+            <seg>ethernet_out</seg>
           </bo>
-          <position x="305.0" y="59.0"/>
+          <position x="274.0" y="90.0"/>
           <contentFilters/>
         </element>
-        <element uuid="0a723c58-2bf8-4e78-bc99-3312a1b83b67" dockArea="left">
+        <element uuid="20f94ca2-a95c-4407-a6f0-af30759e220c" dockArea="right">
           <bo>
             <seg>feature</seg>
-            <seg>sensor_data</seg>
+            <seg>gprs_out</seg>
           </bo>
-          <position y="59.0"/>
+          <position x="297.0" y="150.0"/>
           <contentFilters/>
         </element>
-        <element uuid="b9e9c2bb-eb41-42f7-9cb6-683989fb37fd" dockArea="left">
+        <element uuid="c8785ab7-ad53-4e71-babf-e40bc414acf6" dockArea="bottom">
           <bo>
             <seg>feature</seg>
-            <seg>zigbee</seg>
+            <seg>intercom_in</seg>
           </bo>
-          <position y="109.0"/>
+          <position x="180.0" y="334.0"/>
           <contentFilters/>
         </element>
-        <element uuid="a7152eef-e583-48c1-b856-f090344b6d4e">
+        <element uuid="f43e1cbd-1e48-484d-97a7-6eab28dfa75c" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>intercom_out</seg>
+          </bo>
+          <position x="40.0" y="334.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="392e3309-2ab4-41a9-848c-c8f4377a44ad" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>wifi_out</seg>
+          </bo>
+          <position x="303.0" y="40.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="6848a74c-ff0b-4e01-a62b-b4b14f9f915e" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>zigbee_in</seg>
+          </bo>
+          <position y="38.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="81c5d2ce-5d06-4cc8-a3e4-31a78496f84f">
           <bo>
             <seg>flow_specification</seg>
-            <seg>flow_path</seg>
+            <seg>flow_bluetooth</seg>
           </bo>
+          <bendpoints>
+            <point x="704.0" y="230.0"/>
+            <point x="704.0" y="392.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="c7fe6459-95c5-475b-828f-345bb3ed1574">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_ethernet</seg>
+          </bo>
+          <bendpoints>
+            <point x="705.0" y="230.0"/>
+            <point x="705.0" y="282.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="988a9fcd-f607-4335-876a-23efcd08cf3d">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_gprs</seg>
+          </bo>
+          <bendpoints>
+            <point x="704.0" y="230.0"/>
+            <point x="704.0" y="342.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="5cd44722-ff16-4a8c-849f-430fe614193e">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_intercom_bluetooth</seg>
+          </bo>
+          <bendpoints>
+            <point x="833.0" y="392.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="ebd57369-9d1b-47bc-8877-556950659eac">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_intercom_ethernet</seg>
+          </bo>
+          <bendpoints>
+            <point x="835.0" y="390.0"/>
+            <point x="835.0" y="282.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="b7ab943a-583a-4940-82f3-64503c4931c8">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_intercom_gprs</seg>
+          </bo>
+          <bendpoints>
+            <point x="833.0" y="393.0"/>
+            <point x="833.0" y="342.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="293f70e7-fca9-409e-b2bb-f5ebe38871fe">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_intercom_wifi</seg>
+          </bo>
+          <bendpoints>
+            <point x="834.0" y="391.0"/>
+            <point x="834.0" y="232.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="3f3d6a77-8a14-4525-a4f6-76c797b82715">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_wifi</seg>
+          </bo>
+          <bendpoints>
+            <point x="704.0" y="230.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="8531212c-b1ff-4368-8764-f03e5f0f41fb">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_zigbee_intercom</seg>
+          </bo>
+          <bendpoints>
+            <point x="706.0" y="230.0"/>
+            <point x="706.0" y="384.0"/>
+          </bendpoints>
           <contentFilters/>
         </element>
         <bo>
           <seg>subcomponent</seg>
-          <seg>comm_device</seg>
+          <seg>comm_device_1</seg>
         </bo>
-        <position x="400.0" y="120.0"/>
-        <size width="422.0" height="165.0"/>
+        <position x="410.0" y="60.0"/>
+        <size width="371.0" height="358.0"/>
         <contentFilters>
           <filter>features</filter>
           <filter>flowSpecifications</filter>
-          <filter>modeTransitions</filter>
-          <filter>agree.all</filter>
-          <filter>subprogramCallSequences</filter>
-          <filter>processorFeatures</filter>
-          <filter>modes</filter>
-          <filter>internalFeatures</filter>
-          <filter>connections</filter>
         </contentFilters>
       </element>
+      <element uuid="9f7704d4-a970-435c-8ce1-8f1b06eea9b1">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>comm_device_2</seg>
+        </bo>
+        <position x="480.0" y="470.0"/>
+        <size width="161.0" height="35.0"/>
+        <contentFilters/>
+      </element>
       <element uuid="d52ffb93-cbdd-485c-bd3b-c41801d6c1c0">
-        <element uuid="396a97d8-5bbd-4cc0-a97b-1ad25fd9f47f" dockArea="left">
-          <bo>
-            <seg>feature</seg>
-            <seg>bluetooth_interface</seg>
-          </bo>
-          <position y="121.0"/>
-          <contentFilters/>
-        </element>
         <element uuid="7c568007-f99b-4269-a6b1-15a824e5a50f" dockArea="left">
           <bo>
             <seg>feature</seg>
@@ -122,8 +362,8 @@
           <seg>subcomponent</seg>
           <seg>mobile_phone</seg>
         </bo>
-        <position x="952.0" y="332.0"/>
-        <size width="241.0" height="173.0"/>
+        <position x="872.0" y="370.0"/>
+        <size width="241.0" height="161.0"/>
         <contentFilters>
           <filter>features</filter>
           <filter>flowSpecifications</filter>
@@ -136,6 +376,60 @@
           <filter>connections</filter>
         </contentFilters>
       </element>
+      <element uuid="88af8327-426d-4e92-89aa-4acf7f00afae">
+        <element uuid="aff8bb59-2e1e-41d4-9214-0a2b8473a444" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>ethernet_in</seg>
+          </bo>
+          <position y="88.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="43c8a9b8-c9fc-42f0-9acf-30bce9fbf189" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>internet_out</seg>
+          </bo>
+          <position x="147.0" y="38.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="b66e77bd-85dd-4517-b600-bf6f04da9c0f" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>wifi_in</seg>
+          </bo>
+          <position y="38.0"/>
+          <contentFilters/>
+        </element>
+        <element uuid="47352914-d25d-435d-8864-a747d31ae43d">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_ethernet</seg>
+          </bo>
+          <bendpoints>
+            <point x="1163.0" y="271.0"/>
+            <point x="1163.0" y="221.0"/>
+          </bendpoints>
+          <contentFilters/>
+        </element>
+        <element uuid="88b72d62-5a19-469b-8fd5-8ec1e303b3fb">
+          <bo>
+            <seg>flow_specification</seg>
+            <seg>flow_wifi</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>modem</seg>
+        </bo>
+        <position x="872.0" y="51.0"/>
+        <size width="241.0" height="140.0"/>
+        <contentFilters>
+          <filter>features</filter>
+          <filter>flowSpecifications</filter>
+        </contentFilters>
+      </element>
       <element uuid="061ff493-079b-4000-bd40-85a3b83dc1bd">
         <element uuid="b2c92597-eea9-461d-80c8-ca7f5dc763d3" dockArea="right">
           <bo>
@@ -145,18 +439,10 @@
           <position x="147.0" y="40.0"/>
           <contentFilters/>
         </element>
-        <element uuid="ee3a625e-de26-4946-bd22-97e769704486" dockArea="right">
-          <bo>
-            <seg>feature</seg>
-            <seg>zigbee_interface</seg>
-          </bo>
-          <position x="119.0" y="90.0"/>
-          <contentFilters/>
-        </element>
-        <element uuid="dbeb08ef-c09c-4538-9012-1ea05132cc10">
+        <element uuid="643e6e5a-a059-4e1c-8c73-384c0fcd2cca">
           <bo>
             <seg>flow_specification</seg>
-            <seg>flow_output</seg>
+            <seg>flow_sensor_data</seg>
           </bo>
           <contentFilters/>
         </element>
@@ -175,8 +461,8 @@
         <seg>classifier</seg>
         <seg>sensornetwork.impl</seg>
       </bo>
-      <position x="48.0" y="108.0"/>
-      <size width="1303.0" height="563.0"/>
+      <position x="50.0" y="40.0"/>
+      <size width="1243.0" height="563.0"/>
       <contentFilters>
         <filter>features</filter>
         <filter>dataSubcomponents</filter>
@@ -207,8 +493,8 @@
       <seg>package</seg>
       <seg>sensornetwork</seg>
     </bo>
-    <position x="10.0" y="10.0"/>
-    <size width="1549.0" height="774.0"/>
+    <position x="130.0" y="60.0"/>
+    <size width="1331.0" height="651.0"/>
     <contentFilters>
       <filter>systemImplementations</filter>
     </contentFilters>

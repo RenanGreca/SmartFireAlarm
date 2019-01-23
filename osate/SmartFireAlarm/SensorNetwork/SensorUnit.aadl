@@ -1,6 +1,5 @@
 package SensorUnit
 public
-	with NetworkBus;
 	with Sensor;
 	
 	-- software thread that combines sensor data.
@@ -39,6 +38,7 @@ public
 			flow_co: flow path co_data -> aggregated_data {latency => 1 ms .. 2 ms;};
 			flow_co2: flow path co2_data -> aggregated_data {latency => 1 ms .. 2 ms;};
 			flow_gps: flow path gps_data -> aggregated_data {latency => 1 ms .. 2 ms;};
+			flow_aggregated: flow source aggregated_data;
 	end control;
 
 	process implementation control.sensor_data
@@ -61,12 +61,15 @@ public
 
 	system SensorUnit
 		features
---			input_data: in data port;
 			output_data: out data port;
-			zigbee_interface: requires bus access NetworkBus::network.zigbee;
+--			zigbee_interface: requires bus access NetworkBus::network.zigbee;
 		flows
-			flow_output: flow source output_data;
---			flow_temp: flow path input_data -> output_data;
+			flow_sensor_data: flow source output_data;
+--			flow_temp: flow source output_data;
+--			flow_hum: flow source output_data;
+--			flow_co: flow source output_data;
+--			flow_co2: flow source output_data;
+--			flow_gps: flow source output_data;
 	end SensorUnit;
 
 	system implementation SensorUnit.impl
@@ -88,13 +91,16 @@ public
 			
 			data_conn: port controller.aggregated_data -> output_data;
 			
-			zigbee_conn: feature controller.aggregated_data -> zigbee_interface;
+--			zigbee_conn: feature controller.aggregated_data -> zigbee_interface;
 			
 		flows
-			flow_output: flow source co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> data_conn -> output_data;
---			flow_temp: flow path co2_sensor.sensor_data -> co2_conn -> controller.flow_co2 -> zigbee_conn -> aggregated_data;
+			flow_sensor_data: flow source controller.flow_aggregated -> data_conn -> output_data;
+--			flow_temp: flow source temp_sensor.data_flow -> temp_conn -> controller.flow_temp -> data_conn -> output_data;
+--			flow_hum: flow source hum_sensor.data_flow -> hum_conn -> controller.flow_hum -> data_conn -> output_data;
+--			flow_co: flow source co_sensor.data_flow -> co_conn -> controller.flow_co -> data_conn -> output_data;
+--			flow_co2: flow source co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> data_conn -> output_data;
+--			flow_gps: flow source gps_sensor.data_flow -> gps_conn -> controller.flow_gps -> data_conn -> output_data;
 			
---			etef0: end to end flow co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> zigbee_conn -> aggregated_data;
 		properties
 			Allowed_Connection_Binding => ();
 --			latency => 20 ms .. 30 ms applies to etef0, etef1;		

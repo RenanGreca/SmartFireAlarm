@@ -1,6 +1,5 @@
 package CommunicationDevice
 public
-	with NetworkBus;
 
 	thread data_aggregator
 		features
@@ -8,12 +7,10 @@ public
 			data_out: out data port;
 		flows
 			flow_path: flow path sensor_in -> data_out;
---			flow1: flow sink sensor_in {latency => 1 ms .. 2 ms;};
 		properties
 			Dispatch_Protocol => Periodic;
 			Period => 100ms;
 			Compute_Execution_Time => 1ms .. 10ms;
---			Reference_Processor => [
 	end data_aggregator;
 
 	process control
@@ -37,17 +34,29 @@ public
 
 	system CommunicationDevice
 		features
-			sensor_data: in data port;
-			processed_data: out data port;
+			zigbee_in: in data port;
+			bluetooth_out: out data port;
+			wifi_out: out data port;
+			ethernet_out: out data port;
+			gprs_out: out data port;
 			
---			intercom_in: in data port;
---			intercom_out: out data port;	
-			
-			zigbee: requires bus access NetworkBus::network.zigbee;
-			bluetooth: requires bus access NetworkBus::network.bluetooth;
+			intercom_in: in event data port;
+			intercom_out: out event data port;
+						
+--			zigbee: requires bus access NetworkBus::network.zigbee;
+--			bluetooth: requires bus access NetworkBus::network.bluetooth;
 		flows
 --			flow_sensor: flow sink sensor_data;
-			flow_path: flow path sensor_data -> processed_data;
+			flow_bluetooth: flow path zigbee_in -> bluetooth_out;
+			flow_wifi: flow path zigbee_in -> wifi_out;
+			flow_ethernet: flow path zigbee_in -> ethernet_out;
+			flow_gprs: flow path zigbee_in -> gprs_out;
+			
+			flow_zigbee_intercom: flow path zigbee_in -> intercom_out;
+			flow_intercom_bluetooth: flow path intercom_in -> bluetooth_out;
+			flow_intercom_wifi: flow path intercom_in -> wifi_out;
+			flow_intercom_ethernet: flow path intercom_in -> ethernet_out;
+			flow_intercom_gprs: flow path intercom_in -> gprs_out;
 	end CommunicationDevice;
 
 	system implementation CommunicationDevice.impl
@@ -59,12 +68,18 @@ public
 --			gprs_interface: bus NetworkBus::network.gprs;
 --			bluetooth_interface: bus NetworkBus::network.bluetooth;
 		connections
-			DC1: port sensor_data -> controller.sensor_data;
-			DC2: port controller.processed_data -> processed_data;
-			DC6: feature zigbee -> controller.sensor_data;
-			DC7: feature controller.processed_data -> bluetooth;
+			zigbee_in_conn: port zigbee_in -> controller.sensor_data;
+			bluetooth_out_conn: port controller.processed_data -> bluetooth_out;
+			wifi_out_conn: port controller.processed_data -> wifi_out;
+			ethernet_out_conn: port controller.processed_data -> ethernet_out;
+			gprs_out_conn: port controller.processed_data -> gprs_out;
+--			DC6: feature zigbee -> controller.sensor_data;
+--			DC7: feature controller.processed_data -> bluetooth;
 		flows
-			flow_path: flow path sensor_data -> DC1 -> controller.flow_path -> DC2 -> processed_data;
+			flow_bluetooth: flow path zigbee_in -> zigbee_in_conn -> controller.flow_path -> bluetooth_out_conn -> bluetooth_out;
+			flow_wifi: flow path zigbee_in -> zigbee_in_conn -> controller.flow_path -> wifi_out_conn -> wifi_out;
+			flow_ethernet: flow path zigbee_in -> zigbee_in_conn -> controller.flow_path -> ethernet_out_conn -> ethernet_out;
+			flow_gprs: flow path zigbee_in -> zigbee_in_conn -> controller.flow_path -> gprs_out_conn -> gprs_out;
 	end CommunicationDevice.impl;
 	
 end CommunicationDevice;

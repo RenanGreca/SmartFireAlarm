@@ -18,7 +18,7 @@ public
 	system MobilePhone
 		features
 			sensor_data: in data port;
-			bluetooth_interface: requires bus access NetworkBus::network.bluetooth;
+--			bluetooth_interface: requires bus access NetworkBus::network.bluetooth;
 		flows
 			data_flow: flow sink sensor_data;
 	end MobilePhone;

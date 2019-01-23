@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module generate('http://aadl.info/AADL/2.0')]
+
+
+[template public generateElement(p : AadlPackage)]
+[comment @main/]
+
+[file (p.name, false, 'UTF-8')]
+[comment]	Imported Unit: [p.publicSection.importedUnit /][/comment]
+[comment]	Member: [p.publicSection.member /][/comment]
+[comment][p.publicSection /][/comment]
+[p.publicSection.qualifiedName /]
+ [for (ele : Classifier | p.ownedPublicSection.ownedClassifier)]
+	[if (ele.oclIsTypeOf(aadl2::SystemImplementation))]
+	
+	  [for ( system : SystemImplementation | ele.oclAsType(aadl2::SystemImplementation))]
+	
+		[system.name/]
+
+		[for (feature: FeatureConnection | system.ownedFeatureConnection) ]
+
+			[feature.name/]
+
+		[/for]
+	
+	  [/for]
+	
+	[/if]
+ [/for]
+[/file]
+[/template]

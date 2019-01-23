@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aadl2:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="SimpleSensor" publicSection="#//@ownedPublicSection">
+  <ownedPublicSection>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="sensor">
+      <ownedComment body="-- sensor&#xA;"/>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Period">
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="100"/>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Deadline">
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Compute_Execution_Time">
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+          </ownedValue>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedFlowSpecification name="data_flow">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedDataPort name="sensor_data" out="true"/>
+      <ownedEventPort name="power_command" in="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="sensor.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="communication_device">
+      <ownedComment body="-- communication device&#xA;"/>
+      <ownedFlowSpecification name="sensor_to_phone" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="20"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedFlowSpecification name="sensor_to_wifi" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="5"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedFlowSpecification name="sensor_to_ethernet" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="5"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedFlowSpecification name="sensor_to_gprs" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="50"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="100"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedFlowSpecification name="phone_to_sensor" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="20"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </ownedFlowSpecification>
+      <ownedDataPort name="zigbee_data" in="true"/>
+      <ownedEventDataPort name="bluetooth_data" out="true"/>
+      <ownedEventDataPort name="wifi_data" out="true"/>
+      <ownedEventDataPort name="ethernet_data" out="true"/>
+      <ownedEventDataPort name="gprs_data" out="true"/>
+      <ownedEventPort name="phone_power_command" in="true"/>
+      <ownedEventPort name="sensor_power_command" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="communication_device.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.2"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="phone">
+      <ownedComment body="-- mobile phone&#xA;"/>
+      <ownedFlowSpecification name="data_flow" kind="sink">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedEventDataPort name="phone_data" in="true"/>
+      <ownedEventDataPort name="power_command" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="phone.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.4"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="modem">
+      <ownedComment body="-- modem&#xA;"/>
+      <ownedFlowSpecification name="wifi_flow" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="5"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.2"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedFlowSpecification name="ethernet_flow" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="5"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.2"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+      </ownedFlowSpecification>
+      <ownedEventDataPort name="wifi_input" in="true"/>
+      <ownedEventDataPort name="ethernet_input" in="true"/>
+      <ownedEventDataPort name="internet_output" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="modem.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.6"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="cell_tower">
+      <ownedComment body="-- cell tower&#xA;"/>
+      <ownedFlowSpecification name="gprs_flow" kind="path">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="50"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="100"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <outEnd feature="#//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedEventDataPort name="gprs_input" in="true"/>
+      <ownedEventDataPort name="internet_output" out="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="cell_tower.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.8"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="database">
+      <ownedComment body="-- data center&#xA;"/>
+      <ownedFlowSpecification name="data_flow" kind="sink">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+      </ownedFlowSpecification>
+      <ownedDataPort name="internet_input" in="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="database.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.10"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceType" name="alarm">
+      <ownedComment body="-- alarm&#xA;"/>
+      <ownedFlowSpecification name="event_flow" kind="sink">
+        <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RangeValue">
+              <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1"/>
+              <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="2"/>
+            </ownedValue>
+          </ownedValue>
+        </ownedPropertyAssociation>
+        <InEnd feature="#//@ownedPublicSection/@ownedClassifier.12/@ownedEventPort.0"/>
+      </ownedFlowSpecification>
+      <ownedEventPort name="internet_input" in="true"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:DeviceImplementation" name="alarm.impl">
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.12"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemType" name="sensor_network">
+      <ownedComment body="-- system&#xA;"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="sensor_network.impl">
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.0"/>
+        </appliesTo>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="30"/>
+          </ownedValue>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.1"/>
+        </appliesTo>
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.4"/>
+        </appliesTo>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="50"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="100"/>
+          </ownedValue>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.2"/>
+        </appliesTo>
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.5"/>
+        </appliesTo>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="10"/>
+          </ownedValue>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation property="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency">
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.3"/>
+        </appliesTo>
+        <appliesTo>
+          <path namedElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedEndToEndFlow.6"/>
+        </appliesTo>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RangeValue">
+            <minimum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="100"/>
+            <maximum xsi:type="aadl2:IntegerLiteral" unit="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3" value="1000"/>
+          </ownedValue>
+        </ownedValue>
+      </ownedPropertyAssociation>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.14"/>
+      <ownedEndToEndFlow name="sensor_to_phone">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.4/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.2"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_db_wifi">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.1" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.2"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.5"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.5"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_db_ethernet">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.2" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.1" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.5"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.5"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_db_gprs">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.3" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.4"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.4"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.6"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.10/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.5"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_alarm_wifi">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.1" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.2"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.7"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.12/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.6"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_alarm_ethernet">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.2" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.6/@ownedFlowSpecification.1" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.7"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.12/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.6"/>
+      </ownedEndToEndFlow>
+      <ownedEndToEndFlow name="sensor_to_alarm_gprs">
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.3" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.4"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.8/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.4"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.8"/>
+        <ownedEndToEndFlowSegment flowElement="#//@ownedPublicSection/@ownedClassifier.12/@ownedFlowSpecification.0" context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.6"/>
+      </ownedEndToEndFlow>
+      <ownedPortConnection name="zigbee_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0" connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="bluetooth_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.2" connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.0"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="wifi_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3" connectionEnd="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="ethernet_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3" connectionEnd="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.1"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.2"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="gprs_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.4" connectionEnd="#//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventDataPort.3"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="internet_data_conn1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.5" connectionEnd="#//@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3" connectionEnd="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.2"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="internet_data_conn2">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.5" connectionEnd="#//@ownedPublicSection/@ownedClassifier.10/@ownedDataPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.4" connectionEnd="#//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="internet_event_conn1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.6" connectionEnd="#//@ownedPublicSection/@ownedClassifier.12/@ownedEventPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.3" connectionEnd="#//@ownedPublicSection/@ownedClassifier.6/@ownedEventDataPort.2"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="internet_event_conn2">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.6" connectionEnd="#//@ownedPublicSection/@ownedClassifier.12/@ownedEventPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.4" connectionEnd="#//@ownedPublicSection/@ownedClassifier.8/@ownedEventDataPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="phone_power_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.2" connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedEventDataPort.1"/>
+      </ownedPortConnection>
+      <ownedPortConnection name="sensor_power_conn">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.0" connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+        <source context="#//@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.1" connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.1"/>
+      </ownedPortConnection>
+      <ownedDeviceSubcomponent name="sensor" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.1"/>
+      <ownedDeviceSubcomponent name="communicator" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.3"/>
+      <ownedDeviceSubcomponent name="phone" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.5"/>
+      <ownedDeviceSubcomponent name="modem" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.7"/>
+      <ownedDeviceSubcomponent name="cell_tower" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.9"/>
+      <ownedDeviceSubcomponent name="database" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.11"/>
+      <ownedDeviceSubcomponent name="alarm" deviceSubcomponentType="#//@ownedPublicSection/@ownedClassifier.13"/>
+    </ownedClassifier>
+  </ownedPublicSection>
+</aadl2:Package>

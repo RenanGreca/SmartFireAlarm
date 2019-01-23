@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generate('http://aadl.info/AADL/2.0')]
+
+
+[template public generateElement(aType : Type)]
+
+[/template]

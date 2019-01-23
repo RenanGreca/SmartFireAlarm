@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated my -->
+      <package
+            uri="http://www.renangreca.com/My"
+            class="My.DasdasfPackage"
+            genModel="model/my.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated aadl2 -->
+      <package
+            uri="http://aadl.info/AADL/2.0"
+            class="aadl2.Aadl2Package"
+            genModel="model/aadl2.genmodel"/>
+   </extension>
+
+</plugin>

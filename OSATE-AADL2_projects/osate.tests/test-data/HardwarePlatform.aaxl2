@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aadl2:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" name="HardwarePlatform" publicSection="#//@ownedPublicSection">
+  <ownedComment body="--       This package defines a collection of hardware platforms&#xA;"/>
+  <ownedComment body="--       The hardware platform provides access to a bus such that a device&#xA;"/>
+  <ownedComment body="--       in the application system can be connected to the platform&#xA;"/>
+  <ownedComment body="--       The platforms differ in the number of processors&#xA;"/>
+  <ownedPublicSection importedUnit="aadl2:Package HardwareParts.aadl#HardwareParts">
+    <ownedClassifier xsi:type="aadl2:SystemType" name="ComputingPlatform">
+      <ownedBusAccess name="BusAccess1" busFeatureClassifier="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="ComputingPlatform.ThreeProcessorParts">
+      <ownedComment body="--       a platform with three dual core processors as a parts specification&#xA;"/>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedBusSubcomponent name="Switch" busSubcomponentType="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+      <ownedProcessorSubcomponent name="MissionProcessor1" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+      <ownedProcessorSubcomponent name="MissionProcessor2" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+      <ownedProcessorSubcomponent name="MissionProcessor3" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="ComputingPlatform.SlowProcessor">
+      <ownedComment body="--       a platform with a single &quot;slow&quot; processor (a single core Xeon)  &#xA;"/>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedAccessConnection name="ba1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.2/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection1">
+        <destination connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.2/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedBusSubcomponent name="Switch" busSubcomponentType="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+      <ownedProcessorSubcomponent name="MissionProcessor1" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="ComputingPlatform.OneProcessor">
+      <ownedComment body="--       a platform with a single processor (a dual core Xeon)  &#xA;"/>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedAccessConnection name="ba1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.3/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection1">
+        <destination connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.3/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedBusSubcomponent name="Switch" busSubcomponentType="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+      <ownedProcessorSubcomponent name="MissionProcessor1" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.dualcore"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="ComputingPlatform.TwoProcessor">
+      <ownedComment body="--       a platform with two dual core processors  &#xA;"/>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedAccessConnection name="BusAccessConnection5">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.4/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="ba1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.4/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="ba2">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.4/@ownedProcessorSubcomponent.1" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection1">
+        <destination connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.4/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedBusSubcomponent name="Switch" busSubcomponentType="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+      <ownedBusSubcomponent name="MainPowerSupply" busSubcomponentType="aadl2:BusImplementation HardwareParts.aadl#HardwareParts.PowerSupply.V15"/>
+      <ownedProcessorSubcomponent name="MissionProcessor1" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+      <ownedProcessorSubcomponent name="MissionProcessor2" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </ownedClassifier>
+    <ownedClassifier xsi:type="aadl2:SystemImplementation" name="ComputingPlatform.ThreeProcessor">
+      <ownedComment body="--     a platform with three dual core processors  &#xA;"/>
+      <ownedRealization implemented="#//@ownedPublicSection/@ownedClassifier.0"/>
+      <ownedAccessConnection name="BusAccessConnection5">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="ba1">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="ba2">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.1" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="ba3">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.2" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection1">
+        <destination connectionEnd="#//@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.0"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection2">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.1" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection3">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedProcessorSubcomponent.2" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.1"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.1"/>
+      </ownedAccessConnection>
+      <ownedAccessConnection name="BusAccessConnection4">
+        <destination context="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.0" connectionEnd="aadl2:BusAccess HardwareParts.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+        <source connectionEnd="#//@ownedPublicSection/@ownedClassifier.5/@ownedBusSubcomponent.1"/>
+      </ownedAccessConnection>
+      <ownedBusSubcomponent name="Switch" busSubcomponentType="aadl2:BusType HardwareParts.aadl#HardwareParts.EtherSwitch"/>
+      <ownedBusSubcomponent name="IMAPowerSupply" busSubcomponentType="aadl2:BusImplementation HardwareParts.aadl#HardwareParts.PowerSupply.V15"/>
+      <ownedProcessorSubcomponent name="MissionProcessor1" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+      <ownedProcessorSubcomponent name="MissionProcessor2" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+      <ownedProcessorSubcomponent name="MissionProcessor3" processorSubcomponentType="aadl2:ProcessorImplementation HardwareParts.aadl#HardwareParts.Xeon.solo"/>
+    </ownedClassifier>
+  </ownedPublicSection>
+</aadl2:Package>

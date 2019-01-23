@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated aadl2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="aadl2.presentation.Aadl2ModelWizardID"
+            name="%_UI_Aadl2ModelWizard_label"
+            class="aadl2.presentation.Aadl2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Aadl2ModelFile.gif">
+         <description>%_UI_Aadl2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated aadl2 -->
+      <editor
+            id="aadl2.presentation.Aadl2EditorID"
+            name="%_UI_Aadl2Editor_label"
+            icon="icons/full/obj16/Aadl2ModelFile.gif"
+            extensions="aadl2"
+            class="aadl2.presentation.Aadl2Editor"
+            contributorClass="aadl2.presentation.Aadl2ActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

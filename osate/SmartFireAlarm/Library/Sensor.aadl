@@ -35,7 +35,9 @@ public
 
 	device implementation sensor.gps
 		properties
-			Sensor_Reading::Longitude_Reading => 13.397472;
-			Sensor_Reading::Latitude_Reading => 42.345984;
+			Sensor_Reading::Location_Reading => [
+				Latitute => 42.34598; 
+				Longitude => 13.397472;
+			];
 	end sensor.gps;
 end Sensor;

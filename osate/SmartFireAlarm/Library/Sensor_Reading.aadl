@@ -8,14 +8,18 @@ property set Sensor_Reading is
 	Temperature: type aadlreal units Sensor_Reading::Celsius;
 	Humidity: type aadlinteger units Sensor_Reading::Grams_Per_Cubic_Meter;
 	Particles: type aadlinteger units Sensor_Reading::Parts_Per_Million;
+	Coordinates : type record (
+		Latitute : aadlreal;
+		Longitude : aadlreal;
+	);
 	Coordinate: type aadlreal;
 	
 	-- properties
-	Temperature_Reading: Sensor_Reading::Temperature applies to (device);
-	Humidity_Reading: Sensor_Reading::Humidity applies to (device);
-	CO_Reading: Sensor_Reading::Particles applies to (device);
-	CO2_Reading: Sensor_Reading::Particles applies to (device);
-	Latitude_Reading: Sensor_Reading::Coordinate applies to (device);
-	Longitude_Reading: Sensor_Reading::Coordinate applies to (device);
-	
+	Temperature_Reading: Sensor_Reading::Temperature applies to (device, port);
+	Humidity_Reading: Sensor_Reading::Humidity applies to (device, port);
+	CO_Reading: Sensor_Reading::Particles applies to (device, port);
+	CO2_Reading: Sensor_Reading::Particles applies to (device, port);
+	Location_Reading: Sensor_Reading::Coordinates applies to (device, data port);
+	Latitude_Reading: Sensor_Reading::Coordinate applies to (device, port);
+	Longitude_Reading: Sensor_Reading::Coordinate applies to (device, port);
 end Sensor_Reading;

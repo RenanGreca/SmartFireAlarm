@@ -13,10 +13,10 @@ public
 			communication_network: system CommunicationNetwork::CommunicationNetwork.impl;
 			control_center: system ControlCenter::ControlCenter.impl;
 		connections
-			sensor_internet_conn: port sensor_network.internet_out -> communication_network.internet_in;
-			sensor_gprs_conn: port sensor_network.gprs_out -> communication_network.gprs_in;
+			sensor_internet_conn: port sensor_network.internet_out -> communication_network.internet_in {latency => 10 ms .. 200 ms;};
+			sensor_gprs_conn: port sensor_network.gprs_out -> communication_network.gprs_in {latency => 1000 ms .. 2000 ms;};
 			
-			internet_control_conn: port communication_network.internet_out -> control_center.internet_in;
+			internet_control_conn: port communication_network.internet_out -> control_center.internet_in {latency => 10 ms .. 200 ms;};
 		flows
 			etef_gprs_db: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_database;
 			etef_gprs_alarm: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_alarm;

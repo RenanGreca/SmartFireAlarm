@@ -33,13 +33,13 @@ public
 			device_to_phone_conn: port comm_device_1.bluetooth_out -> mobile_phone.sensor_data  {latency => 5ms .. 2000ms;};
 			device_to_modem_wifi_conn: port comm_device_1.wifi_out -> modem.wifi_in {latency => 6ms .. 60ms;};
 			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in {latency => 1ms .. 10ms;};
-			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out {latency => 1000 ms .. 2000 ms;};
+			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out;
 			device_to_phone_alarm_conn: port comm_device_1.alarm_out -> mobile_phone.alarm_toggle {latency => 5ms .. 2000ms;};
 			
 			device_to_phone2_conn: port comm_device_2.bluetooth_out -> mobile_phone.sensor_data {latency => 5ms .. 2000ms;};
 			device_to_modem_wifi2_conn: port comm_device_2.wifi_out -> modem.wifi_in {latency => 6ms .. 60ms;};
 			device_to_modem_ethernet2_conn: port comm_device_2.ethernet_out -> modem.ethernet_in {latency => 1ms .. 10ms;};
-			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out {latency => 1000 ms .. 2000 ms;};
+			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out;
 			device_to_phone_alarm2_conn: port comm_device_2.alarm_out -> mobile_phone.alarm_toggle {latency => 5ms .. 2000ms;};
 			
 			modem_to_internet_conn: port modem.internet_out -> internet_out;

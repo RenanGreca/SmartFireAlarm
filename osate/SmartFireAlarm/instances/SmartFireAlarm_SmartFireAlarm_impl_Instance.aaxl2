@@ -2717,7 +2717,7 @@
           </maximum>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7/@ownedPropertyAssociation.0"/>
+      <propertyAssociation href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.0/@componentInstance.1/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
@@ -2748,7 +2748,7 @@
           </maximum>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12/@ownedPropertyAssociation.0"/>
+      <propertyAssociation href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.0/@componentInstance.2/@componentInstance.0" source="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
@@ -2767,6 +2767,20 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="sensor_network.modem.internet_out -> communication_network.backbone.internet_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.0" source="//@componentInstance.0/@componentInstance.4/@featureInstance.2">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral" value="10">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </minimum>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="200">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </maximum>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.0/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.4/@featureInstance.2" destination="//@componentInstance.0/@featureInstance.1">
       <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
     </connectionReference>
@@ -2778,6 +2792,20 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="communication_network.backbone.internet_out -> control_center.database.data_in" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral" value="10">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </minimum>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="200">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </maximum>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
       <connection xsi:type="aadl2:PortConnection" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
     </connectionReference>
@@ -2789,6 +2817,20 @@
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="communication_network.backbone.internet_out -> control_center.alarm.alert_in" complete="true" kind="portConnection" destination="//@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/Communication_Properties.aadl#Communication_Properties.Latency"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RangeValue">
+          <minimum xsi:type="aadl2:IntegerLiteral" value="10">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </minimum>
+          <maximum xsi:type="aadl2:IntegerLiteral" value="200">
+            <unit href="../../../plugin/org.osate.workspace/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.16/@ownedLiteral.3"/>
+          </maximum>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
       <connection xsi:type="aadl2:PortConnection" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
     </connectionReference>

@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.Property;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -295,6 +296,11 @@ public class PropertyItemProvider extends BasicPropertyItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getProperty_DefaultValue(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getProperty_DefaultValue(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 
 		newChildDescriptors.add
 			(createChildParameter

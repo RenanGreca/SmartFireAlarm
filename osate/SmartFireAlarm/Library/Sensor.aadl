@@ -2,9 +2,11 @@ package Sensor
 public
 	with Sensor_Reading;
 
+	with DataTypes;
+
 	device sensor
 		features
-			sensor_data: out data port;
+			sensor_data: out data port DataTypes::temperature;
 		flows
 			data_flow: flow source sensor_data {latency => 1ms .. 2ms;};
 		properties
@@ -15,7 +17,7 @@ public
 
 	device implementation sensor.temperature
 		properties
-			Sensor_Reading::Temperature_Reading => 24.0 C;
+			Sensor_Reading::Temperature_Reading => 24.0C;
 	end sensor.temperature;
 
 	device implementation sensor.humidity
@@ -36,8 +38,8 @@ public
 	device implementation sensor.gps
 		properties
 			Sensor_Reading::Location_Reading => [
-				Latitute => 42.34598; 
-				Longitude => 13.397472;
-			];
+						Latitute => 42.34598;
+						Longitude => 13.397472;
+					];
 	end sensor.gps;
 end Sensor;

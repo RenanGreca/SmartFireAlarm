@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.Element;
 
+import instance.provider.InstanceEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -175,7 +176,7 @@ public class ElementItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Aadl2EditPlugin.INSTANCE;
+		return InstanceEditPlugin.INSTANCE;
 	}
 
 }

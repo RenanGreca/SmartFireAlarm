@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.ComponentClassifier;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -207,6 +208,11 @@ public class ComponentClassifierItemProvider extends ClassifierItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getComponentClassifier_OwnedMode(),
 				 Aadl2Factory.eINSTANCE.createMode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getComponentClassifier_OwnedMode(),
+				 InstanceFactory.eINSTANCE.createSystemOperationMode()));
 
 		newChildDescriptors.add
 			(createChildParameter

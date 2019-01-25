@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[module generate('http://aadl.info/AADL/2.0/instance')]
+
+
+[template public generateElement(instance : SystemInstance)]
+[comment @main/]
+
+[file (instance.name, false, 'UTF-8')]
+
+ [for (component : ComponentInstance | instance.componentInstance)]
+	[component.name /]
+
+	[for (feature : FeatureInstance | component.featureInstance)]
+		
+		[feature.name /]
+
+	[/for]
+	 
+ [/for]
+
+ [for (flow: EndToEndFlowInstance | instance.endToEndFlow)]
+	[flow.name /]
+
+ [/for]
+
+[/file]
+
+[/template]

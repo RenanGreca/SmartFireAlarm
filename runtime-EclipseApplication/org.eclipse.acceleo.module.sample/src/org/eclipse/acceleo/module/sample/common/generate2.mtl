@@ -1,0 +1,41 @@
+[comment encoding = UTF-8 /]
+[module generate2('http://aadl.info/AADL/2.0/instance')]
+
+
+[template public generateElement(instance : SystemInstance)]
+[comment @main/]
+[file (instance.name, false, 'UTF-8')]
+[comment]	Imported Unit: [p.publicSection.importedUnit /][/comment]
+[comment]	Member: [p.publicSection.member /][/comment]
+[comment][p.publicSection /][/comment]
+
+ [for (component : ComponentInstance | instance.componentInstance)]
+	[component.name /]
+	[component.featureInstance /]
+
+	[for (feature : FeatureInstance | component.featureInstance)]
+		
+		[feature.name /]
+
+	[/for]
+
+
+[comment]	[if (ele.oclIsTypeOf(aadl2::SystemImplementation))]
+	
+	  [for ( system : SystemImplementation | ele.oclAsType(aadl2::SystemImplementation))]
+	
+		[system.name/]
+
+		[for (feature: FeatureConnection | system.ownedFeatureConnection) ]
+
+			[feature.name/]
+
+		[/for]
+	
+	  [/for]
+	
+	[/if][/comment]
+ [/for]
+[/file]
+
+[/template]

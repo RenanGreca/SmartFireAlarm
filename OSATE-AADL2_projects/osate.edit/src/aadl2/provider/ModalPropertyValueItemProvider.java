@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.ModalPropertyValue;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -195,6 +196,11 @@ public class ModalPropertyValueItemProvider extends ModalElementItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getModalPropertyValue_OwnedValue(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getModalPropertyValue_OwnedValue(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 }

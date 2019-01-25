@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.RangeValue;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -199,6 +200,11 @@ public class RangeValueItemProvider extends PropertyValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(Aadl2Package.eINSTANCE.getRangeValue_Minimum(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(Aadl2Package.eINSTANCE.getRangeValue_Maximum(),
 				 Aadl2Factory.eINSTANCE.createStringLiteral()));
 
@@ -259,6 +265,11 @@ public class RangeValueItemProvider extends PropertyValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(Aadl2Package.eINSTANCE.getRangeValue_Maximum(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(Aadl2Package.eINSTANCE.getRangeValue_Delta(),
 				 Aadl2Factory.eINSTANCE.createStringLiteral()));
 
@@ -316,6 +327,11 @@ public class RangeValueItemProvider extends PropertyValueItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getRangeValue_Delta(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getRangeValue_Delta(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 	/**

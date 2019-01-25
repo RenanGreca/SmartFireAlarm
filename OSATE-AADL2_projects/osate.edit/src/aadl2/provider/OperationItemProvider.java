@@ -8,6 +8,7 @@ import aadl2.Aadl2Package;
 import aadl2.Operation;
 import aadl2.OperationKind;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -225,6 +226,11 @@ public class OperationItemProvider extends PropertyExpressionItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getOperation_OwnedPropertyExpression(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getOperation_OwnedPropertyExpression(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 }

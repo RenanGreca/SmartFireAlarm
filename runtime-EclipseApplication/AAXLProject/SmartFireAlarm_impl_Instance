@@ -1,0 +1,38 @@
+
+	sensor_network
+
+		
+		internet_out
+
+		
+		gprs_out
+
+	 
+	communication_network
+
+		
+		internet_in
+
+		
+		gprs_in
+
+		
+		internet_out
+
+	 
+	control_center
+
+		
+		internet_in
+
+	 
+
+	etef_internet_alarm
+
+	etef_gprs_db
+
+	etef_gprs_alarm
+
+	etef_internet_db
+
+

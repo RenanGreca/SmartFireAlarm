@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.ListValue;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -192,6 +193,11 @@ public class ListValueItemProvider extends PropertyExpressionItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getListValue_OwnedListElement(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getListValue_OwnedListElement(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 }

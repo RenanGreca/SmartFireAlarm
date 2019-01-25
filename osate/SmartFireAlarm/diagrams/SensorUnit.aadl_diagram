@@ -94,12 +94,74 @@
         <position x="976.0" y="160.0"/>
         <contentFilters/>
       </element>
+      <element uuid="da140609-f6ba-4ab4-a596-a9587216c762" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>toggle_power</seg>
+        </bo>
+        <position x="966.0" y="411.0"/>
+        <contentFilters/>
+      </element>
       <element uuid="8d8018fb-a621-425d-a92d-371179c613e7">
         <bo>
           <seg>flow_specification</seg>
           <seg>flow_sensor_data</seg>
         </bo>
         <contentFilters/>
+      </element>
+      <element uuid="0fdc1dd0-143e-46ae-847b-f9bc88de73b0">
+        <bo>
+          <seg>mode</seg>
+          <seg>powered_off</seg>
+        </bo>
+        <position x="837.0" y="340.0"/>
+        <size width="133.0" height="35.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="3634072f-9204-4472-b67e-60d1b1786f49">
+        <bo>
+          <seg>mode</seg>
+          <seg>powered_on</seg>
+        </bo>
+        <position x="838.0" y="468.0"/>
+        <size width="132.0" height="55.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="ef6ab29f-0e0f-4204-90ed-2e9ba9f0a91e">
+        <bo>
+          <seg>mode_transition</seg>
+          <seg>&lt;null></seg>
+          <seg>powered_off</seg>
+          <seg>powered_on</seg>
+          <seg>toggle_power</seg>
+        </bo>
+        <bendpoints>
+          <point x="1023.0" y="557.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="e8724ff1-6b1f-4933-94c4-eae9300f8013">
+        <element uuid="68942625-63d3-4c93-b3de-13a614729d88">
+          <bo>
+            <seg>tag</seg>
+            <seg>mtt</seg>
+          </bo>
+          <position x="1.0" y="1.0"/>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>mode_transition</seg>
+          <seg>&lt;null></seg>
+          <seg>powered_on</seg>
+          <seg>powered_off</seg>
+          <seg>toggle_power</seg>
+        </bo>
+        <bendpoints>
+          <point x="907.0" y="561.0"/>
+        </bendpoints>
+        <contentFilters>
+          <filter>modeTransitionTriggerNames</filter>
+        </contentFilters>
       </element>
       <element uuid="9fda117c-83ca-4d2c-a48e-5fa902f1c8be">
         <bo>

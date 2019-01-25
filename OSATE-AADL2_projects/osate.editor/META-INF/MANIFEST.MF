@@ -5,11 +5,12 @@ Bundle-SymbolicName: osate.editor;singleton:=true
 Automatic-Module-Name: osate.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: aadl2.presentation.Aadl2EditorPlugin$Implementation
+Bundle-Activator: instance.presentation.InstanceEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: aadl2.presentation
+Export-Package: aadl2.presentation,
+ instance.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  osate.edit;visibility:=reexport,

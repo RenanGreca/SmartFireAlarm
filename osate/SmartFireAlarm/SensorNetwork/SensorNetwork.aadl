@@ -16,15 +16,15 @@ public
 
 	system implementation SensorNetwork.impl
 		subcomponents
-			sensor_unit: system SensorUnit::SensorUnit.impl;
+			sensor_unit: system SensorUnit::SensorUnit.impl[];
 			comm_device_1: system CommunicationDevice::CommunicationDevice.impl;
 			comm_device_2: system CommunicationDevice::CommunicationDevice.impl;
 			mobile_phone: system MobilePhone::MobilePhone.impl;
 			modem: system Modem::Modem.impl;
 			
 		connections
-			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in { Connection_Pattern => ((All_To_One));};
-			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in { Connection_Pattern => ((All_To_One));};
+			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in;-- { Connection_Pattern => ((All_To_One));};
+			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in;-- { Connection_Pattern => ((All_To_One));};
 			
 			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in;
 			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in;
@@ -34,9 +34,19 @@ public
 			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in;
 			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out;
 			
+			device_to_phone2_conn: port comm_device_2.bluetooth_out -> mobile_phone.sensor_data;
+			device_to_modem_wifi2_conn: port comm_device_2.wifi_out -> modem.wifi_in;
+			device_to_modem_ethernet2_conn: port comm_device_2.ethernet_out -> modem.ethernet_in;
+			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out;
+			
 			modem_to_internet_conn: port modem.internet_out -> internet_out;
+			
+			sensor_power_conn: port mobile_phone.sensor_power_toggle -> sensor_unit.toggle_power;
 		flows
-			etef0: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_bluetooth -> device_to_phone_conn -> mobile_phone.data_flow;
+			flow_gprs: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_gprs -> device_to_internet_gprs_conn -> gprs_out;
+			flow_internet: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_ethernet -> device_to_modem_ethernet_conn -> modem.flow_ethernet -> modem_to_internet_conn -> internet_out;
+			etef_sensor_phone: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_bluetooth -> device_to_phone_conn -> mobile_phone.flow_data;
+			etef_sensor_phone2: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device2_conn -> comm_device_2.flow_bluetooth -> device_to_phone2_conn -> mobile_phone.flow_data;
 	end SensorNetwork.impl;
 	
 end SensorNetwork;

@@ -5,6 +5,8 @@ package aadl2.impl;
 import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 
+import instance.InstancePackage;
+import instance.impl.InstancePackageImpl;
 import java.io.IOException;
 
 import java.net.URL;
@@ -1983,8 +1985,18 @@ public class Aadl2PackageImpl extends EPackageImpl implements Aadl2Package {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InstancePackage.eNS_URI);
+		InstancePackageImpl theInstancePackage = (InstancePackageImpl)(registeredPackage instanceof InstancePackageImpl ? registeredPackage : InstancePackage.eINSTANCE);
+
 		// Load packages
 		theAadl2Package.loadPackage();
+
+		// Create package meta-data objects
+		theInstancePackage.createPackageContents();
+
+		// Initialize created meta-data
+		theInstancePackage.initializePackageContents();
 
 		// Fix loaded packages
 		theAadl2Package.fixPackageContents();

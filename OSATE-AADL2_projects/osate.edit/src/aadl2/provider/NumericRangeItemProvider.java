@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.NumericRange;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -197,6 +198,11 @@ public class NumericRangeItemProvider extends ElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(Aadl2Package.eINSTANCE.getNumericRange_UpperBound(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(Aadl2Package.eINSTANCE.getNumericRange_LowerBound(),
 				 Aadl2Factory.eINSTANCE.createStringLiteral()));
 
@@ -254,6 +260,11 @@ public class NumericRangeItemProvider extends ElementItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getNumericRange_LowerBound(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getNumericRange_LowerBound(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 	/**

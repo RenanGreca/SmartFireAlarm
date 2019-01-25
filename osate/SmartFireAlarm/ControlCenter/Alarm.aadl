@@ -6,10 +6,15 @@ public
 			alert_in: in event port;
 		flows
 			flow_alert: flow sink alert_in;
+		modes
+			not_ringing: initial mode;
+			ringing: mode;
 	end Alarm;
 	
 	system implementation Alarm.impl
-		
+		modes
+			not_ringing -[alert_in]-> ringing;
+			ringing -[alert_in]-> not_ringing;
 	end Alarm.impl;
 	
 end Alarm;

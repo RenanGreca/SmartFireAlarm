@@ -2,6 +2,7 @@
  */
 package aadl2.presentation;
 
+import instance.presentation.InstanceEditorPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -71,14 +72,14 @@ public class Aadl2ActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(Aadl2EditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(InstanceEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					Aadl2EditorPlugin.INSTANCE.log(exception);
+					InstanceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -91,7 +92,7 @@ public class Aadl2ActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(Aadl2EditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(InstanceEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -179,7 +180,7 @@ public class Aadl2ActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(Aadl2EditorPlugin.INSTANCE.getString("_UI_Aadl2Editor_menu"), "aadl2MenuID");
+		IMenuManager submenuManager = new MenuManager(InstanceEditorPlugin.INSTANCE.getString("_UI_Aadl2Editor_menu"), "aadl2MenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -188,12 +189,12 @@ public class Aadl2ActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(Aadl2EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(InstanceEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(Aadl2EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(InstanceEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -384,11 +385,11 @@ public class Aadl2ActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(Aadl2EditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(InstanceEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(Aadl2EditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(InstanceEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

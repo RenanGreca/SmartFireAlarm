@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generate3('http://aadl.info/AADL/2.0/instance')]
+
+
+[template public generateElement(anAnnexInstance : AnnexInstance)]
+
+[/template]

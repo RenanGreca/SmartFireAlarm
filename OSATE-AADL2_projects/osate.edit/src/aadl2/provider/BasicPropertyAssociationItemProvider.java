@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.BasicPropertyAssociation;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -216,6 +217,11 @@ public class BasicPropertyAssociationItemProvider extends ElementItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getBasicPropertyAssociation_OwnedValue(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getBasicPropertyAssociation_OwnedValue(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 }

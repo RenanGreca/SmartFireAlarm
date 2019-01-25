@@ -1,0 +1,11 @@
+package DataTypes
+public
+	with Data_Model;
+	
+	data temperature
+		properties
+			Data_Model::Data_Representation => integer;
+			data_size => 4 bytes;
+	end temperature;	
+	
+end DataTypes;

@@ -157,6 +157,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import aadl2.provider.Aadl2ItemProviderAdapterFactory;
 
+import instance.presentation.InstanceEditorPlugin;
+import instance.provider.InstanceItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -531,7 +533,7 @@ public class Aadl2Editor
 					}
 				}
 				catch (CoreException exception) {
-					Aadl2EditorPlugin.INSTANCE.log(exception);
+					InstanceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -648,7 +650,7 @@ public class Aadl2Editor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					Aadl2EditorPlugin.INSTANCE.log(exception);
+					InstanceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -657,7 +659,7 @@ public class Aadl2Editor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					Aadl2EditorPlugin.INSTANCE.log(exception);
+					InstanceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -700,6 +702,7 @@ public class Aadl2Editor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new InstanceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Aadl2ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1528,7 +1531,7 @@ public class Aadl2Editor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			Aadl2EditorPlugin.INSTANCE.log(exception);
+			InstanceEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1732,7 +1735,7 @@ public class Aadl2Editor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return Aadl2EditorPlugin.INSTANCE.getString(key);
+		return InstanceEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1742,7 +1745,7 @@ public class Aadl2Editor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return Aadl2EditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return InstanceEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

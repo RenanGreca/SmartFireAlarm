@@ -1,0 +1,122 @@
+Latency analysis with preference settings: asynchronous system/major partition frame/worst case as deadline/best case as empty queue
+
+Latency results for end-to-end flow 'sensor_network.etef0' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_1.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_1.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_1.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection comm_device_1.controller.data_aggregation.data_out -> mobile_phone.app.data_in,,0.0ms,no latency,,0.0ms,no latency,
+process sensor_network.mobile_phone.app,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+process sensor_network.mobile_phone.app,1.0ms,1.0ms,specified,2.0ms,2.0ms,deadline,
+Latency Total,1.0ms,12.0ms,,2.0ms,272.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+
+Latency results for end-to-end flow 'sensor_network.etef1' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_2.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_2.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_2.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection comm_device_2.controller.data_aggregation.data_out -> mobile_phone.app.data_in,,0.0ms,no latency,,0.0ms,no latency,
+process sensor_network.mobile_phone.app,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+process sensor_network.mobile_phone.app,1.0ms,1.0ms,specified,2.0ms,2.0ms,deadline,
+Latency Total,1.0ms,12.0ms,,2.0ms,272.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+
+Latency results for end-to-end flow 'etef_gprs_db' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_1.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_1.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_1.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection sensor_network.comm_device_1.controller.data_aggregation.data_out -> communication_network.cell_tower.gprs_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.cell_tower,,0.0ms,no latency,,0.0ms,no latency,
+connection cell_tower.internet_out -> backbone.internet_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.backbone,,0.0ms,no latency,,0.0ms,no latency,
+connection communication_network.backbone.internet_out -> control_center.database.data_in,,0.0ms,no latency,,0.0ms,no latency,
+system control_center.database,,0.0ms,no latency,,0.0ms,no latency,
+Latency Total,0.0ms,11.0ms,,0.0ms,170.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+
+Latency results for end-to-end flow 'etef_gprs_alarm' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_1.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_1.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_1.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection sensor_network.comm_device_1.controller.data_aggregation.data_out -> communication_network.cell_tower.gprs_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.cell_tower,,0.0ms,no latency,,0.0ms,no latency,
+connection cell_tower.internet_out -> backbone.internet_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.backbone,,0.0ms,no latency,,0.0ms,no latency,
+connection communication_network.backbone.internet_out -> control_center.alarm.alert_in,,0.0ms,no latency,,0.0ms,no latency,
+system control_center.alarm,,0.0ms,no latency,,0.0ms,no latency,
+Latency Total,0.0ms,11.0ms,,0.0ms,170.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+
+Latency results for end-to-end flow 'etef_internet_db' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_1.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_1.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_1.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection comm_device_1.controller.data_aggregation.data_out -> modem.ethernet_in,,0.0ms,no latency,,0.0ms,no latency,
+system sensor_network.modem,,0.0ms,no latency,,0.0ms,no latency,
+connection sensor_network.modem.internet_out -> communication_network.backbone.internet_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.backbone,,0.0ms,no latency,,0.0ms,no latency,
+connection communication_network.backbone.internet_out -> control_center.database.data_in,,0.0ms,no latency,,0.0ms,no latency,
+system control_center.database,,0.0ms,no latency,,0.0ms,no latency,
+Latency Total,0.0ms,11.0ms,,0.0ms,170.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+
+Latency results for end-to-end flow 'etef_internet_alarm' of system 'SmartFireAlarm.impl' in mode som_0,
+
+Result,Min Specified,Min Actual,Min Method,Max Specified,Max Actual,Max Method,Comments,
+thread sensor_network.sensor_unit.controller.data_aggregation,,0.0ms,first sampling,,0.0ms,first sampling,
+thread sensor_network.sensor_unit.controller.data_aggregation,,10.0ms,processing time,,60.0ms,deadline,
+connection sensor_unit.controller.data_aggregation.data_out -> comm_device_1.controller.data_aggregation.sensor_in,,0.0ms,no latency,,0.0ms,no latency,
+thread sensor_network.comm_device_1.controller.data_aggregation,,0.0ms,sampling,,100.0ms,sampling,Best case 0 ms worst case 100.0ms (period) sampling delay,
+thread sensor_network.comm_device_1.controller.data_aggregation,,1.0ms,processing time,,10.0ms,processing time,Using execution time as deadline was not set,
+connection comm_device_1.controller.data_aggregation.data_out -> modem.ethernet_in,,0.0ms,no latency,,0.0ms,no latency,
+system sensor_network.modem,,0.0ms,no latency,,0.0ms,no latency,
+connection sensor_network.modem.internet_out -> communication_network.backbone.internet_in,,0.0ms,no latency,,0.0ms,no latency,
+system communication_network.backbone,,0.0ms,no latency,,0.0ms,no latency,
+connection communication_network.backbone.internet_out -> control_center.alarm.alert_in,,0.0ms,no latency,,0.0ms,no latency,
+system control_center.alarm,,0.0ms,no latency,,0.0ms,no latency,
+Latency Total,0.0ms,11.0ms,,0.0ms,170.0ms,,
+Specified End To End Latency,,0.0ms,,,0.0ms,,
+End to end Latency Summary,
+WARNING,Expected end to end latency is not specified,
+
+
+

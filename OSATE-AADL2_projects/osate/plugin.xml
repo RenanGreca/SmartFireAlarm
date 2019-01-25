@@ -7,6 +7,14 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated instance -->
+      <package
+            uri="http://aadl.info/AADL/2.0/instance"
+            class="instance.InstancePackage"
+            genModel="model/instance.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated aadl2 -->
       <package
             uri="http://aadl.info/AADL/2.0"

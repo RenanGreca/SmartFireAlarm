@@ -7,6 +7,34 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated instance -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="instance.presentation.InstanceModelWizardID"
+            name="%_UI_InstanceModelWizard_label"
+            class="instance.presentation.InstanceModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InstanceModelFile.gif">
+         <description>%_UI_InstanceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated instance -->
+      <editor
+            id="instance.presentation.InstanceEditorID"
+            name="%_UI_InstanceEditor_label"
+            icon="icons/full/obj16/InstanceModelFile.gif"
+            extensions="instance"
+            class="instance.presentation.InstanceEditor"
+            contributorClass="instance.presentation.InstanceActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
       <!-- @generated aadl2 -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"

@@ -3,6 +3,7 @@
 package aadl2.provider;
 
 
+import instance.provider.InstanceEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -103,7 +104,7 @@ public class CallContextItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Aadl2EditPlugin.INSTANCE;
+		return InstanceEditPlugin.INSTANCE;
 	}
 
 }

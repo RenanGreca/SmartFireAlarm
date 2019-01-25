@@ -10,7 +10,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: aadl2,
  aadl2.impl,
- aadl2.util
+ aadl2.util,
+ instance,
+ instance.impl,
+ instance.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport

@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.PropertyConstant;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -299,6 +300,11 @@ public class PropertyConstantItemProvider extends TypedElementItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getPropertyConstant_ConstantValue(),
 				 Aadl2Factory.eINSTANCE.createNamedValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getPropertyConstant_ConstantValue(),
+				 InstanceFactory.eINSTANCE.createInstanceReferenceValue()));
 	}
 
 }

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="ASCII"?>
+<instance:SystemInstance xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance" name="SmartFireAlarm_impl_Instance" category="system">
+  <componentInstance name="sensor_network" category="system">
+    <featureInstance name="gprs_out" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="internet_out" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+    </featureInstance>
+    <componentInstance name="comm_device_1" category="system">
+      <featureInstance name="zigbee_in">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="bluetooth_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+      </featureInstance>
+      <featureInstance name="wifi_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+      </featureInstance>
+      <featureInstance name="ethernet_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="gprs_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.4"/>
+      </featureInstance>
+      <featureInstance name="intercom_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="intercom_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.1"/>
+      </featureInstance>
+      <componentInstance name="controller" category="process">
+        <featureInstance name="sensor_data">
+          <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="processed_data" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+        </featureInstance>
+        <featureInstance name="trigger_alarm" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+        </featureInstance>
+        <componentInstance name="data_aggregation" category="thread">
+          <featureInstance name="sensor_in">
+            <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          </featureInstance>
+          <featureInstance name="data_out" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          </featureInstance>
+          <flowSpecification name="flow_path" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+            <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+          </flowSpecification>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedThreadSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadType" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.data_aggregator"/>
+        </componentInstance>
+        <flowSpecification name="flow_path" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+          <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.control.sensor_data"/>
+      </componentInstance>
+      <flowSpecification name="flow_bluetooth" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="flow_wifi" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <flowSpecification name="flow_ethernet" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.3">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.2"/>
+      </flowSpecification>
+      <flowSpecification name="flow_gprs" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.4">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.3"/>
+      </flowSpecification>
+      <flowSpecification name="flow_zigbee_intercom" source="//@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.6">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.4"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_bluetooth" source="//@componentInstance.0/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.5"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_wifi" source="//@componentInstance.0/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.6"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_ethernet" source="//@componentInstance.0/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.3">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.7"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_gprs" source="//@componentInstance.0/@componentInstance.0/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.4">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.8"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.CommunicationDevice.impl"/>
+    </componentInstance>
+    <componentInstance name="comm_device_2" category="system">
+      <featureInstance name="zigbee_in">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="bluetooth_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.1"/>
+      </featureInstance>
+      <featureInstance name="wifi_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.2"/>
+      </featureInstance>
+      <featureInstance name="ethernet_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.3"/>
+      </featureInstance>
+      <featureInstance name="gprs_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedDataPort.4"/>
+      </featureInstance>
+      <featureInstance name="intercom_in" category="eventDataPort">
+        <feature xsi:type="aadl2:EventDataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="intercom_out" category="eventDataPort" direction="out">
+        <feature xsi:type="aadl2:EventDataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedEventDataPort.1"/>
+      </featureInstance>
+      <componentInstance name="controller" category="process">
+        <featureInstance name="sensor_data">
+          <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="processed_data" direction="out">
+          <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDataPort.1"/>
+        </featureInstance>
+        <featureInstance name="trigger_alarm" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
+        </featureInstance>
+        <componentInstance name="data_aggregation" category="thread">
+          <featureInstance name="sensor_in">
+            <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+          </featureInstance>
+          <featureInstance name="data_out" direction="out">
+            <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+          </featureInstance>
+          <flowSpecification name="flow_path" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+            <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+          </flowSpecification>
+          <subcomponent xsi:type="aadl2:ThreadSubcomponent" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedThreadSubcomponent.0"/>
+          <index>0</index>
+          <classifier xsi:type="aadl2:ThreadType" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.data_aggregator"/>
+        </componentInstance>
+        <flowSpecification name="flow_path" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+          <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.control.sensor_data"/>
+      </componentInstance>
+      <flowSpecification name="flow_bluetooth" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="flow_wifi" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <flowSpecification name="flow_ethernet" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.3">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.2"/>
+      </flowSpecification>
+      <flowSpecification name="flow_gprs" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.4">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.3"/>
+      </flowSpecification>
+      <flowSpecification name="flow_zigbee_intercom" source="//@componentInstance.0/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.6">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.4"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_bluetooth" source="//@componentInstance.0/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.5"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_wifi" source="//@componentInstance.0/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.6"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_ethernet" source="//@componentInstance.0/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.3">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.7"/>
+      </flowSpecification>
+      <flowSpecification name="flow_intercom_gprs" source="//@componentInstance.0/@componentInstance.1/@featureInstance.5" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.4">
+        <flowSpecification href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedFlowSpecification.8"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../SensorNetwork/CommunicationDevice.aadl#CommunicationDevice.CommunicationDevice.impl"/>
+    </componentInstance>
+    <componentInstance name="mobile_phone" category="system">
+      <featureInstance name="sensor_data">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="sensor_power_toggle" category="eventPort" direction="out">
+        <feature xsi:type="aadl2:EventPort" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedEventPort.0"/>
+      </featureInstance>
+      <componentInstance name="app" category="process">
+        <featureInstance name="data_in">
+          <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+        </featureInstance>
+        <featureInstance name="sensor_power_toggle" category="eventPort" direction="out">
+          <feature xsi:type="aadl2:EventPort" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+        </featureInstance>
+        <flowSpecification name="flow_data" source="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+          <flowSpecification href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+        </flowSpecification>
+        <subcomponent xsi:type="aadl2:ProcessSubcomponent" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedProcessSubcomponent.0"/>
+        <index>0</index>
+        <classifier xsi:type="aadl2:ProcessImplementation" href="../SensorNetwork/MobilePhone.aadl#MobilePhone.MobileApp.impl"/>
+      </componentInstance>
+      <flowSpecification name="flow_data" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+        <flowSpecification href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.3"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../SensorNetwork/MobilePhone.aadl#MobilePhone.MobilePhone.impl"/>
+    </componentInstance>
+    <componentInstance name="modem" category="system">
+      <featureInstance name="wifi_in">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/Modem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="ethernet_in">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/Modem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      </featureInstance>
+      <featureInstance name="internet_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../SensorNetwork/Modem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+      </featureInstance>
+      <flowSpecification name="flow_wifi" source="//@componentInstance.0/@componentInstance.3/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/Modem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <flowSpecification name="flow_ethernet" source="//@componentInstance.0/@componentInstance.3/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.2">
+        <flowSpecification href="../SensorNetwork/Modem.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.4"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../SensorNetwork/Modem.aadl#Modem.Modem.impl"/>
+    </componentInstance>
+    <flowSpecification name="flow_gprs" destination="//@componentInstance.0/@featureInstance.0">
+      <flowSpecification href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="flow_internet" destination="//@componentInstance.0/@featureInstance.1">
+      <flowSpecification href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <connectionInstance name="comm_device_1.intercom_out -> comm_device_2.intercom_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.5" source="//@componentInstance.0/@componentInstance.0/@featureInstance.6">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.6" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_1.controller.data_aggregation.data_out -> mobile_phone.app.data_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.4"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_1.controller.data_aggregation.data_out -> modem.wifi_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.2" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.5"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_1.controller.data_aggregation.data_out -> modem.ethernet_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.1" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.3" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.6"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_2.intercom_out -> comm_device_1.intercom_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.5" source="//@componentInstance.0/@componentInstance.1/@featureInstance.6">
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.6" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.5">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_2.controller.data_aggregation.data_out -> mobile_phone.app.data_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.1/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.1" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.2/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.2" source="//@componentInstance.0/@componentInstance.2/@featureInstance.0" destination="//@componentInstance.0/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/MobilePhone.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedPortConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_2.controller.data_aggregation.data_out -> modem.wifi_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.1/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.1" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.2">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.2"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.2" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.0">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="comm_device_2.controller.data_aggregation.data_out -> modem.ethernet_in" complete="true" kind="portConnection" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.1" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connectionReference context="//@componentInstance.0/@componentInstance.1/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0/@componentInstance.1" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.3">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.3"/>
+      </connectionReference>
+      <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.3" destination="//@componentInstance.0/@componentInstance.3/@featureInstance.1">
+        <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
+      </connectionReference>
+    </connectionInstance>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="../SensorNetwork/SensorNetwork.aadl#SensorNetwork.SensorNetwork.impl"/>
+  </componentInstance>
+  <componentInstance name="communication_network" category="system">
+    <featureInstance name="gprs_in">
+      <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+    </featureInstance>
+    <featureInstance name="internet_in">
+      <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+    </featureInstance>
+    <featureInstance name="internet_out" direction="out">
+      <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.2"/>
+    </featureInstance>
+    <componentInstance name="cell_tower" category="system">
+      <featureInstance name="gprs_in">
+        <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/CellTower.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="internet_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/CellTower.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      </featureInstance>
+      <flowSpecification name="flow_internet" source="//@componentInstance.1/@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.1">
+        <flowSpecification href="../CommunicationNetwork/CellTower.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../CommunicationNetwork/CellTower.aadl#CellTower.CellTower.impl"/>
+    </componentInstance>
+    <componentInstance name="backbone" category="system">
+      <featureInstance name="internet_in">
+        <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/Backbone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </featureInstance>
+      <featureInstance name="internet_out" direction="out">
+        <feature xsi:type="aadl2:DataPort" href="../CommunicationNetwork/Backbone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.1"/>
+      </featureInstance>
+      <flowSpecification name="flow_internet" source="//@componentInstance.1/@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.1/@featureInstance.1">
+        <flowSpecification href="../CommunicationNetwork/Backbone.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../CommunicationNetwork/Backbone.aadl#Backbone.Backbone.impl"/>
+    </componentInstance>
+    <flowSpecification name="flow_gprs" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.2">
+      <flowSpecification href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="flow_internet" source="//@componentInstance.1/@featureInstance.1" destination="//@componentInstance.1/@featureInstance.2">
+      <flowSpecification href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="../CommunicationNetwork/CommunicationNetwork.aadl#CommunicationNetwork.CommunicationNetwork.impl"/>
+  </componentInstance>
+  <componentInstance name="control_center" category="system">
+    <featureInstance name="internet_in" category="eventDataPort">
+      <feature xsi:type="aadl2:EventDataPort" href="../ControlCenter/ControlCenter.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventDataPort.0"/>
+    </featureInstance>
+    <componentInstance name="database" category="system">
+      <featureInstance name="data_in">
+        <feature xsi:type="aadl2:DataPort" href="../ControlCenter/Database.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedDataPort.0"/>
+      </featureInstance>
+      <flowSpecification name="flow_data" source="//@componentInstance.2/@componentInstance.0/@featureInstance.0">
+        <flowSpecification href="../ControlCenter/Database.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../ControlCenter/ControlCenter.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../ControlCenter/Database.aadl#Database.Database.impl"/>
+    </componentInstance>
+    <componentInstance name="alarm" category="system">
+      <featureInstance name="alert_in" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
+      </featureInstance>
+      <flowSpecification name="flow_alert" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
+        <flowSpecification href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+      </flowSpecification>
+      <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../ControlCenter/ControlCenter.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.1"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:SystemImplementation" href="../ControlCenter/Alarm.aadl#Alarm.Alarm.impl"/>
+    </componentInstance>
+    <flowSpecification name="flow_database" source="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="../ControlCenter/ControlCenter.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
+    </flowSpecification>
+    <flowSpecification name="flow_alarm" source="//@componentInstance.2/@featureInstance.0">
+      <flowSpecification href="../ControlCenter/ControlCenter.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.1"/>
+    </flowSpecification>
+    <subcomponent xsi:type="aadl2:SystemSubcomponent" href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedSystemSubcomponent.2"/>
+    <index>0</index>
+    <classifier xsi:type="aadl2:SystemImplementation" href="../ControlCenter/ControlCenter.aadl#ControlCenter.ControlCenter.impl"/>
+  </componentInstance>
+  <connectionInstance name="sensor_network.comm_device_1.controller.data_aggregation.data_out -> communication_network.cell_tower.gprs_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.0/@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0/@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.0/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.0/@featureInstance.4" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.7"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <connectionInstance name="sensor_network.comm_device_2.controller.data_aggregation.data_out -> communication_network.cell_tower.gprs_in" complete="true" kind="portConnection" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1">
+    <connectionReference context="//@componentInstance.0/@componentInstance.1/@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0/@componentInstance.1" source="//@componentInstance.0/@componentInstance.1/@componentInstance.0/@featureInstance.1" destination="//@componentInstance.0/@componentInstance.1/@featureInstance.4">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/CommunicationDevice.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPortConnection.4"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.0" source="//@componentInstance.0/@componentInstance.1/@featureInstance.4" destination="//@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../SensorNetwork/SensorNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
+    </connectionReference>
+    <connectionReference context="/" source="//@componentInstance.0/@featureInstance.0" destination="//@componentInstance.1/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../SmartFireAlarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+    <connectionReference context="//@componentInstance.1" source="//@componentInstance.1/@featureInstance.0" destination="//@componentInstance.1/@componentInstance.0/@featureInstance.0">
+      <connection xsi:type="aadl2:PortConnection" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
+    </connectionReference>
+  </connectionInstance>
+  <systemOperationMode name="No Modes"/>
+  <componentImplementation xsi:type="aadl2:SystemImplementation" href="../SmartFireAlarm.aadl#SmartFireAlarm.SmartFireAlarm.impl"/>
+</instance:SystemInstance>

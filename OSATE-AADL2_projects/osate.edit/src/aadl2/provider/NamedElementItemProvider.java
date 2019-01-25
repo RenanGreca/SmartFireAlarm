@@ -7,6 +7,7 @@ import aadl2.Aadl2Factory;
 import aadl2.Aadl2Package;
 import aadl2.NamedElement;
 
+import instance.InstanceFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -181,6 +182,11 @@ public class NamedElementItemProvider extends ElementItemProvider {
 			(createChildParameter
 				(Aadl2Package.eINSTANCE.getNamedElement_OwnedPropertyAssociation(),
 				 Aadl2Factory.eINSTANCE.createPropertyAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Aadl2Package.eINSTANCE.getNamedElement_OwnedPropertyAssociation(),
+				 InstanceFactory.eINSTANCE.createPropertyAssociationInstance()));
 	}
 
 }

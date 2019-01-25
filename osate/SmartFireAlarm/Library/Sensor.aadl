@@ -6,7 +6,7 @@ public
 
 	device sensor
 		features
-			sensor_data: out data port DataTypes::temperature;
+			sensor_data: out data port DataTypes::sensor_data;
 		flows
 			data_flow: flow source sensor_data {latency => 1ms .. 2ms;};
 		properties

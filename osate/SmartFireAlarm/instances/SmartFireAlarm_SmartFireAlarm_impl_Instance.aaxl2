@@ -382,6 +382,18 @@
       <featureInstance name="alert_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedEventPort.0"/>
       </featureInstance>
+      <modeInstance name="not_ringing" initial="true">
+        <mode href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.0"/>
+      </modeInstance>
+      <modeInstance name="ringing">
+        <mode href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedMode.1"/>
+      </modeInstance>
+      <modeTransitionInstance name="not_ringing.alert_in.ringing" destination="//@componentInstance.2/@componentInstance.1/@modeInstance.1" trigger="//@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@modeInstance.0">
+        <modeTransition href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.0"/>
+      </modeTransitionInstance>
+      <modeTransitionInstance name="ringing.alert_in.not_ringing" destination="//@componentInstance.2/@componentInstance.1/@modeInstance.0" trigger="//@componentInstance.2/@componentInstance.1/@featureInstance.0" source="//@componentInstance.2/@componentInstance.1/@modeInstance.1">
+        <modeTransition href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedModeTransition.1"/>
+      </modeTransitionInstance>
       <flowSpecification name="flow_alert" source="//@componentInstance.2/@componentInstance.1/@featureInstance.0">
         <flowSpecification href="../ControlCenter/Alarm.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedFlowSpecification.0"/>
       </flowSpecification>
@@ -433,6 +445,7 @@
       <connection xsi:type="aadl2:PortConnection" href="../CommunicationNetwork/CommunicationNetwork.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.1"/>
     </connectionReference>
   </connectionInstance>
-  <systemOperationMode name="No Modes"/>
+  <systemOperationMode name="som_0" currentMode="//@componentInstance.2/@componentInstance.1/@modeInstance.0"/>
+  <systemOperationMode name="som_1" currentMode="//@componentInstance.2/@componentInstance.1/@modeInstance.1"/>
   <componentImplementation xsi:type="aadl2:SystemImplementation" href="../SmartFireAlarm.aadl#SmartFireAlarm.SmartFireAlarm.impl"/>
 </instance:SystemInstance>

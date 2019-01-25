@@ -4,11 +4,12 @@ public
 	with CommunicationDevice;
 	with MobilePhone;
 	with Modem;
+	with DataTypes;
 
 	system SensorNetwork
 		features
-			gprs_out: out data port;
-			internet_out: out data port;
+			gprs_out: out data port DataTypes::aggregated_sensor_data;
+			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_gprs: flow source gprs_out;
 			flow_internet: flow source internet_out;
@@ -21,23 +22,24 @@ public
 			comm_device_2: system CommunicationDevice::CommunicationDevice.impl;
 			mobile_phone: system MobilePhone::MobilePhone.impl;
 			modem: system Modem::Modem.impl;
-			
 		connections
-			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in;-- { Connection_Pattern => ((All_To_One));};
-			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in;-- { Connection_Pattern => ((All_To_One));};
+			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in;
+			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in;
 			
 			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in;
 			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in;
-
+			
 			device_to_phone_conn: port comm_device_1.bluetooth_out -> mobile_phone.sensor_data;
 			device_to_modem_wifi_conn: port comm_device_1.wifi_out -> modem.wifi_in;
 			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in;
 			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out;
+			device_to_phone_alarm_conn: port comm_device_1.alarm_out -> mobile_phone.alarm_toggle;
 			
 			device_to_phone2_conn: port comm_device_2.bluetooth_out -> mobile_phone.sensor_data;
 			device_to_modem_wifi2_conn: port comm_device_2.wifi_out -> modem.wifi_in;
 			device_to_modem_ethernet2_conn: port comm_device_2.ethernet_out -> modem.ethernet_in;
 			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out;
+			device_to_phone_alarm2_conn: port comm_device_2.alarm_out -> mobile_phone.alarm_toggle;
 			
 			modem_to_internet_conn: port modem.internet_out -> internet_out;
 			
@@ -47,6 +49,8 @@ public
 			flow_internet: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_ethernet -> device_to_modem_ethernet_conn -> modem.flow_ethernet -> modem_to_internet_conn -> internet_out;
 			etef_sensor_phone: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_bluetooth -> device_to_phone_conn -> mobile_phone.flow_data;
 			etef_sensor_phone2: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device2_conn -> comm_device_2.flow_bluetooth -> device_to_phone2_conn -> mobile_phone.flow_data;
+			etef_sensor_alarm_phone: end to end flow comm_device_1.flow_alarm -> device_to_phone_alarm_conn -> mobile_phone.flow_alarm;
+			etef_sensor_alarm2_phone: end to end flow comm_device_2.flow_alarm -> device_to_phone_alarm2_conn -> mobile_phone.flow_alarm;
 	end SensorNetwork.impl;
 	
 end SensorNetwork;

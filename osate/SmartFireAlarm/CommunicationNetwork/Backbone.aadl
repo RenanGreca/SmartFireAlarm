@@ -1,16 +1,16 @@
 package Backbone
 public
-	
+	with DataTypes;
+
 	system Backbone
-		features 
-			internet_in: in data port;
-			internet_out: out data port;
+		features
+			internet_in: in data port DataTypes::aggregated_sensor_data;
+			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_internet: flow path internet_in -> internet_out;
 	end Backbone;
-	
+
 	system implementation Backbone.impl
-		
 	end Backbone.impl;
 	
 end Backbone;

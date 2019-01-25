@@ -1,16 +1,18 @@
 package SensorUnit
 public
 	with Sensor;
-	
+
+	with DataTypes;
+
 	-- software thread that combines sensor data.
 	thread data_aggregator
 		features
-			temp_in: in data port;
-			hum_in: in data port;
-			co_in: in data port;
-			co2_in: in data port;
-			gps_in: in data port;
-			data_out: out data port;
+			temp_in: in data port DataTypes::sensor_data;
+			hum_in: in data port DataTypes::sensor_data;
+			co_in: in data port DataTypes::sensor_data;
+			co2_in: in data port DataTypes::sensor_data;
+			gps_in: in data port DataTypes::sensor_data;
+			data_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_temp: flow path temp_in -> data_out;
 			flow_hum: flow path hum_in -> data_out;
@@ -19,52 +21,51 @@ public
 			flow_gps: flow path gps_in -> data_out;
 		properties
 			Dispatch_Protocol => Periodic;
-			Period => 100 ms;
-			Deadline => 60 ms;
-			Compute_Execution_Time => 10 ms .. 50 ms;
+			Period => 100ms;
+			Deadline => 60ms;
+			Compute_Execution_Time => 10ms .. 50ms;
 	end data_aggregator;
 
 	process control
 		features
-			temp_data: in data port;
-			hum_data: in data port;
-			co_data: in data port;
-			co2_data: in data port;
-			gps_data: in data port;
-			aggregated_data: out data port;
+			temp_in: in data port DataTypes::sensor_data;
+			hum_in: in data port DataTypes::sensor_data;
+			co_in: in data port DataTypes::sensor_data;
+			co2_in: in data port DataTypes::sensor_data;
+			gps_in: in data port DataTypes::sensor_data;
+			data_out: out data port DataTypes::aggregated_sensor_data;
 		flows
-			flow_temp: flow path temp_data -> aggregated_data {latency => 1 ms .. 2 ms;};
-			flow_hum: flow path hum_data -> aggregated_data {latency => 1 ms .. 2 ms;}; 
-			flow_co: flow path co_data -> aggregated_data {latency => 1 ms .. 2 ms;};
-			flow_co2: flow path co2_data -> aggregated_data {latency => 1 ms .. 2 ms;};
-			flow_gps: flow path gps_data -> aggregated_data {latency => 1 ms .. 2 ms;};
-			flow_aggregated: flow source aggregated_data;
+			flow_temp: flow path temp_in -> data_out {latency => 1ms .. 2ms;};
+			flow_hum: flow path hum_in -> data_out {latency => 1ms .. 2ms;};
+			flow_co: flow path co_in -> data_out {latency => 1ms .. 2ms;};
+			flow_co2: flow path co2_in -> data_out {latency => 1ms .. 2ms;};
+			flow_gps: flow path gps_in -> data_out {latency => 1ms .. 2ms;};
+			flow_aggregated: flow source data_out;
 	end control;
 
 	process implementation control.sensor_data
 		subcomponents
 			data_aggregation: thread data_aggregator;
 		connections
-			temp_sensor_conn: port temp_data -> data_aggregation.temp_in;
-			hum_sensor_conn: port hum_data -> data_aggregation.hum_in;
-			co_sensor_conn: port co_data -> data_aggregation.co_in;
-			co2_sensor_conn: port co2_data -> data_aggregation.co2_in;
-			gps_sensor_conn: port gps_data -> data_aggregation.gps_in;
-			data_out_conn: port data_aggregation.data_out -> aggregated_data;
+			temp_sensor_conn: port temp_in -> data_aggregation.temp_in;
+			hum_sensor_conn: port hum_in -> data_aggregation.hum_in;
+			co_sensor_conn: port co_in -> data_aggregation.co_in;
+			co2_sensor_conn: port co2_in -> data_aggregation.co2_in;
+			gps_sensor_conn: port gps_in -> data_aggregation.gps_in;
+			data_out_conn: port data_aggregation.data_out -> data_out;
 		flows
-			flow_temp: flow path temp_data -> temp_sensor_conn -> data_aggregation.flow_temp -> data_out_conn -> aggregated_data;
-			flow_hum: flow path hum_data -> hum_sensor_conn -> data_aggregation.flow_hum -> data_out_conn -> aggregated_data;
-			flow_co: flow path co_data -> co_sensor_conn -> data_aggregation.flow_co -> data_out_conn -> aggregated_data;
-			flow_co2: flow path co2_data -> co2_sensor_conn -> data_aggregation.flow_co2 -> data_out_conn -> aggregated_data;
-			flow_gps: flow path gps_data -> gps_sensor_conn -> data_aggregation.flow_gps -> data_out_conn -> aggregated_data;
-			flow_aggregated: flow source data_aggregation.flow_co2 -> data_out_conn -> aggregated_data;
+			flow_temp: flow path temp_in -> temp_sensor_conn -> data_aggregation.flow_temp -> data_out_conn -> data_out;
+			flow_hum: flow path hum_in -> hum_sensor_conn -> data_aggregation.flow_hum -> data_out_conn -> data_out;
+			flow_co: flow path co_in -> co_sensor_conn -> data_aggregation.flow_co -> data_out_conn -> data_out;
+			flow_co2: flow path co2_in -> co2_sensor_conn -> data_aggregation.flow_co2 -> data_out_conn -> data_out;
+			flow_gps: flow path gps_in -> gps_sensor_conn -> data_aggregation.flow_gps -> data_out_conn -> data_out;
+			flow_aggregated: flow source data_aggregation.flow_co2 -> data_out_conn -> data_out;
 	end control.sensor_data;
 
 	system SensorUnit
 		features
-			output_data: out data port;
+			output_data: out data port DataTypes::aggregated_sensor_data;
 			toggle_power: in event port;
---			zigbee_interface: requires bus access NetworkBus::network.zigbee;
 		flows
 			flow_sensor_data: flow source output_data;
 			flow_toggle_power: flow sink toggle_power;
@@ -86,31 +87,25 @@ public
 			co2_sensor: device Sensor::sensor.co2;
 			gps_sensor: device Sensor::sensor.gps;
 			controller: process control.sensor_data;
---			dumb_device: device dummy.receiver;
---			network_interface: bus NetworkBus::network.zigbee;
 		connections
-			temp_conn: port temp_sensor.sensor_data -> controller.temp_data;
-			hum_conn: port hum_sensor.sensor_data -> controller.hum_data;
-			co_conn: port co_sensor.sensor_data -> controller.co_data;
-			co2_conn: port co2_sensor.sensor_data -> controller.co2_data;
-			gps_conn: port gps_sensor.sensor_data -> controller.gps_data;
-			
-			data_conn: port controller.aggregated_data -> output_data;
-			
---			zigbee_conn: feature controller.aggregated_data -> zigbee_interface;
+			temp_conn: port temp_sensor.sensor_data -> controller.temp_in;
+			hum_conn: port hum_sensor.sensor_data -> controller.hum_in;
+			co_conn: port co_sensor.sensor_data -> controller.co_in;
+			co2_conn: port co2_sensor.sensor_data -> controller.co2_in;
+			gps_conn: port gps_sensor.sensor_data -> controller.gps_in;
+			data_conn: port controller.data_out -> output_data;
 		flows
 			flow_sensor_data: flow source controller.flow_aggregated -> data_conn -> output_data;
 			flow_temp: flow source temp_sensor.data_flow -> temp_conn -> controller.flow_temp -> data_conn -> output_data;
 			flow_hum: flow source hum_sensor.data_flow -> hum_conn -> controller.flow_hum -> data_conn -> output_data;
 			flow_co: flow source co_sensor.data_flow -> co_conn -> controller.flow_co -> data_conn -> output_data;
 			flow_co2: flow source co2_sensor.data_flow -> co2_conn -> controller.flow_co2 -> data_conn -> output_data;
-			flow_gps: flow source gps_sensor.data_flow -> gps_conn -> controller.flow_gps -> data_conn -> output_data;		
+			flow_gps: flow source gps_sensor.data_flow -> gps_conn -> controller.flow_gps -> data_conn -> output_data;
 		modes
 			powered_on -[toggle_power]-> powered_off;
 			powered_off -[toggle_power]-> powered_on;
 		properties
 			Allowed_Connection_Binding => ();
---			latency => 20 ms .. 30 ms applies to etef0, etef1;		
 	end SensorUnit.impl;
 	
 end SensorUnit;

@@ -1,18 +1,18 @@
 package Modem
 public
-	
+	with DataTypes;
+
 	system Modem
 		features
-			wifi_in: in data port;
-			ethernet_in: in data port;
-			internet_out: out data port;
+			wifi_in: in data port DataTypes::aggregated_sensor_data;
+			ethernet_in: in data port DataTypes::aggregated_sensor_data;
+			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_wifi: flow path wifi_in -> internet_out;
 			flow_ethernet: flow path ethernet_in -> internet_out;
 	end Modem;
-	
+
 	system implementation Modem.impl
-			
 	end Modem.impl;
 	
 end Modem;

@@ -1,10 +1,11 @@
 package CellTower
 public
+	with DataTypes;
 	
 	system CellTower
 		features
-			gprs_in: in data port;
-			internet_out: out data port;
+			gprs_in: in data port DataTypes::aggregated_sensor_data;
+			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_internet: flow path gprs_in -> internet_out;
 	end CellTower;

@@ -1,37 +1,46 @@
 package MobilePhone
 public
-		
+	with DataTypes;
+
 	process MobileApp
 		features
-			data_in: in data port;
+			data_in: in data port DataTypes::aggregated_sensor_data;
 			sensor_power_toggle: out event port;
+			alarm_toggle: in event port;
 		flows
-			flow_data: flow sink data_in {latency => 1 ms .. 2 ms;};
-			
+			flow_data: flow sink data_in {latency => 1ms .. 2ms;};
+			flow_power: flow source sensor_power_toggle {latency => 1ms .. 2ms;};
+			flow_alarm: flow sink alarm_toggle {latency => 1ms .. 2ms;};
 		properties
-			period => 100 ms;
-			deadline => 2 ms;
+			period => 100ms;
+			deadline => 2ms;
 	end MobileApp;
-	
+
 	process implementation MobileApp.impl
 	end MobileApp.impl;
 
 	system MobilePhone
 		features
-			sensor_data: in data port;
+			sensor_data: in data port DataTypes::aggregated_sensor_data;
 			sensor_power_toggle: out event port;
---			bluetooth_interface: requires bus access NetworkBus::network.bluetooth;
+			alarm_toggle: in event port;
 		flows
-			flow_data: flow sink sensor_data;
+			flow_data: flow sink sensor_data {latency => 1ms .. 2ms;};
+			flow_power: flow source sensor_power_toggle {latency => 1ms .. 2ms;};
+			flow_alarm: flow sink alarm_toggle {latency => 1ms .. 2ms;};
 	end MobilePhone;
 
 	system implementation MobilePhone.impl
 		subcomponents
 			app: process MobileApp.impl;
 		connections
-			DC1: port sensor_data -> app.data_in;
+			sensor_data_conn: port sensor_data -> app.data_in;
+			sensor_power_conn: port app.sensor_power_toggle -> sensor_power_toggle;
+			alarm_conn: port alarm_toggle -> app.alarm_toggle;
 		flows
-			flow_data: flow sink sensor_data -> DC1 -> app.flow_data;
+			flow_data: flow sink sensor_data -> sensor_data_conn -> app.flow_data;
+			flow_power: flow source app.flow_power -> sensor_power_conn -> sensor_power_toggle;
+			flow_alarm: flow sink alarm_toggle -> alarm_conn -> app.flow_alarm;
 	end MobilePhone.impl;
 	
 end MobilePhone;

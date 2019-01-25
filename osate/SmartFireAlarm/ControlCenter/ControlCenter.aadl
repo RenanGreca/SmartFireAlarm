@@ -2,10 +2,11 @@ package ControlCenter
 public
 	with Database;
 	with Alarm;
+	with DataTypes;
 
 	system ControlCenter
 		features
-			internet_in: in event data port;
+			internet_in: in event data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_database: flow sink internet_in;
 			flow_alarm: flow sink internet_in;

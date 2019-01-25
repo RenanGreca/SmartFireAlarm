@@ -1,13 +1,14 @@
 package Database
 public
-	
+	with DataTypes;
+
 	system Database
 		features
-			data_in: in data port;
+			data_in: in data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_data: flow sink data_in;
 	end Database;
-	
+
 	system implementation Database.impl
 	end Database.impl;
 	

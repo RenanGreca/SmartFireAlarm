@@ -102,10 +102,52 @@
         <position x="966.0" y="411.0"/>
         <contentFilters/>
       </element>
+      <element uuid="2092141f-b71f-43be-9890-74851a2bd08c">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_co</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="d000f773-8377-4198-8fdd-50fa86fd0232">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_co2</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="ae5d676b-c62e-49e4-bf1c-e3cbee958f4f">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_gps</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="3c7311ab-b84f-46a1-87b7-3129808ff0bc">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_hum</seg>
+        </bo>
+        <contentFilters/>
+      </element>
       <element uuid="8d8018fb-a621-425d-a92d-371179c613e7">
         <bo>
           <seg>flow_specification</seg>
           <seg>flow_sensor_data</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="37b36427-f5f8-401b-8d2f-4ef47b7c00df">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_temp</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="9e974843-689c-46e0-ad8f-f847ddce2853">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_toggle_power</seg>
         </bo>
         <contentFilters/>
       </element>
@@ -127,7 +169,14 @@
         <size width="132.0" height="55.0"/>
         <contentFilters/>
       </element>
-      <element uuid="ef6ab29f-0e0f-4204-90ed-2e9ba9f0a91e">
+      <element uuid="5b431e9b-553e-47ed-b165-863428a0223b">
+        <element uuid="f3468933-d9a7-4237-a3c3-59360a789bcc">
+          <bo>
+            <seg>tag</seg>
+            <seg>mtt</seg>
+          </bo>
+          <contentFilters/>
+        </element>
         <bo>
           <seg>mode_transition</seg>
           <seg>&lt;null></seg>
@@ -135,18 +184,16 @@
           <seg>powered_on</seg>
           <seg>toggle_power</seg>
         </bo>
-        <bendpoints>
-          <point x="1023.0" y="557.0"/>
-        </bendpoints>
-        <contentFilters/>
+        <contentFilters>
+          <filter>modeTransitionTriggerNames</filter>
+        </contentFilters>
       </element>
-      <element uuid="e8724ff1-6b1f-4933-94c4-eae9300f8013">
-        <element uuid="68942625-63d3-4c93-b3de-13a614729d88">
+      <element uuid="74d6b0a1-2f51-4caa-be41-696c7cd96d78">
+        <element uuid="84d08aff-0825-4934-8af0-970ee87103e8">
           <bo>
             <seg>tag</seg>
             <seg>mtt</seg>
           </bo>
-          <position x="1.0" y="1.0"/>
           <contentFilters/>
         </element>
         <bo>
@@ -156,9 +203,6 @@
           <seg>powered_off</seg>
           <seg>toggle_power</seg>
         </bo>
-        <bendpoints>
-          <point x="907.0" y="561.0"/>
-        </bendpoints>
         <contentFilters>
           <filter>modeTransitionTriggerNames</filter>
         </contentFilters>
@@ -300,52 +344,52 @@
           </bo>
           <contentFilters/>
         </element>
-        <element uuid="af1ebd63-9fdb-4044-a782-38bf4b2cb08b" dockArea="right">
+        <element uuid="1c5a8563-ce8e-478b-85b6-7f314bbae2a3" dockArea="left">
           <bo>
             <seg>feature</seg>
-            <seg>aggregated_data</seg>
+            <seg>co2_in</seg>
           </bo>
-          <position x="386.0" y="139.0"/>
+          <position y="30.0"/>
           <contentFilters/>
         </element>
-        <element uuid="dceef1a4-34a6-4a49-b0d0-b99e86d874ae" dockArea="left">
+        <element uuid="fb1972bb-e970-4fae-a426-6a37cf21cb24" dockArea="left">
           <bo>
             <seg>feature</seg>
-            <seg>co2_data</seg>
+            <seg>co_in</seg>
           </bo>
-          <position y="50.0"/>
+          <position y="90.0"/>
           <contentFilters/>
         </element>
-        <element uuid="148db736-07ae-4ca9-9c9f-f18f812cab7b" dockArea="left">
+        <element uuid="e1c4a98b-fe22-4f2f-ba88-e0a9ba6ab806" dockArea="right">
           <bo>
             <seg>feature</seg>
-            <seg>co_data</seg>
+            <seg>data_out</seg>
           </bo>
-          <position y="110.0"/>
+          <position x="436.0"/>
           <contentFilters/>
         </element>
-        <element uuid="b4d36ac5-13f3-4f90-be33-4cafca887ef6" dockArea="left">
+        <element uuid="3379e6f2-47b9-478c-b07c-5d5e26351f0c" dockArea="left">
           <bo>
             <seg>feature</seg>
-            <seg>gps_data</seg>
+            <seg>gps_in</seg>
           </bo>
-          <position y="178.0"/>
+          <position y="141.0"/>
           <contentFilters/>
         </element>
-        <element uuid="a2c27f65-bd9b-4857-b29e-38f0da1960e0" dockArea="left">
+        <element uuid="930c27fe-baf9-479f-961e-06b968e3581f" dockArea="left">
           <bo>
             <seg>feature</seg>
-            <seg>hum_data</seg>
+            <seg>hum_in</seg>
           </bo>
-          <position y="240.0"/>
+          <position y="191.0"/>
           <contentFilters/>
         </element>
-        <element uuid="919e2333-2704-4b4c-9701-2b5dd5271ff5" dockArea="left">
+        <element uuid="aa9f6f9b-1331-4d7a-bf31-e071fb3909fa" dockArea="left">
           <bo>
             <seg>feature</seg>
-            <seg>temp_data</seg>
+            <seg>temp_in</seg>
           </bo>
-          <position y="290.0"/>
+          <position y="250.0"/>
           <contentFilters/>
         </element>
         <element uuid="89e1526c-9592-46fe-bba9-b230f9b78daa">

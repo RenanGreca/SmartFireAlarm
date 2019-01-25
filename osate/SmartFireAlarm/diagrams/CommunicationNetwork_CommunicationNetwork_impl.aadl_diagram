@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="3d6a642c-3ca7-46d9-95a5-c676d6e5cbcb" manual="true">
+    <element uuid="26bb6728-3d53-4047-a08a-7e686ec82c50">
+      <element uuid="7cae9eec-a716-4816-931b-3ec4bdb938b4">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>backbone_to_internet</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="0ea0a96d-b94a-4e16-83cc-57cf54095105">
+      <element uuid="64bf83e7-ce55-4684-ac10-47dd8d3d8d49">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>gprs_to_tower_conn</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="cbff33c5-42a6-433c-800a-7f826ca0472a">
+      <element uuid="98a15b8b-cf70-4d1f-a65a-2d2cdeec8c0c">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>internet_to_backbone_conn</seg>
+      </bo>
+      <bendpoints>
+        <point x="451.0" y="181.0"/>
+        <point x="451.0" y="131.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="b3ed0572-288b-4fbd-8c43-2bdeb2c1d188">
+      <element uuid="ea1ffbe1-762f-40ad-82ba-f6a85a734e52">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>tower_to_backbone_conn</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="21eb2743-2eca-4a1c-9543-a473563f9ac6" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>gprs_in</seg>
+      </bo>
+      <position y="87.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="ffb15c9d-93f8-49d3-8525-cbb773ea53e8" dockArea="left">
+      <bo>
+        <seg>feature</seg>
+        <seg>internet_in</seg>
+      </bo>
+      <position y="137.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="ae04db01-6d49-4287-812d-88ea75011aa5" dockArea="right">
+      <bo>
+        <seg>feature</seg>
+        <seg>internet_out</seg>
+      </bo>
+      <position x="790.0" y="87.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="ff47ec0c-f6b1-433c-86a7-9b0d89a227fe">
+      <element uuid="3e5c9b5f-1957-44a8-b5a2-6622f85649e8" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_in</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="1958bdcb-553d-4982-baa9-21c4e914b4b1" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_out</seg>
+        </bo>
+        <position x="215.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="4e6d37bd-f9c1-400a-8f29-4eee56cb59cd">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_internet</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>backbone</seg>
+      </bo>
+      <position x="449.0" y="49.0"/>
+      <size width="309.0" height="90.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <element uuid="5af2e69a-7235-42a7-913f-3b8501f81a11">
+      <element uuid="56b2ad23-dcf7-469a-a16a-2bbe72b68c32" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>gprs_in</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="997ac2bd-24f2-4f27-98c5-2a353ea9d6ee" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_out</seg>
+        </bo>
+        <position x="218.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="c0d1de70-f804-4f09-a569-7fde1e4c78f5">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_internet</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>cell_tower</seg>
+      </bo>
+      <position x="117.0" y="49.0"/>
+      <size width="312.0" height="90.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>communicationnetwork.impl</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="884.0" height="189.0"/>
+    <contentFilters>
+      <filter>subcomponents</filter>
+      <filter>features</filter>
+      <filter>processorFeatures</filter>
+      <filter>flowSourceSpecification</filter>
+      <filter>internalFeatures</filter>
+      <filter>flowSinkSpecification</filter>
+      <filter>connections</filter>
+    </contentFilters>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>communicationnetwork::communicationnetwork.impl</seg>
+    </context>
+  </config>
+</diagram:Diagram>

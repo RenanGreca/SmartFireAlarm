@@ -48,6 +48,8 @@ public
 			intercom_in: in event data port DataTypes::aggregated_sensor_data;
 			intercom_out: out event data port DataTypes::aggregated_sensor_data;
 			alarm_out: out event port;
+			power_in: in event port;
+			power_out: out event port;
 		flows
 			flow_bluetooth: flow path zigbee_in -> bluetooth_out;
 			flow_wifi: flow path zigbee_in -> wifi_out;

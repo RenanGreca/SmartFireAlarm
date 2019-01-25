@@ -21,8 +21,11 @@ public
 			etef_gprs_db: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_database;
 			etef_gprs_alarm: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_alarm;
 			
-			etef_internet_db: end to end flow sensor_network.flow_internet -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_database;
-			etef_internet_alarm: end to end flow sensor_network.flow_internet -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_alarm;
+			etef_ethernet_db: end to end flow sensor_network.flow_ethernet -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_database;
+			etef_ethernet_alarm: end to end flow sensor_network.flow_ethernet -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_alarm;
+			
+			etef_wifi_db: end to end flow sensor_network.flow_wifi -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_database;
+			etef_wifi_alarm: end to end flow sensor_network.flow_wifi -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_alarm;
 	end SmartFireAlarm.impl;
 	
 end SmartFireAlarm;

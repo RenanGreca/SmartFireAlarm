@@ -12,41 +12,47 @@ public
 			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_gprs: flow source gprs_out;
-			flow_internet: flow source internet_out;
+			flow_wifi: flow source internet_out;
+			flow_ethernet: flow source internet_out;
 	end SensorNetwork;
 
 	system implementation SensorNetwork.impl
 		subcomponents
-			sensor_unit: system SensorUnit::SensorUnit.impl[];
+			sensor_unit: system SensorUnit::SensorUnit.impl;
 			comm_device_1: system CommunicationDevice::CommunicationDevice.impl;
 			comm_device_2: system CommunicationDevice::CommunicationDevice.impl;
 			mobile_phone: system MobilePhone::MobilePhone.impl;
 			modem: system Modem::Modem.impl;
 		connections
-			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in;
-			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in;
+			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in {latency => 50ms .. 500ms;};
+			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in {latency => 50ms .. 500ms;};
 			
-			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in;
-			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in;
+			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in {latency => 1ms .. 10ms;};
+			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in {latency => 1ms .. 10ms;};
 			
-			device_to_phone_conn: port comm_device_1.bluetooth_out -> mobile_phone.sensor_data;
-			device_to_modem_wifi_conn: port comm_device_1.wifi_out -> modem.wifi_in;
-			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in;
-			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out;
-			device_to_phone_alarm_conn: port comm_device_1.alarm_out -> mobile_phone.alarm_toggle;
+			device_to_phone_conn: port comm_device_1.bluetooth_out -> mobile_phone.sensor_data  {latency => 5ms .. 2000ms;};
+			device_to_modem_wifi_conn: port comm_device_1.wifi_out -> modem.wifi_in {latency => 6ms .. 60ms;};
+			device_to_modem_ethernet_conn: port comm_device_1.ethernet_out -> modem.ethernet_in {latency => 1ms .. 10ms;};
+			device_to_internet_gprs_conn: port comm_device_1.gprs_out -> gprs_out {latency => 1000 ms .. 2000 ms;};
+			device_to_phone_alarm_conn: port comm_device_1.alarm_out -> mobile_phone.alarm_toggle {latency => 5ms .. 2000ms;};
 			
-			device_to_phone2_conn: port comm_device_2.bluetooth_out -> mobile_phone.sensor_data;
-			device_to_modem_wifi2_conn: port comm_device_2.wifi_out -> modem.wifi_in;
-			device_to_modem_ethernet2_conn: port comm_device_2.ethernet_out -> modem.ethernet_in;
-			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out;
-			device_to_phone_alarm2_conn: port comm_device_2.alarm_out -> mobile_phone.alarm_toggle;
+			device_to_phone2_conn: port comm_device_2.bluetooth_out -> mobile_phone.sensor_data {latency => 5ms .. 2000ms;};
+			device_to_modem_wifi2_conn: port comm_device_2.wifi_out -> modem.wifi_in {latency => 6ms .. 60ms;};
+			device_to_modem_ethernet2_conn: port comm_device_2.ethernet_out -> modem.ethernet_in {latency => 1ms .. 10ms;};
+			device_to_internet_gprs2_conn: port comm_device_2.gprs_out -> gprs_out {latency => 1000 ms .. 2000 ms;};
+			device_to_phone_alarm2_conn: port comm_device_2.alarm_out -> mobile_phone.alarm_toggle {latency => 5ms .. 2000ms;};
 			
 			modem_to_internet_conn: port modem.internet_out -> internet_out;
 			
-			sensor_power_conn: port mobile_phone.sensor_power_toggle -> sensor_unit.toggle_power;
+			phone_power1_conn: port mobile_phone.sensor_power_toggle -> comm_device_1.power_in;
+			phone_power2_conn: port mobile_phone.sensor_power_toggle -> comm_device_2.power_in;
+			
+			sensor_power1_conn: port comm_device_1.power_out -> sensor_unit.toggle_power { Connection_Pattern => ((One_To_All));};
+			sensor_power2_conn: port comm_device_2.power_out -> sensor_unit.toggle_power { Connection_Pattern => ((One_To_All));};
 		flows
 			flow_gprs: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_gprs -> device_to_internet_gprs_conn -> gprs_out;
-			flow_internet: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_ethernet -> device_to_modem_ethernet_conn -> modem.flow_ethernet -> modem_to_internet_conn -> internet_out;
+			flow_wifi: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_ethernet -> device_to_modem_ethernet_conn -> modem.flow_ethernet -> modem_to_internet_conn -> internet_out;
+			flow_ethernet: flow source sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_wifi -> device_to_modem_wifi_conn -> modem.flow_wifi -> modem_to_internet_conn -> internet_out;
 			etef_sensor_phone: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device1_conn -> comm_device_1.flow_bluetooth -> device_to_phone_conn -> mobile_phone.flow_data;
 			etef_sensor_phone2: end to end flow sensor_unit.flow_sensor_data -> sensor_to_device2_conn -> comm_device_2.flow_bluetooth -> device_to_phone2_conn -> mobile_phone.flow_data;
 			etef_sensor_alarm_phone: end to end flow comm_device_1.flow_alarm -> device_to_phone_alarm_conn -> mobile_phone.flow_alarm;

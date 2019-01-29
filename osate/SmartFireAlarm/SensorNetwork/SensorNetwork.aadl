@@ -18,14 +18,14 @@ public
 
 	system implementation SensorNetwork.impl
 		subcomponents
-			sensor_unit: system SensorUnit::SensorUnit.impl;
+			sensor_unit: system SensorUnit::SensorUnit.impl[5];
 			comm_device_1: system CommunicationDevice::CommunicationDevice.impl;
 			comm_device_2: system CommunicationDevice::CommunicationDevice.impl;
 			mobile_phone: system MobilePhone::MobilePhone.impl;
 			modem: system Modem::Modem.impl;
 		connections
-			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in {latency => 50ms .. 500ms;};
-			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in {latency => 50ms .. 500ms;};
+			sensor_to_device1_conn: port sensor_unit.output_data -> comm_device_1.zigbee_in {latency => 50ms .. 500ms; Connection_Pattern => ((all_to_one)); };
+			sensor_to_device2_conn: port sensor_unit.output_data -> comm_device_2.zigbee_in {latency => 50ms .. 500ms; Connection_Pattern => ((all_to_one)); };
 			
 			intercom_conn_1: port comm_device_1.intercom_out -> comm_device_2.intercom_in {latency => 1ms .. 10ms;};
 			intercom_conn_2: port comm_device_2.intercom_out -> comm_device_1.intercom_in {latency => 1ms .. 10ms;};

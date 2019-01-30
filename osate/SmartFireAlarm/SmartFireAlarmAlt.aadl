@@ -1,0 +1,31 @@
+package SmartFireAlarmAlt
+public
+	with CommunicationNetwork;
+
+	with ControlCenter;
+
+	with SensorNetworkAlt;
+
+	system SmartFireAlarm
+	end SmartFireAlarm;
+
+	system implementation SmartFireAlarm.impl
+		subcomponents
+			sensor_network: system SensorNetworkAlt::SensorNetwork.impl;
+			communication_network: system CommunicationNetwork::CommunicationNetwork.impl;
+			control_center: system ControlCenter::ControlCenter.impl;
+		connections
+			sensor_internet_conn: port sensor_network.internet_out -> communication_network.internet_in {
+						latency => 10ms .. 200ms;};
+			sensor_gprs_conn: port sensor_network.gprs_out -> communication_network.gprs_in {
+						latency => 1000ms .. 2000ms;};
+			internet_control_conn: port communication_network.internet_out -> control_center.internet_in {
+						latency => 10ms .. 200ms;};
+		flows
+			etef_gprs_db: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_database;
+			etef_gprs_alarm: end to end flow sensor_network.flow_gprs -> sensor_gprs_conn -> communication_network.flow_gprs -> internet_control_conn -> control_center.flow_alarm;
+			etef_wifi_db: end to end flow sensor_network.flow_wifi -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_database;
+			etef_wifi_alarm: end to end flow sensor_network.flow_wifi -> sensor_internet_conn -> communication_network.flow_internet -> internet_control_conn -> control_center.flow_alarm;
+	end SmartFireAlarm.impl;
+	
+end SmartFireAlarmAlt;

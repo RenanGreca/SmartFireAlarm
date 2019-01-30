@@ -5,13 +5,13 @@ public
 	data sensor_data
 		properties
 			Data_Model::Data_Representation => Integer;
-			data_size => 8 bytes;
+			data_size => 16 bytes;
 	end sensor_data;
 	
 	data aggregated_sensor_data
 		properties
 			Data_Model::Data_Representation => Integer;
-			data_size => 40 bytes;
+			data_size => 80 bytes;
 	end aggregated_sensor_data;		
 	
 end DataTypes;

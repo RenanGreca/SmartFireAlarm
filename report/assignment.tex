@@ -1,0 +1,86 @@
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+
+\usepackage[bookmarks=true]{hyperref}
+\usepackage{epsfig}
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+\usepackage{enumerate}
+\usepackage{xspace}
+\usepackage{epsf,picinpar}
+\usepackage{varioref}
+\usepackage{colortbl,multirow,hhline}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{colortbl,multirow,hhline}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{caption}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{xcolor,colortbl}
+\usepackage{url}
+\usepackage{balance}
+\usepackage{graphicx, subfigure}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{morefloats}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{pdfpages}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{flushend}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{gensymb}
+
+\renewcommand{\ttdefault}{cmr}
+
+\newcommand{\limit}[1]{\textcolor{red}{\ding{46}~Page limit:~#1}\\}
+\newcommand{\todo}[1]{\textcolor{blue}{\ding{46}~#1}} 
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\etal}{\emph{et~al.}\xspace} 
+
+\graphicspath{{./figures/}}
+    
+\begin{document}
+
+\title{
+	\todo{Smart Fire Alarm system using AADL and Acceleo}
+}
+
+\author{
+\IEEEauthorblockN{Renan Greca}
+\IEEEauthorblockA{
+renan.greca@gssi.it}
+\and
+\IEEEauthorblockN{Maria Teresa Rossi}
+\IEEEauthorblockA{
+mariateresa.rossi@gssi.it}
+}
+
+\maketitle
+
+\begin{abstract}
+\todo{Technology can be a useful tool to decrease the damage caused by fires. In this assignment, a model for a smart fire alarm system using the Architecture Analysis and Design Language is proposed. Analysis is performed on the model in order to estimate the time it takes for a control center to receive an alarm signal and dispatch emergency services. Furthermore, an alternative structure to the model is proposed, and the advantages and disadvantages between the two approaches are considered. Finally, an Acceleo template is presented, providing an example of how the model could be used to generate web pages including components and subcomponents of the system.}
+\end{abstract}
+
+\begin{IEEEkeywords}
+Empirical Software Engineering, Fire Detection, System Modeling and Analysis, Code Generation
+\end{IEEEkeywords}
+
+\input{intro.tex}
+\input{part1.tex}
+\input{part2.tex}
+\input{part3.tex}
+\input{conclusion.tex} 
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

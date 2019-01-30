@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="ASCII"?>
+<result:AnalysisResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:result="http://www.osate.org/result/Result" analysis="latency" message="AS-MF-DL-EQ">
+  <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#/"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <parameters value="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+  <results message="Latency results for etef_alt_sensor_phone" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="11.0"/>
+    <values xsi:type="result:RealValue" value="62.0"/>
+    <values xsi:type="result:RealValue" value="1.0"/>
+    <values xsi:type="result:RealValue" value="2.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@endToEndFlow.0"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="1.0"/>
+      <values xsi:type="result:RealValue" value="2.0"/>
+      <values xsi:type="result:RealValue" value="1.0"/>
+      <values xsi:type="result:RealValue" value="2.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@endToEndFlow.0"/>
+  </results>
+  <results message="Latency results for etef_sensor_alarm_phone" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="11.0"/>
+    <values xsi:type="result:RealValue" value="62.0"/>
+    <values xsi:type="result:RealValue" value="1.0"/>
+    <values xsi:type="result:RealValue" value="2.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@endToEndFlow.1"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="1.0"/>
+      <values xsi:type="result:RealValue" value="2.0"/>
+      <values xsi:type="result:RealValue" value="1.0"/>
+      <values xsi:type="result:RealValue" value="2.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@endToEndFlow.1"/>
+  </results>
+  <results message="Latency results for etef_gprs_db" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="20.0"/>
+    <values xsi:type="result:RealValue" value="260.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.0"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.2/@componentInstance.0"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.0"/>
+  </results>
+  <results message="Latency results for etef_gprs_alarm" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="20.0"/>
+    <values xsi:type="result:RealValue" value="260.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.1"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.2/@componentInstance.1"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.1"/>
+  </results>
+  <results message="Latency results for etef_wifi_db" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="30.0"/>
+    <values xsi:type="result:RealValue" value="460.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.2"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.6"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.2/@componentInstance.0"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.2"/>
+  </results>
+  <results message="Latency results for etef_wifi_alarm" resultType="SUCCESS">
+    <values xsi:type="result:StringValue" value="som_0"/>
+    <values xsi:type="result:RealValue" value="30.0"/>
+    <values xsi:type="result:RealValue" value="460.0"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <values xsi:type="result:RealValue"/>
+    <diagnostics diagnosticType="WARNING" message="Expected end to end latency is not specified">
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.3"/>
+    </diagnostics>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <values xsi:type="result:StringValue" value="first sampling"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="60.0"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="processing time"/>
+      <values xsi:type="result:StringValue" value="deadline"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.0/@componentInstance.5/@componentInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.0/@componentInstance.6"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.0"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.1/@componentInstance.1"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:RealValue" value="10.0"/>
+      <values xsi:type="result:RealValue" value="200.0"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <values xsi:type="result:StringValue" value="specified"/>
+      <diagnostics diagnosticType="INFO" message="Using specified min protocol latency subtotal 0.0 although specified connection latency 10.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+      </diagnostics>
+      <diagnostics diagnosticType="INFO" message="Using max specified protocol latency subtotal 0.0 although specified connection latency 200.0 is greater">
+        <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+      </diagnostics>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@connectionInstance.2"/>
+    </subResults>
+    <subResults>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:RealValue"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <values xsi:type="result:StringValue" value="no latency"/>
+      <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@componentInstance.2/@componentInstance.1"/>
+    </subResults>
+    <modelElement href="../../SmartFireAlarmAlt_SmartFireAlarm_impl_Instance.aaxl2#//@endToEndFlow.3"/>
+  </results>
+</result:AnalysisResult>

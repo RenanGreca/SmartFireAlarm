@@ -1,7 +1,0 @@
-[comment encoding = UTF-8 /]
-[module generate('http://www.aadl.info/PropagationGraph')]
-
-
-[template public generateElement(aPropagationGraph : PropagationGraph)]
-
-[/template]

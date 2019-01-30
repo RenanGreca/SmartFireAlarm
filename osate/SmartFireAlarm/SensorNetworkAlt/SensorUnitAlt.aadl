@@ -1,0 +1,122 @@
+package SensorUnitAlt
+public
+	with Sensor;
+
+	with DataTypes;
+
+	-- software thread that combines sensor data.
+	thread data_aggregator
+		features
+			temp_in: in data port DataTypes::sensor_data;
+			hum_in: in data port DataTypes::sensor_data;
+			co_in: in data port DataTypes::sensor_data;
+			co2_in: in data port DataTypes::sensor_data;
+			gps_in: in data port DataTypes::sensor_data;
+			data_out: out data port DataTypes::aggregated_sensor_data;
+			alarm_out: out event port;
+		flows
+			flow_temp: flow path temp_in -> data_out;
+			flow_hum: flow path hum_in -> data_out;
+			flow_co: flow path co_in -> data_out;
+			flow_co2: flow path co2_in -> data_out;
+			flow_gps: flow path gps_in -> data_out;
+			flow_alarm: flow source alarm_out;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 100ms;
+			Deadline => 60ms;
+			Compute_Execution_Time => 10ms .. 50ms;
+	end data_aggregator;
+
+	process control
+		features
+			temp_in: in data port DataTypes::sensor_data;
+			hum_in: in data port DataTypes::sensor_data;
+			co_in: in data port DataTypes::sensor_data;
+			co2_in: in data port DataTypes::sensor_data;
+			gps_in: in data port DataTypes::sensor_data;
+			data_out: out data port DataTypes::aggregated_sensor_data;
+			alarm_out: out event port;
+		flows
+			flow_temp: flow path temp_in -> data_out {latency => 1ms .. 2ms;};
+			flow_hum: flow path hum_in -> data_out {latency => 1ms .. 2ms;};
+			flow_co: flow path co_in -> data_out {latency => 1ms .. 2ms;};
+			flow_co2: flow path co2_in -> data_out {latency => 1ms .. 2ms;};
+			flow_gps: flow path gps_in -> data_out {latency => 1ms .. 2ms;};
+			flow_aggregated: flow source data_out;
+			flow_alarm: flow source alarm_out;
+	end control;
+
+	process implementation control.sensor_data
+		subcomponents
+			data_aggregation: thread data_aggregator;
+		connections
+			temp_sensor_conn: port temp_in -> data_aggregation.temp_in;
+			hum_sensor_conn: port hum_in -> data_aggregation.hum_in;
+			co_sensor_conn: port co_in -> data_aggregation.co_in;
+			co2_sensor_conn: port co2_in -> data_aggregation.co2_in;
+			gps_sensor_conn: port gps_in -> data_aggregation.gps_in;
+			data_out_conn: port data_aggregation.data_out -> data_out;
+			alarm_out_conn: port data_aggregation.alarm_out -> alarm_out;
+		flows
+			flow_temp: flow path temp_in -> temp_sensor_conn -> data_aggregation.flow_temp -> data_out_conn -> data_out;
+			flow_hum: flow path hum_in -> hum_sensor_conn -> data_aggregation.flow_hum -> data_out_conn -> data_out;
+			flow_co: flow path co_in -> co_sensor_conn -> data_aggregation.flow_co -> data_out_conn -> data_out;
+			flow_co2: flow path co2_in -> co2_sensor_conn -> data_aggregation.flow_co2 -> data_out_conn -> data_out;
+			flow_gps: flow path gps_in -> gps_sensor_conn -> data_aggregation.flow_gps -> data_out_conn -> data_out;
+			flow_aggregated: flow source data_aggregation.flow_co2 -> data_out_conn -> data_out;
+			flow_alarm: flow source data_aggregation.flow_alarm -> alarm_out_conn -> alarm_out;
+	end control.sensor_data;
+
+	system SensorUnit
+		features
+			gprs_out: out data port DataTypes::aggregated_sensor_data;
+			wifi_out: out data port DataTypes::aggregated_sensor_data;
+			bluetooth_out: out data port DataTypes::aggregated_sensor_data;
+			toggle_power: in event port;
+			alarm_out: out event port;
+		flows
+			flow_alt_gprs: flow source gprs_out;
+			flow_alt_wifi: flow source wifi_out;
+			flow_alt_bluetooth: flow source bluetooth_out;
+			flow_toggle_power: flow sink toggle_power;
+			flow_alt_alarm: flow source alarm_out;
+		modes
+			powered_on: initial mode;
+			powered_off: mode;
+	end SensorUnit;
+
+	system implementation SensorUnit.impl
+		subcomponents
+			temp_sensor: device Sensor::sensor.temperature;
+			hum_sensor: device Sensor::sensor.humidity;
+			co_sensor: device Sensor::sensor.co;
+			co2_sensor: device Sensor::sensor.co2;
+			gps_sensor: device Sensor::sensor.gps;
+			controller: process control.sensor_data;
+		connections
+			temp_conn: port temp_sensor.sensor_data -> controller.temp_in;
+			hum_conn: port hum_sensor.sensor_data -> controller.hum_in;
+			co_conn: port co_sensor.sensor_data -> controller.co_in;
+			co2_conn: port co2_sensor.sensor_data -> controller.co2_in;
+			gps_conn: port gps_sensor.sensor_data -> controller.gps_in;
+			
+			gprs_conn: port controller.data_out -> gprs_out;
+			wifi_conn: port controller.data_out -> wifi_out;
+			ethernet_conn: port controller.data_out -> bluetooth_out;
+			
+			alarm_out_conn: port controller.alarm_out -> alarm_out;
+		flows
+			flow_alt_gprs: flow source controller.flow_aggregated -> gprs_conn -> gprs_out;
+			flow_alt_wifi: flow source controller.flow_aggregated -> wifi_conn -> wifi_out;
+			flow_alt_bluetooth: flow source controller.flow_aggregated -> ethernet_conn -> bluetooth_out;
+			
+			flow_alt_alarm: flow source controller.flow_alarm -> alarm_out_conn -> alarm_out;
+		modes
+			powered_on -[toggle_power]-> powered_off;
+			powered_off -[toggle_power]-> powered_on;
+		properties
+			Allowed_Connection_Binding => ();
+	end SensorUnit.impl;
+	
+end SensorUnitAlt;

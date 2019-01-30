@@ -13,7 +13,7 @@ property set Sensor_Reading is
 		Longitude : aadlreal;
 	);
 	Coordinate: type aadlreal;
-	
+		
 	-- properties
 	Temperature_Reading: Sensor_Reading::Temperature applies to (device, port);
 	Humidity_Reading: Sensor_Reading::Humidity applies to (device, port);

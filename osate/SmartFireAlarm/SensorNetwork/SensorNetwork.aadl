@@ -5,7 +5,7 @@ public
 	with MobilePhone;
 	with Modem;
 	with DataTypes;
-
+	
 	system SensorNetwork
 		features
 			gprs_out: out data port DataTypes::aggregated_sensor_data;

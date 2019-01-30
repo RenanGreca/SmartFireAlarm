@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="f5755fec-bd7b-40d5-b1fe-e955748c1f2a" manual="true">
+    <element uuid="eb783731-4dd2-492f-a7be-f8e60f61e140">
+      <element uuid="6ca5f086-6c41-4302-bcb2-68118b75fe32">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>alarm_phone_conn</seg>
+      </bo>
+      <bendpoints>
+        <point x="414.0" y="243.0"/>
+        <point x="414.0" y="185.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="50e4edf2-9acc-4580-b782-7f52adb59c4a">
+      <element uuid="fa0e4868-2613-424f-a7db-60210f2f7ffe">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>bluetooth_con</seg>
+      </bo>
+      <bendpoints>
+        <point x="424.0" y="293.0"/>
+        <point x="424.0" y="235.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="7035958c-b5d0-4dc9-9f48-b10739d05948">
+      <element uuid="5701abe8-ed63-45be-9416-a1acb54de824">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>gprs_conn</seg>
+      </bo>
+      <bendpoints>
+        <point x="394.0" y="143.0"/>
+        <point x="394.0" y="82.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="83cabb6e-8d8d-4fb6-a63d-e71a863dabc3">
+      <element uuid="15bbf34f-11b9-4a2b-a7e8-a3704b5616e7">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>internet_conn</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="c94261d9-15dc-4214-9deb-518151c19e72">
+      <element uuid="d6bd5ae6-f169-4424-afb9-36a6b5bd42ff">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>power_conn</seg>
+      </bo>
+      <bendpoints>
+        <point x="404.0" y="135.0"/>
+        <point x="404.0" y="193.0"/>
+      </bendpoints>
+      <contentFilters/>
+    </element>
+    <element uuid="2440695a-53bb-426a-9348-984dbca826f5">
+      <element uuid="51a8dad0-4b6a-4adb-80a0-dfb505c5a1e1">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>wifi_conn</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="9f567d89-d39a-4a05-8424-5e18e185aa94" dockArea="right">
+      <bo>
+        <seg>feature</seg>
+        <seg>gprs_out</seg>
+      </bo>
+      <position x="917.0" y="38.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="1d8b9aae-23d1-4c21-8ef2-3e1d09b4d5f4" dockArea="right">
+      <bo>
+        <seg>feature</seg>
+        <seg>internet_out</seg>
+      </bo>
+      <position x="897.0" y="299.0"/>
+      <contentFilters/>
+    </element>
+    <element uuid="1516ed1a-43f9-4009-bb53-32717e50fef7">
+      <bo>
+        <seg>flow_specification</seg>
+        <seg>flow_gprs</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="d4b96e9f-d1fa-44b9-ae28-5bd1a700a429">
+      <bo>
+        <seg>flow_specification</seg>
+        <seg>flow_wifi</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element uuid="5c725eda-5de3-4ca9-8ce8-367082f7fa6f">
+      <element uuid="6a3b93be-a6a7-4f8a-b7de-5ff43655ab4c" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>alarm_toggle</seg>
+        </bo>
+        <position y="60.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="8aa75148-fdda-44fe-b807-0a0cb4770956" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>sensor_data</seg>
+        </bo>
+        <position y="110.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="b058ab33-a435-4f4a-9a31-5a659462bce4" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>sensor_power_toggle</seg>
+        </bo>
+        <position y="10.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="95e07a99-e09c-4daa-a07c-119943cb9e57">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alarm</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="8f10fc97-f5cc-4692-986e-854b53923d75">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_data</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="d98ab1d1-0657-4a27-b201-2a264776a747">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_power</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>mobile_phone</seg>
+      </bo>
+      <position x="422.0" y="81.0"/>
+      <size width="463.0" height="160.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <element uuid="c5aade3f-61fd-401b-8ac2-46ffce5870be">
+      <element uuid="4bc85b21-1442-40e9-b737-3c57c02a7a35" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>ethernet_in</seg>
+        </bo>
+        <position y="88.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="043e24c0-9f37-428d-aeac-59fae6ceb60c" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>internet_out</seg>
+        </bo>
+        <position x="201.0" y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="921c7799-6244-43ae-9809-28cd352ab53a" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>wifi_in</seg>
+        </bo>
+        <position y="38.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="879897b5-b6cf-492d-b050-9c0f1a7e440d">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_ethernet</seg>
+        </bo>
+        <bendpoints>
+          <point x="629.0" y="393.0"/>
+          <point x="629.0" y="343.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element uuid="f7ad7b78-b4fa-4e3e-9cce-96e8c88acadc">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_wifi</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>modem</seg>
+      </bo>
+      <position x="506.0" y="261.0"/>
+      <size width="295.0" height="140.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <element uuid="19ab9e2a-cc08-499c-9862-323ecccaf5f8">
+      <element uuid="de89c978-68c2-4d0d-b15b-79e0fe154326" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>alarm_out</seg>
+        </bo>
+        <position x="279.0" y="110.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="9525f15c-6a46-4282-91b5-788075fede9a" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>bluetooth_out</seg>
+        </bo>
+        <position x="255.0" y="160.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="3a182b3e-8cd9-4762-a332-ca25d6d30e47" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>gprs_out</seg>
+        </bo>
+        <position x="286.0" y="10.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="47cd1ffa-a722-4de6-bc93-82b2df489b8d" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>toggle_power</seg>
+        </bo>
+        <position x="257.0" y="60.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="a51b4ba4-1172-4eff-a994-41ecb1e55d99" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>wifi_out</seg>
+        </bo>
+        <position x="292.0" y="210.0"/>
+        <contentFilters/>
+      </element>
+      <element uuid="394434da-2541-4a39-a746-581bf0d7edd5">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alt_alarm</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="3be47a2c-ae3b-477e-a65b-92801f3a4cbb">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alt_bluetooth</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="cfff4ba4-6129-4caa-aa2b-34be80f89fef">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alt_gprs</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="307e831a-2460-404d-8942-19500ff05f03">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_alt_wifi</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element uuid="731d972c-361a-4fc7-a608-967044431098">
+        <bo>
+          <seg>flow_specification</seg>
+          <seg>flow_toggle_power</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>sensor_unit</seg>
+      </bo>
+      <position x="12.0" y="89.0"/>
+      <size width="360.0" height="260.0"/>
+      <contentFilters>
+        <filter>features</filter>
+        <filter>internalFeatures</filter>
+        <filter>processorFeatures</filter>
+        <filter>connections</filter>
+        <filter>flowSpecifications</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>sensornetwork.impl</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="991.0" height="413.0"/>
+    <contentFilters>
+      <filter>features</filter>
+      <filter>internalFeatures</filter>
+      <filter>processorFeatures</filter>
+      <filter>connections</filter>
+      <filter>flowSpecifications</filter>
+      <filter>subcomponents</filter>
+    </contentFilters>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>sensornetworkalt::sensornetwork.impl</seg>
+    </context>
+  </config>
+</diagram:Diagram>

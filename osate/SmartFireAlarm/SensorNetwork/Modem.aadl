@@ -4,8 +4,8 @@ public
 
 	system Modem
 		features
-			wifi_in: in data port DataTypes::aggregated_sensor_data;
-			ethernet_in: in data port DataTypes::aggregated_sensor_data;
+			wifi_in: in event data port DataTypes::aggregated_sensor_data;
+			ethernet_in: in event data port DataTypes::aggregated_sensor_data;
 			internet_out: out data port DataTypes::aggregated_sensor_data;
 		flows
 			flow_wifi: flow path wifi_in -> internet_out;

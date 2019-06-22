@@ -65,7 +65,7 @@ Since the network can contain multiple Sensor Units (for different rooms inside 
 Sensor Units collect raw environmental data and, using an internal process, combines this information into a single block of data. 
 This internal process features a thread that runs at an interval of 100ms to collect and combine data received from sensors.
 
-The combined block of data is then transmitted to the Communication Device using a Zigbee connection. The number of Sensor Units in the network can be configured in a constant value located in `SensorNetwork.aadl`. Furthermore, the Sensor Units have two modes corresponding to their power status. They can be turned on or off when an appropriate signal is received.
+The combined block of data is then transmitted to the Communication Device using a Zigbee connection. The number of Sensor Units in the network can be configured in a constant value located in \texttt{SensorNetwork.aadl}. Furthermore, the Sensor Units have two modes corresponding to their power status. They can be turned on or off when an appropriate signal is received.
 
 Meanwhile, two Communication Devices exist in the network to collect data from the Sensor Units and transmit it elsewhere. The two devices exist for redundancy, so the system can work even if one of them is faulty. There is also an intercommunication port between the two Communication Devices so they work in a synchronized fashion and can avoid duplicated data. Each Communication Device provides ample communication technologies: 
 \begin{itemize}
@@ -75,7 +75,7 @@ Meanwhile, two Communication Devices exist in the network to collect data from t
 	\item GPRS for cellular communication.
 \end{itemize}
 
-Data collected from the Sensor Units is sent over Bluetooth to a Mobile Phone, which allows user interaction. The Wi-fi, Ethernet and GPRS communication techonologies provide both redudancy and flexibility to the system. Ideally, an Ethernet connection provides lower latency communication to the Internet, but Wi-fi and GPRS allow the system to function even if there is a lack of wired infrastructure and permit continuous operation if one is for some reason unavailable.
+Data collected from the Sensor Units is sent over Bluetooth to a Mobile Phone, which allows user interaction. The Wi-fi, Ethernet and GPRS communication technologies provide both redundancy and flexibility to the system. Ideally, an Ethernet connection provides lower latency communication to the Internet, but Wi-fi and GPRS allow the system to function even if there is a lack of wired infrastructure and permit continuous operation if one is for some reason unavailable.
 
 Aside from providing a bridge between different devices, the Communication Device monitors the sensor data and compares values to a predeterminate threshold. If the temperature, or the CO/CO$_2$ concentration is too high, or the humidity level is too low, an alert signal is sent to the Mobile Phone and to the Control Center, so the necessary measures can be taken.
 
